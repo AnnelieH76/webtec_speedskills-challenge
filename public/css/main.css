@@ -1,0 +1,29 @@
+/**
+ * Use flexbox container for layout.
+ */
+.wrap {
+  display: flex;
+  /* Enables Flexbox layout */
+  flex-wrap: wrap;
+  /* Allows items to wrap onto the next line if needed */
+  gap: 1rem;
+  /* Adds spacing between child elements */
+  background-color: #FFFFFF;
+  /* White */
+  padding: 1rem;
+  /* Adds padding around the container */
+}
+
+.main {
+  flex: 3;
+  /* Allocates 3 parts of available space to the main area */
+  background-color: #f9f9f9;
+  /* Light gray background for better contrast */
+}
+
+.aside {
+  flex: 1;
+  /* Allocates 1 part of available space to the aside */
+  background-color: #f1f1f1;
+  /* Slightly darker gray background */
+}

@@ -1,0 +1,101 @@
+/**
+ * General styles for the article.
+ */
+.article {
+  background-color: #fdfdfd;
+  /* Light background for better readability */
+  border: 1px solid #ddd;
+  /* Subtle border to separate it from other content */
+  border-radius: 8px;
+  /* Rounded corners for a modern look */
+  padding: 1.5rem;
+  /* Space around the content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for a floating effect */
+  display: flow-root;
+  /* Establishes a new block formatting context so the box always contains floated children, like the image further down */
+}
+
+/**
+ * Styling the header section.
+ */
+.article header {
+  border-bottom: 2px solid #ccc;
+  /* Divider line for better visual structure */
+  padding-bottom: 0.5rem;
+  /* Space between the header and the content below */
+  margin-bottom: 1rem;
+  /* Space below the header */
+}
+
+/**
+ * Styling the article title.
+ */
+.article h1 {
+  font-size: 1.8rem;
+  /* Larger font size for the title */
+  color: #333;
+  /* Darker color for contrast */
+  margin: 0;
+  /* Removes default margin */
+}
+
+/**
+ * Styling the author information.
+ */
+.article .author {
+  font-size: 0.9rem;
+  /* Smaller font size for secondary information */
+  color: #555;
+  /* Gray color for subtlety */
+  margin-top: 0.5rem;
+  /* Space above the author line */
+}
+
+/**
+ * Styling the paragraphs.
+ */
+.article p {
+  line-height: 1.6;
+  /* Improved readability with increased line spacing */
+  margin-bottom: 1rem;
+  /* Space between paragraphs */
+}
+
+/**
+ * Styling the footer section.
+ */
+.article .byline {
+  clear: both;
+  /* Clears the floated figure above so the byline starts below it */
+  border-top: 2px solid #ccc;
+  /* Divider line for separation */
+  padding-top: 1rem;
+  /* Space above the footer content */
+  margin-top: 1rem;
+  /* Space below the footer content */
+  display: flex;
+  /* Flexbox for layout */
+  align-items: center;
+  /* Aligns content vertically */
+  gap: 1rem;
+  /* Space between the image and text */
+}
+
+/* Styling the image in the footer */
+.article .byline img {
+  border-radius: 50%;
+  /* Circular image */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Shadow for a polished look */
+}
+
+/* Styling the footer text */
+.article .byline p {
+  margin: 0;
+  /* Removes default margin */
+  font-size: 1rem;
+  /* Slightly larger font for clarity */
+  color: #444;
+  /* Neutral dark text */
+}

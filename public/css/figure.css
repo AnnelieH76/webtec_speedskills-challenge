@@ -1,0 +1,24 @@
+/**
+ * Styling the figure element.
+ */
+.figure {
+  margin: 1rem;       /* Space around the figure */
+}
+
+.figure img {
+  max-width: 100%;    /* Ensures images are responsive */
+  display: block;     /* Removes inline spacing below the image */
+}
+
+.figure figcaption {
+  font-size: 0.9rem;  /* Smaller font for captions */
+  color: #777;        /* Lighter gray for less emphasis */
+  text-align: center; /* Centers the caption below the image */
+  margin-top: 0.5rem; /* Space above the caption */
+}
+
+.figure.right {
+  float: right;    /* Aligns the figure to the right side of its container,
+                         allowing text to wrap around it */
+  margin-right: 0; /* Remove space to the right of the figure */
+}

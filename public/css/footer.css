@@ -1,0 +1,63 @@
+/* Matches the footer's background so any extra space below it on tall
+   viewports looks like the footer instead of a white gap. */
+body {
+  background-color: #2e2e2e;
+}
+
+/* General styling for the footer */
+.sitefooter {
+  border-top: 2px solid #2e8b57; /* Forest green border */
+  background-color: #2e2e2e;      /* Dark gray-green background */
+  color: #f9f9f9;                 /* Light/white text */
+  padding: 1.5rem 1rem;             /* Reduce padding for a shorter footer */
+  font-family: 'Arial', sans-serif; /* Font for footer text */
+}
+
+/* Triptych layout */
+.footer-triptych {
+  display: flex;                  /* Use flexbox for horizontal layout */
+  justify-content: space-between; /* Distribute columns evenly */
+  gap: 2rem;                      /* Space between columns */
+  margin-bottom: 1.5rem;          /* Reduce space below the triptych */
+}
+
+/* Individual footer column */
+.footer-column {
+  flex: 1;                      /* Equal width for each column */
+  background-color: #3a3a3a;  /* Slightly lighter gray background for pop */
+  padding: 1rem;                /* Add padding inside columns */
+  border-radius: 8px;           /* Rounded corners for columns */
+}
+
+.footer-column h2 {
+  margin: 0 0 0.5rem;   /* Remove top margin and keep space below */
+}
+
+.footer-column ul {
+  list-style: none;     /* Remove bullet points */
+  padding: 0;           /* Remove padding */
+  margin: 0 0 1.5rem 0; /* Adjust margin */
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem; /* Space between list items */
+}
+
+.footer-column ul li a {
+  color: #f9f9f9;                             /* Light text for links */
+  text-decoration: none;                        /* Remove underline */
+  transition: color 0.3s, text-decoration 0.3s; /* Smooth hover effect */
+}
+
+.footer-column ul li a:hover {
+  color: #5cb85c;             /* Lighter green: passes WCAG AA (4.5:1) text contrast on the dark column background */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Footer bottom row */
+.footer-bottom {
+  text-align: center;           /* Center align the text */
+  font-size: 0.85rem;           /* Smaller text size */
+  border-top: 1px solid #444;   /* Subtle border at the top */
+  padding-top: 0.5rem;          /* Reduce space above the text */
+}
