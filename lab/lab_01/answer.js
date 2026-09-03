@@ -229,3 +229,5 @@ export function wordIncludes(word) {
   // TODO: Write your code here.
   return word.includes('a')
 }
+
+// Small change to test GitHub
