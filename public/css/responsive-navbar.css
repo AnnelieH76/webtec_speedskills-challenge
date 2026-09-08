@@ -1,0 +1,108 @@
+/**
+ * Style for example showing responsive navbar.
+ */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header as a flex container with two columns */
+.header {
+  display: flex;
+  /* Use flexbox */
+  justify-content: space-between;
+  /* Space between left and right columns */
+  align-items: center;
+  /* Vertically center items */
+  padding: 10px 20px;
+  /* Add some padding */
+  background-color: #333;
+  /* Dark background color */
+  color: white;
+  /* White text color */
+}
+
+/* Left column - logo */
+.logo {
+  font-size: 1.5em;
+  /* Increase font size for logo */
+}
+
+/* Right column - navigation bar */
+.navbar {
+  position: relative;
+  /* Optional: needed if dropdown uses absolute positioning */
+}
+
+/* Navigation links displayed in a row */
+.nav-links {
+  list-style: none;
+  /* Remove bullets */
+  display: flex;
+  /* Display links in a row */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  /* Space between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  /* Remove underline */
+  color: white;
+  /* White text for links */
+}
+
+/* Hamburger menu button */
+.menu-toggle {
+  display: none;
+  /* Hidden by default */
+  background: none;
+  /* No background */
+  border: none;
+  /* No border */
+  font-size: 1.8em;
+  /* Bigger font for hamburger icon */
+  color: white;
+  /* White color */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+}
+
+/* Responsive styles: when screen is smaller than 600px */
+@media (max-width: 600px) {
+
+  .menu-toggle {
+    display: block;
+    /* Show hamburger button on small screens */
+
+  }
+
+  .nav-links {
+    display: none;
+    /* Hide links by default */
+    flex-direction: column;
+    /* Stack links vertically */
+    position: absolute;
+    /* Position relative to navbar */
+    top: 50px;
+    /* Place below header */
+    right: 0;
+    background-color: #444;
+    width: 150px;
+    padding: 10px;
+  }
+
+  /* Show menu when 'show' class is added by JS */
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    /* Space between stacked links */
+  }
+}

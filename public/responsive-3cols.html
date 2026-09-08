@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsiv layout, 3 kolumner</title>
+  <link rel="stylesheet" href="css/responsive-3cols.css" />
+</head>
+<body>
+  <header>
+    <h1>Responsiv sida med 3 kolumner main & aside</h1>
+    <p>Exempel hur main och aside kan kombineras för en responsiv layout med en, två och tre kolumner.</p>
+  </header>
+
+  <div class="container">
+
+    <section class="row cols-1">
+      <main class="main">Enbart main</main>
+    </section>
+
+    <section class="row cols-2">
+      <aside class="aside left">Aside left</aside>
+      <main class="main">Main</main>
+    </section>
+
+    <section class="row cols-2">
+      <main class="main">Main</main>
+      <aside class="aside right">Aside right</aside>
+    </section>
+
+    <section class="row cols-3">
+      <aside class="aside left">Aside left</aside>
+      <main class="main">Main</main>
+      <aside class="aside right">Aside right</aside>
+    </section>
+
+  </div>
+
+</body>
+</html>
