@@ -14,9 +14,9 @@
  * @param {number} value The value to use.
  * @returns {boolean} true the incoming value is larger than 42, else false.
  */
-export function isLarger (value) {
+export function isLarger(value) {
   // TODO: Write your code here.
-  return value>42
+  return value > 42
 }
 
 
@@ -27,10 +27,21 @@ export function isLarger (value) {
  * @param {number} value The value to use.
  * @returns {string} The answering string.
  */
-export function isPositiveNegative (value) {
+export function isPositiveNegative(value) {
   // TODO: Write your code here.
-  return -1
+
+  if (value > 0) {
+    return "Positive"
+  }
+  else if (value < 0) {
+    return "Negative"
+  }
+  else {
+    return "Neither"
+  }
 }
+
+
 
 
 
@@ -40,10 +51,16 @@ export function isPositiveNegative (value) {
  * @param {number} value The value to use.
  * @returns {string} The answering string.
  */
-export function isOddEven (value) {
+export function isOddEven(value) {
   // TODO: Write your code here.
-  return -1
+  if (value % 2 === 0) {
+    return "Even"
+  }
+  else {
+    return "Odd"
+  }
 }
+
 
 
 
@@ -55,9 +72,19 @@ export function isOddEven (value) {
  * @param {number} value3 The third value to use.
  * @returns {string} The answering string.
  */
-export function blackJack (value1, value2, value3) {
+export function blackJack(value1, value2, value3) {
   // TODO: Write your code here.
-  return -1
+  let totalSum = value1 + value2 + value3
+
+  if (totalSum === 21) {
+    return "Black Jack"
+  }
+  else if (totalSum > 21) {
+    return "Busted"
+  }
+  else {
+    return "Draw"
+  }
 }
 
 
@@ -72,9 +99,21 @@ export function blackJack (value1, value2, value3) {
  * @param {number} score The score to use.
  * @returns {string} The answering grade.
  */
-export function gradeChecker (score) {
+export function gradeChecker(score) {
   // TODO: Write your code here.
-  return -1
+
+  if (score >= 90) {
+    return "A"
+  }
+  else if (score >= 80) {
+    return "B"
+  }
+  else if (score >= 70) {
+    return "C"
+  }
+  else {
+    return "F"
+  }
 }
 
 
@@ -88,9 +127,20 @@ export function gradeChecker (score) {
  * @param {number} temp The temperature to use.
  * @returns {string} The answering string.
  */
-export function temperature (temp) {
+export function temperature(temp) {
   // TODO: Write your code here.
-  return -1
+
+  if (temp < 10) {
+    return "Cold"
+  }
+
+  else if (temp > 25) {
+    return "Hot"
+  }
+
+  else {
+    return "Warm"
+  }
 }
 
 
@@ -107,9 +157,24 @@ export function temperature (temp) {
  * @param {string} color The color to use.
  * @returns {string} The answering string.
  */
-export function trafficlight (color) {
+export function trafficlight(color) {
   // TODO: Write your code here.
-  return -1
+
+  if (color.toLowerCase() === "red") {
+    return "Stop"
+  }
+
+  else if (color.toLowerCase() === "yellow") {
+    return "Wait"
+  }
+
+  else if (color.toLowerCase() === "green") {
+    return "Go"
+  }
+
+  else {
+    return "Invalid color"
+  }
 }
 
 
@@ -121,10 +186,13 @@ export function trafficlight (color) {
  * @param {string} text The string to use.
  * @returns {boolean} The answering boolean.
  */
-export function intRepresentation (value, text) {
+export function intRepresentation(value, text) {
   // TODO: Write your code here.
 
-  return null
+  // Explanation and assistance from MDN and Gemini.
+  const parsedInt = parseInt(text, 10) // Extract integer from the start of the string using base 10 (decimal system)
+
+  return value === parsedInt // Compare original number to parsed integer; returns true if identical, otherwise false
 }
 
 
@@ -142,10 +210,24 @@ export function intRepresentation (value, text) {
  * @param {number} value The value to use.
  * @returns {string|number} The answering result.
  */
-export function fizzBuzz (value) {
+export function fizzBuzz(value) {
   // TODO: Write your code here.
 
-  return null
+  if (value % 3 === 0 && value % 5 === 0) {
+    return "FizzBuzz"
+  }
+
+  else if (value % 3 === 0) {
+    return "Fizz"
+  }
+
+  else if (value % 5 === 0) {
+    return "Buzz"
+  }
+
+  else {
+    return value
+  }
 }
 
 
@@ -162,9 +244,22 @@ export function fizzBuzz (value) {
  * @param {string} color The color to use.
  * @returns {string} The answering string.
  */
-export function trafficlightSwitch (color) {
+export function trafficlightSwitch(color) {
   // TODO: Write your code here.
-  return -1
+
+  switch (color.toLowerCase()) {
+  case "red":
+    return "Stop"
+
+  case "yellow":
+    return "Wait"
+
+  case "green":
+    return "Go"
+
+  default:
+    return "Invalid color"
+  }
 }
 
 
@@ -179,8 +274,26 @@ export function trafficlightSwitch (color) {
  * @param {boolean} reverse Boolean if values should be reversed so value2 is the first value to use.
  * @returns {number} The result.
  */
-export function calculator (value1, value2, op, reverse=false) {
+export function calculator(value1, value2, op, reverse = false) {
   // TODO: Write your code here.
 
-  return -1
+  switch (op) {
+  case "+":
+    return value1 + value2
+
+  case "-":
+    return value1 - value2
+
+  case "*":
+    return value1 * value2
+
+  case "/":
+    return value1 / value2
+
+  case "%":
+    return value1 % value2
+
+  default:
+    return null  
+  }
 }
