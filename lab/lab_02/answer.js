@@ -274,7 +274,7 @@ export function trafficlightSwitch(color) {
  * @param {boolean} reverse Boolean if values should be reversed so value2 is the first value to use.
  * @returns {number} The result.
  */
-export function calculator(value1, value2, op, reverse = false) {
+export function calculator(value1, value2, op) {
   // TODO: Write your code here.
 
   switch (op) {

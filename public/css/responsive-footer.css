@@ -1,0 +1,15 @@
+/**
+ * Responsive footer layout
+ */
+
+/* Stack footer columns on mobile view */
+@media (max-width: 768px) {
+  .footer-triptych {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-column {
+    width: 100%;
+  }
+}
