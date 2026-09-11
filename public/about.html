@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>En sida om mig | Kursen webtec</title>
+  <link rel="stylesheet" href="css/responsive-design.css">
+  <title>En sida om kursen | Kursen webtec</title>
   <meta name="description" content="Min webbsida i kursen webtec">
 </head>
 
@@ -18,8 +19,9 @@
       </a>
     </div>
 
-    <nav>
-      <ul>
+    <nav class="navbar">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
+      <ul id="nav-links" class="nav-links">
         <li><a href="me.html">Me</a></li>
         <li><a href="report.html">Redovisa</a></li>
         <li><a href="about.html">Om</a></li>
@@ -27,7 +29,11 @@
     </nav>
   </header>
 
-  <div class="wrap">
+  <div class="wrap cols-3">
+    <aside class="aside left">
+      <p>Vänsterspalt: t.ex. extra länkar eller info</p>
+    </aside>
+
     <main class="main">
       <article class="article">
         <h1>Om kursen</h1>
@@ -50,21 +56,24 @@
           utvecklingsmiljö med kodredigeraren VS Code, terminalbaserade Unix-kommandon och versionshantering med Git och
           GitHub.</p>
 
-        <p><strong>Kvalitet och testning:</strong> Stor vikt läggs vid kodkvalitet, validering enligt webbstandarder (W3C),
+        <p><strong>Kvalitet och testning:</strong> Stor vikt läggs vid kodkvalitet, validering enligt webbstandarder
+          (W3C),
           användning av linters samt publicering och automatisering via plattformar som GitHub Pages och GitHub Actions.
         </p>
 
-        <p><strong>Praktiskt upplägg:</strong> Momenten bygger på iterativt lärande där teoretiska genomgångar och programmeringslabbar 
+        <p><strong>Praktiskt upplägg:</strong> Momenten bygger på iterativt lärande där teoretiska genomgångar och
+          programmeringslabbar
           kombineras med ett löpande projektarbete i form av en egen presentations- och redovisningswebbplats.</p>
 
       </article>
     </main>
 
-    <aside class="aside">
+    <aside class="aside right">
       <h2>GitHub</h2>
 
       <ul>
-        <li><a href="https://github.com/bth-webtec/webtec-anhj26" target="_blank" rel="noopener noreferrer">Mitt repo</a></li>
+        <li><a href="https://github.com/bth-webtec/webtec-anhj26" target="_blank" rel="noopener noreferrer">Mitt
+            repo</a></li>
       </ul>
     </aside>
   </div>
@@ -106,6 +115,7 @@
   </footer>
 
   <script type="module" src="js/hello.js"></script>
+  <script src="js/responsive-design.js" defer></script>
 </body>
 
 </html>

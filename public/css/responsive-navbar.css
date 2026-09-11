@@ -1,38 +1,6 @@
 /**
- * Style for example showing responsive navbar.
+ * Style for responsive navbar.
  */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* Header as a flex container with two columns */
-.header {
-  display: flex;
-  /* Use flexbox */
-  justify-content: space-between;
-  /* Space between left and right columns */
-  align-items: center;
-  /* Vertically center items */
-  padding: 10px 20px;
-  /* Add some padding */
-  background-color: #333;
-  /* Dark background color */
-  color: white;
-  /* White text color */
-}
-
-/* Left column - logo */
-.logo {
-  font-size: 1.5em;
-  /* Increase font size for logo */
-}
-
-/* Right column - navigation bar */
-.navbar {
-  position: relative;
-  /* Optional: needed if dropdown uses absolute positioning */
-}
 
 /* Navigation links displayed in a row */
 .nav-links {
@@ -52,36 +20,33 @@ body {
 .nav-links a {
   text-decoration: none;
   /* Remove underline */
-  color: white;
-  /* White text for links */
 }
 
 /* Hamburger menu button */
 .menu-toggle {
   display: none;
-  /* Hidden by default */
+  /* Hidden by default on larger screens */
   background: none;
-  /* No background */
   border: none;
-  /* No border */
   font-size: 1.8em;
   /* Bigger font for hamburger icon */
-  color: white;
-  /* White color */
+  color: inherit;
   cursor: pointer;
   /* Pointer cursor on hover */
 }
 
-/* Responsive styles: when screen is smaller than 600px */
-@media (max-width: 600px) {
+/* Anchor for absolute positioning of dropdown */
+.navbar {
+  position: relative;
+}
 
+/* Mobile view: show hamburger button */
+@media (max-width: 768px) {
   .menu-toggle {
     display: block;
-    /* Show hamburger button on small screens */
-
   }
 
-  .nav-links {
+  .siteheader nav .nav-links {
     display: none;
     /* Hide links by default */
     flex-direction: column;
@@ -91,13 +56,15 @@ body {
     top: 50px;
     /* Place below header */
     right: 0;
-    background-color: #444;
+    background-color: #dbeed8; 
+    z-index: 100;              
+    /* Ser till att menyn alltid ligger ovanpå sidans text */
     width: 150px;
     padding: 10px;
   }
 
   /* Show menu when 'show' class is added by JS */
-  .nav-links.show {
+  .siteheader nav .nav-links.show {
     display: flex;
   }
 

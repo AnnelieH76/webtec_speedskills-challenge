@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive-design.css">
   <title>En sida om mig | Kursen webtec</title>
   <meta name="description" content="Min webbsida i kursen webtec">
 </head>
@@ -18,14 +19,15 @@
       </a>
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="me.html">Me</a></li>
-        <li><a href="report.html">Redovisa</a></li>
-        <li><a href="about.html">Om</a></li>
-      </ul>
-    </nav>
-  </header>
+     <nav class="navbar">
+    <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="me.html">Me</a></li>
+      <li><a href="report.html">Redovisa</a></li>
+      <li><a href="about.html">Om</a></li>
+    </ul>
+  </nav>
+</header>
 
   <div class="wrap">
     <main class="main">
@@ -107,6 +109,7 @@
   </footer>
 
   <script type="module" src="js/hello.js"></script>
+  <script src="js/responsive-design.js" defer></script> 
 </body>
 
 </html>

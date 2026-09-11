@@ -2,120 +2,100 @@
  * Responsive layout using flexbox with main and aside
  */
 
-/* Basic page styling */
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-
-/* Header styling */
-header {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Main content area */
-.container {
-  padding: 1rem;
-}
-
-/* Row layout using flexbox */
-.row {
+/* Wrap layout using flexbox */
+.wrap {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-/* Block styling */
-.main,
-.aside {
-  background: #eee;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 5px;
-}
-
-/* Background colors for blocks */
-.main {
-  background-color: #D9F0FF;
-}
-
-.aside {
-  background-color: #D9FFD9;
-}
-
-.aside.right {
-  background-color: #FFD9D9;
-}
-
-/* 1 column: main takes full width */
-.cols-1 .main {
-  flex: 1 1 100%;
-}
-
-/* 2 columns: main 70%, aside 30% */
+/* 2 columns (report.html): (main 70%, aside 30%) */
 .cols-2 .main {
-  flex: 1 1 70%;
+  flex: 7;
 }
 
 .cols-2 .aside {
-  flex: 1 1 30%;
+  flex: 3;
 }
 
-/* 3 columns: main 50%, each aside 25% */
+/* 3 columns (> 900px): */
+.cols-3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cols-3 .aside.left {
+  flex: 1;
+  order: 1;
+}
+
 .cols-3 .main {
-  flex: 1 1 50%;
+  flex: 2;
+  order: 2;
 }
 
-.cols-3 .aside {
-  flex: 1 1 25%;
+.cols-3 .aside.right {
+  flex: 1;
+  order: 3;
 }
 
-/* Responsive: stack columns on small screens */
-@media (max-width: 700px) {
+/* 2 Columns */
+/* Responsive mobile view: stack columns and put main first */
+@media (max-width: 768px) {
   .cols-2 {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .cols-2 .main {
-    order: 1;
+    order: -1;
+    width: 100%;
   }
 
   .cols-2 .aside {
-    order: 2;
+    order: 1;
+    width: 100%;
   }
 }
 
-@media (max-width: 800px) {
-  .cols-3 {
-    flex-wrap: wrap;
+/* 3 Columns */
+/* Steg 1 (t.ex. 900px): Högerkolumnen bryts ut och stackas längst ner */
+@media (max-width: 900px) {
+.cols-3 .aside.left {
+    flex: 1;
+    order: 1;
+  }
+
+  .cols-3 .main {
+    flex: 2;
+    order: 2;
+    /* Håller main kvar bredvid vänsterkolumnen */
   }
 
   .cols-3 .aside.right {
     flex: 1 1 100%;
+    order: 3;
   }
 }
 
-@media (max-width: 650px) {
+/* Steg 2 (768px): Mobilvy – alla stackas med main överst */
+@media (max-width: 768px) {
   .cols-3 {
-    flex-wrap: wrap;
-  }
-
-  .cols-3 .aside {
-    flex: 1 1 100%;
+    flex-direction: column;
   }
 
   .cols-3 .main {
     order: 1;
+    width: 100%;
   }
 
   .cols-3 .aside.left {
     order: 2;
+    width: 100%;
   }
 
   .cols-3 .aside.right {
     order: 3;
+    width: 100%;
   }
 }
