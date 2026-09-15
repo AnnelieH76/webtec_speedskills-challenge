@@ -1,32 +1,432 @@
-/* Importerar. 
-All css som hör till komom3 ligger i mappen oneguide */
-
 @import url("normalize.css");
 
-/* ==========================================================================
-   1. CSS Variables & Reset
-   ========================================================================== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
-/* ==========================================================================
-   2. Header & Navbar
-   ========================================================================== */
+/* =======================================================*/
+/* ===== Colors ========================================= */
+:root {
+  --color-primary-dark: #0a2e4b;   /* Mörkblå bas för header, footer och ramar */
+  --color-accent-light: #9ad5eb;   /* Ljusblå accent för länkar och kolumner */
+  --color-mid-blue:     #d9e4ec;   /* Mjuk isblå bakgrund för sektions-wrapper */
+  --color-hover-bright: #ffffff;   /* Skarp vit respons vid hover */
+  --color-text-bright:  #ffffff;   /* Ljus text för mörka bakgrunder */
+  --color-text-main:    #1a2530;   /* Mörk text för ljusa sektioner */
+}
+
+/* =======================================================*/
+/* ===== Header layout ================================== */
 
 /* Header logo */
 .site-logo {
-  height: 48px;
-  width: auto; /* Behåller bildens proportioner */
+  height: 40px;
+  width: auto;
+  /* Behåller bildens proportioner */
   vertical-align: middle;
   display: inline-block;
 }
 
-/* ==========================================================================
-   3. Grid & Column System (1, 2, 3 cols)
-   ========================================================================== */
+.siteheader nav ul {
+  display: flex;
+  /* Arrange navigation links in a horizontal row */
+  flex-wrap: wrap; 
+  /* Låter länkarna bryta till nästa rad istället för att trycka ut sidan */
+  gap: 0.75rem 1rem; 
+  /* Radavstånd 0.75rem, kolumnavstånd 1rem */
+  list-style: none;
+  /* Remove default bullet points from the list */
+  margin: 0;
+  /* Remove default margin around the list */
+  padding: 0;
+  /* Remove default padding around the list */
+}
 
-/* ==========================================================================
-   4. Specific Sections (Hero, Scroll, Badges)
-   ========================================================================== */
+/* Styling for navigation links */
+.siteheader nav a{
+  text-decoration: none;
+  /* Remove the default underline from links */
+  color: var(--color-accent-light);
+  /* Set color for the navigation links */
+  font-size: 1rem;
+  /* Define the font size for the links */
+  font-weight: bold;
+  /* Make the text bold for better readability */
+  border-bottom: 2px solid transparent;
+  /* Reserve space for the hover underline so nothing jumps */
+  transition: color 0.3s, border-bottom-color 0.3s;
+  /* Add a smooth transition for color and border changes on hover */
+}
 
-/* ==========================================================================
-   5. Footer Triptych
-   ========================================================================== */
+/* Hover effect for navigation links */
+.siteheader nav a:hover {
+  color: var(--color-hover-bright);
+  border-bottom-color: var(--color-hover-bright);
+  /* Reveal the underline when hovered */
+}
+
+/* Styling for the text next to the logo */
+.siteheader span {
+  font-size: 1.5rem;
+  /* Define the font size for the header text */
+  font-weight: bold;
+  /* Make the header text bold for emphasis */
+  color: var(--color-accent-light);
+  /* Apply a color to the header text */
+  font-family: 'Arial', sans-serif;
+  /* Use Arial font, fallback to sans-serif */
+}
+
+/* Styling for the logo and heading link */
+.siteheader .brand {
+  display: flex;
+  /* Arrange the logo and text in a horizontal row */
+  align-items: center;
+  /* Align the logo and text vertically at the center */
+  gap: 1rem;
+  /* Add spacing between the logo image and the text */
+  text-decoration: none;
+  /* Remove the default underline from the link */
+}
+
+/* General styling for the header */
+.siteheader {
+  display: flex;
+  /* Use flexbox to arrange child elements horizontally */
+  justify-content: space-between;
+  /* Place items at both ends of the header */
+  align-items: center;
+  /* Vertically align items to the center */
+  padding: 1rem 2rem;
+  /* Add spacing inside the header (1rem top/bottom, 2rem left/right) */
+  background-color: var(--color-primary-dark);
+  /* Set a  background color */
+  border-bottom: 2px solid var(--color-accent-light);
+  /* Add a border at the bottom */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Apply a subtle shadow for a slight 3D effect */
+}
+
+
+/* =======================================================*/
+/* ===== Navbar layout ================================== */
+
+/* Navigation links displayed in a row */
+.nav-links {
+  list-style: none;
+  /* Remove bullets */
+  display: flex;
+  /* Display links in a row */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  /* Space between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  /* Remove underline */
+}
+
+/* Hamburger menu button */
+.menu-toggle {
+  display: none;
+  /* Hidden by default on larger screens */
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  /* Bigger font for hamburger icon */
+  color: var(--color-accent-light);
+  cursor: pointer;
+  /* Pointer cursor on hover */
+}
+
+/* Anchor for absolute positioning of dropdown */
+.navbar {
+  position: relative;
+}
+
+/* =======================================================*/
+/* ===== Responsive Navbar/show hamburger button ======== */
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .siteheader nav .nav-links {
+    display: none;
+    /* Hide links by default */
+    flex-direction: column;
+    /* Stack links vertically */
+    position: absolute;
+    /* Position relative to navbar */
+    top: 50px;
+    /* Place below header */
+    right: 0;
+    background-color: var(--color-primary-dark);
+    z-index: 100;
+    /* Ser till att menyn alltid ligger ovanpå sidans text */
+    width: 150px;
+    padding: 10px;
+  }
+
+  /* Show menu when 'show' class is added by JS */
+  .siteheader nav .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    /* Space between stacked links */
+  }
+}
+
+
+/* =======================================================*/
+/* ===== Row & Column Layout =========== */
+
+.wrapper {
+  background-color: var(--color-mid-blue);
+  color: var(--color-text-main); /* Mörka textvariabel för innehållet */
+  padding: 1rem 0;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.row.color1 {
+  background-color: var(--color-accent-light);
+}
+
+.row.cols1 .col {
+  flex: 1 1 100%;
+}
+
+.row.cols2 .col {
+  flex: 1 1 50%;
+}
+
+.row.cols3 .col {
+  flex: 1 1 33.333%;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10rem;
+}
+
+/* =======================================================*/
+/* ===== Sektion 1: 1 Kolumn (Bakgrundsbild) ===== */
+
+.col.background {
+  background-image: url("../img/Software-Testing-3.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 20vh;
+}
+
+.hero-content {
+  padding: 2rem;
+  max-width: 1000px;
+}
+
+/* Responsiv stackning av rader för mobil */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .row.cols2 .col,
+  .row.cols3 .col {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+
+/* =======================================================*/
+/* ===== Sektion 2: 2 Kolumner (Om mig / Erfarenhet) ===== */
+
+/* Yttre sektionsinramning */
+.section {
+  padding: 3rem 1.5rem;
+}
+
+/* Flex-container för 2 kolumner */
+.row.row-2 {
+  display: flex;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Enskild kolumn formaterad som ett snyggt kort */
+.row.row-2 .col {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Vänsterjusterar innehållet */
+  justify-content: flex-start;
+  padding: 2rem;
+  background-color: var(--color-hover-bright); /* Vit botten för god kontrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid var(--color-primary-dark); /* Diskret mörkblå accentlinje till vänster */
+}
+
+/* Rubriker i kolumnerna */
+.row.row-2 .col h2 {
+  margin: 0 0 1rem 0;
+  color: var(--color-primary-dark);
+  font-size: 1.4rem;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Brödtext */
+.row.row-2 .col p {
+  margin: 0;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Responsiv vy för mobil */
+@media (max-width: 768px) {
+  .row.row-2 {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .row.row-2 .col {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+/* =======================================================*/
+/* ===== Footer layout ================================== */
+
+/* Matches the footer's background so any extra space below it on tall
+   viewports looks like the footer instead of a white gap. */
+body {
+  background-color: var(--color-primary-dark);
+}
+
+/* General styling for the footer */
+.sitefooter {
+  border-top: 4px solid var(--color-accent-light);
+  /* Border color*/
+  background-color: var(--color-primary-dark);
+  /* Background color */
+  color: var(--color-accent-light);
+  /* Copywright-text color */
+  padding: 1.5rem 1rem;
+  /* Reduce padding for a shorter footer */
+  font-family: 'Arial', sans-serif;
+  /* Font for footer text */
+}
+
+/* Triptych layout */
+.footer-triptych {
+  display: flex;
+  /* Use flexbox for horizontal layout */
+  justify-content: space-between;
+  /* Distribute columns evenly */
+  gap: 2rem;
+  /* Space between columns */
+  margin-bottom: 1.5rem;
+  /* Reduce space below the triptych */
+}
+
+/* Individual footer column */
+.footer-column {
+  flex: 1;
+  /* Equal width for each column */
+  background-color: var(--color-accent-light);
+  /* Background color */
+  padding: 1rem;
+  /* Add padding inside columns */
+  border-radius: 8px;
+  /* Rounded corners for columns */
+}
+
+.footer-column h2 {
+  /* color: var(--color-primary-dark); */
+  color: var(--color-text-bright);
+  /* Color for h2-text */
+  margin: 0 0 0.5rem;
+  /* Remove top margin and keep space below */
+}
+
+.footer-column ul {
+  color: var(--color-text-bright);
+  /* Color for text */
+  list-style: none;
+  /* Remove bullet points */
+  padding: 0;
+  /* Remove padding */
+  margin: 0 0 1.5rem 0;
+  /* Adjust margin */
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+  /* Space between list items */
+}
+
+.footer-column a {
+  color: var(--color-primary-dark);
+  /* Color for links */
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-dark);
+  text-underline-offset: 3px;
+  transition: color 0.3s, text-decoration 0.3s;
+  /* Smooth hover effect */
+}
+
+.footer-column a:hover {
+  color: var(--color-hover-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--color-hover-bright);
+}
+
+/* Footer bottom row */
+.footer-bottom {
+  text-align: center;
+  /* Center align the text */
+  font-size: 0.85rem;
+  /* Smaller text size */
+  border-top: 1px solid var(--color-accent-light);
+  /* Subtle border at the top */
+  padding-top: 0.5rem;
+  /* Reduce space above the text */
+}
+
+/* ======= Responsive footer ============================= */
+
+/* Stack footer columns on mobile view */
+@media (max-width: 768px) {
+  .footer-triptych {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-column {
+    width: 100%;
+  }
+}
