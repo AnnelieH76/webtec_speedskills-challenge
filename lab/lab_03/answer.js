@@ -186,16 +186,16 @@ export function reverseString(word) {
 
 
 
-/**
- * Use a while-loop to create a comma separated string with the first n numbers in the Fibonacci sequence.
- * Hint: https://en.wikipedia.org/wiki/Fibonacci_sequence
- * 
- * Return the resulting string.
- *
- * @param {number} n The number of values in the Fibonacci sequence to be calculated.
- * @returns {string} The resulting string.
- */
-export function fibonacci(n) {
-  // TODO: Write your code here.
-  return -1
-}
+// /**
+//  * Use a while-loop to create a comma separated string with the first n numbers in the Fibonacci sequence.
+//  * Hint: https://en.wikipedia.org/wiki/Fibonacci_sequence
+//  * 
+//  * Return the resulting string.
+//  *
+//  * @param {number} n The number of values in the Fibonacci sequence to be calculated.
+//  * @returns {string} The resulting string.
+//  */
+// export function fibonacci(n) {
+//   // TODO: Write your code here.
+//   return -1
+// }
