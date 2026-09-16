@@ -142,7 +142,6 @@ html, body {
   padding: 2rem 1.5rem;
   background-color: var(--color-hover-bright);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
 }
 
 .row-2 .col {
@@ -177,67 +176,11 @@ html, body {
 }
 
 
-
-
-
-
-
-
-/* =======================================================*/
-/* ===== Row & Column Layout =========== */
-
-.wrapper {
-  background-color: var(--color-mid-blue);
-  color: var(--color-text-main); /* Mörka textvariabel för innehållet */
-}
-
-.row {
-  display: flex;
-  gap: 1rem;
-}
-
-.row.color1 {
-  background-color: var(--color-accent-light);
-}
-
-.row.cols1 .col {
-  flex: 1 1 100%;
-}
-
-.row.cols2 .col {
-  flex: 1 1 50%;
-}
-
-.row.cols3 .col {
-  flex: 1 1 33.333%;
-}
-
-.col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: auto;
-}
-
-
-/* =======================================================*/
-/* ===== Gemensamnt för alla sektioner ===== */
-
-/* Styling for all main section headings */
-.section > h2 {
-  text-align: center;
-  color: var(--color-primary-dark);
-  font-size: 1.8rem;
-  font-family: 'Arial', sans-serif;
-  margin: 1rem 0 1rem 0;
-  text-transform: uppercase; /* Converts all letters to capital letters */
-  letter-spacing: 0.5px;
-}
-
 /* =======================================================*/
 /* ===== Sektion 1: 1 Kolumn (Bakgrundsbild) ===== */
 
 .col.background {
+  width: 100%;
   background-image: url("../img/Software-Testing-3.jpg");
   background-size: cover;
   background-position: center;
@@ -245,138 +188,34 @@ html, body {
   /* Add a border at the bottom */
 }
 
-.hero-content {
-  padding: 2rem;
-  max-width: 1000px;
+/* Intro-text under About-rubrik */
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
 }
 
+.intro-content p {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0;
+}
 
 
 /* =======================================================*/
 /* ===== Sektion 2 : 2 Kolumner (Om mig / Erfarenhet) ===== */
 
-/* Yttre sektionsinramning */
-.section {
-  border-top: 4px solid var(--color-accent-light);
-  padding: 1.5rem 1.5rem;
-}
-
-/* Container centered horizontally on the page */
-.intro-content {
-  max-width: 800px;
-  margin: 0 auto; /* Centers the container */
-  padding: 0 0 1.5rem 0;
-  text-align: center; /* Centers the text */
-}
-
-/* Paragraph styling */
-.intro-content p {
-  color: var(--color-text-main);
-  font-family: 'Arial', sans-serif;
-  font-size: 1.15rem;
-  line-height: 1;
-  font-weight: 500;
-  margin: 0;
-}
-
-/* Flex-container för 2 kolumner */
-.row.row-2 {
-  display: flex;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Enskild kolumn formaterad som ett snyggt kort */
-.row.row-2 .col {
-  flex: 1 1 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Vänsterjusterar innehållet */
-  justify-content: flex-start;
-  padding: 2rem;
-  background-color: var(--color-hover-bright); /* Vit botten för god kontrast */
-  border-radius: 8px; /* Rounds the corners of the card container */
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06); */
-  border-left: 4px solid var(--color-primary-dark); /* Diskret mörkblå accentlinje till vänster */
-}
-
-/* Rubriker i kolumnerna */
-.row.row-2 .col h2 {
-  margin: 0 0 1rem 0; /* Exakt 1rem luft nedåt mot texten under */
-  color: var(--color-primary-dark);
-  font-size: 1.4rem;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Brödtext */
-.row.row-2 .col p {
-  margin: 0;
-  color: var(--color-text-main);
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
+ /* Enligt standard */
 
 
 
 /* =======================================================*/
 /* ===== Sektion 3: 3 Kolumner (Kärnkompetenser) ========= */
 
-/* Alternativ sektionsbakgrund för visuell variation */
+/* Sektion med avvikande bakgrundsfärg */
 .section.section-alt {
   background-color: var(--color-mid-blue);
-  text-align: center;
 }
-
-
-/* Flex-container för tre kolumner */
-.row.row-3 {
-  display: flex;
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Individuellt kompetenskort */
-.row.row-3 .col {
-  flex: 1 1 33.333%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background-color: var(--color-hover-bright);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
-  border-top: 4px solid var(--color-accent-light); /* Accentlinje i ovankant */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Diskret lyft vid hovring över kortet */
-.row.row-3 .col:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Underrubriker inuti korten */
-.row.row-3 .col h3 {
-  color: var(--color-primary-dark);
-  font-size: 1.25rem;
-  font-family: 'Arial', sans-serif;
-  margin: 0 0 0.75rem 0;
-}
-
-/* Beskrivande text */
-.row.row-3 .col p {
-  color: var(--color-text-main);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-
 
 
 /* =======================================================*/
@@ -414,7 +253,6 @@ html, body {
   font-size: 1.05rem;
   border-radius: 8px;
   border-bottom: 4px solid var(--color-accent-light);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
 }
 
@@ -445,15 +283,14 @@ html, body {
 /* Container som centrerar och bryter raderna */
 .badge-wrapper {
   display: flex;
-  /* Allow badges to wrap naturally when they run out of space */
+  /* Allow badges to wrap */
   flex-wrap: wrap;
   /* Center items horizontally */
   justify-content: center;
   /* Spacing between badges */
   gap: 0.75rem;
   max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
+ 
 }
 
 /* Grundstil för varje badge */
@@ -477,8 +314,7 @@ html, body {
 /* =======================================================*/
 /* ===== Footer layout ================================== */
 
-/* Matches the footer's background so any extra space below it on tall
-   viewports looks like the footer instead of a white gap. */
+/* Matches the footer's background  */
 body {
   background-color: var(--color-primary-dark);
 }
@@ -522,7 +358,6 @@ body {
 }
 
 .footer-column h2 {
-  /* color: var(--color-primary-dark); */
   color: var(--color-text-bright);
   /* Color for h2-text */
   margin: 0 0 0.5rem;
