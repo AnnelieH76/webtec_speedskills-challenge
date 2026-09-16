@@ -104,42 +104,83 @@ html, body {
 }
 
 
-
 /* =======================================================*/
-/* ===== Responsive Navbar/show hamburger button ======== */
+/* ===== Gemensamma sektionsregler ====================== */
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .siteheader nav .nav-links {
-    display: none;
-    /* Hide links by default */
-    flex-direction: column;
-    /* Stack links vertically */
-    position: absolute;
-    /* Position relative to navbar */
-    top: 50px;
-    /* Place below header */
-    right: 0;
-    background-color: var(--color-primary-dark);
-    z-index: 100;
-    /* Ser till att menyn alltid ligger ovanpå sidans text */
-    width: 150px;
-    padding: 10px;
-  }
-
-  /* Show menu when 'show' class is added by JS */
-  .siteheader nav .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-    /* Space between stacked links */
-  }
+.wrapper {
+  background-color: var(--color-mid-blue);
+  color: var(--color-text-main);
 }
+
+.section {
+  border-top: 4px solid var(--color-accent-light);
+  padding: 2.5rem 1.5rem;
+}
+
+.section > h2 {
+  text-align: center;
+  color: var(--color-primary-dark);
+  font-size: 1.8rem;
+  font-family: 'Arial', sans-serif;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Gemensam kortstil för alla kolumner i sektionerna */
+.row-2 .col,
+.row-3 .col {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  background-color: var(--color-hover-bright);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+}
+
+.row-2 .col {
+  flex: 1 1 50%;
+  align-items: flex-start;
+  border-left: 4px solid var(--color-primary-dark);
+}
+
+.row-3 .col {
+  flex: 1 1 33.333%;
+  align-items: center;
+  text-align: center;
+  border-top: 4px solid var(--color-accent-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.row-3 .col:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.row .col h3 {
+  margin: 0 0 0.75rem 0;
+  color: var(--color-primary-dark);
+  font-family: 'Arial', sans-serif;
+}
+
+.row .col p {
+  margin: 0;
+  color: var(--color-text-main);
+  line-height: 1.6;
+}
+
+
+
+
+
+
 
 
 /* =======================================================*/
@@ -209,18 +250,6 @@ html, body {
   max-width: 1000px;
 }
 
-/* Responsiv stackning av rader för mobil */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
-
-  .row.cols2 .col,
-  .row.cols3 .col {
-    flex: 1 1 100%;
-    width: 100%;
-  }
-}
 
 
 /* =======================================================*/
@@ -288,18 +317,6 @@ html, body {
   font-size: 1rem;
 }
 
-/* Responsiv vy för mobil */
-@media (max-width: 768px) {
-  .row.row-2 {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .row.row-2 .col {
-    flex: 1 1 100%;
-    width: 100%;
-  }
-}
 
 
 
@@ -359,18 +376,6 @@ html, body {
   margin: 0;
 }
 
-/* Responsiv layout för pekskärm och mobil */
-@media (max-width: 768px) {
-  .row.row-3 {
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .row.row-3 .col {
-    flex: 1 1 100%;
-    width: 100%;
-  }
-}
 
 
 
@@ -465,18 +470,6 @@ html, body {
   border-radius: 20px;
   /* Subtle border matching the accent color */
   border: 2px solid var(--color-accent-light);
-}
-
-/* Responsiv justering för mobiler */
-@media (max-width: 768px) {
-  .badge-wrapper {
-    gap: 0.5rem;
-  }
-
-  .badge {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
 }
 
 
@@ -580,16 +573,52 @@ body {
   /* Reduce space above the text */
 }
 
-/* ======= Responsive footer ============================= */
 
-/* Stack footer columns on mobile view */
+
+/* ====================================================*/
+/* ===== Gemensam responsiv media query för mobil ======== */
+
 @media (max-width: 768px) {
-  .footer-triptych {
-    flex-direction: column;
-    gap: 1rem;
+  .menu-toggle {
+    display: block;
   }
 
+  .siteheader nav .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: var(--color-primary-dark);
+    z-index: 100;
+    width: 150px;
+    padding: 10px;
+  }
+
+  .siteheader nav .nav-links.show {
+    display: flex;
+  }
+
+  /* Alla rader staplas vertikalt */
+  .row,
+  .footer-triptych {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .row-2 .col,
+  .row-3 .col,
   .footer-column {
+    flex: 1 1 100%;
     width: 100%;
+  }
+
+  .badge-wrapper {
+    gap: 0.5rem;
+  }
+
+  .badge {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
   }
 }
