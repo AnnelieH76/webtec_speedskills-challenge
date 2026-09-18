@@ -335,23 +335,124 @@ body {
 /* =======================================================*/
 /* ===== Sektion 6 : 2 Kolumner (EC Utbildning)===== */
 
-/* Enligt standard */
+.diploma-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--color-hover-bright);
+  border-radius: 8px;
+  border-left: 4px solid var(--color-primary-dark);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.diploma-info {
+  flex: 1;
+}
+
+.diploma-info h3 {
+  margin: 0 0 0.25rem 0;
+  color: var(--color-primary-dark);
+  font-family: 'Arial', sans-serif;
+}
+
+.diploma-info .school {
+  margin: 0 0 0.75rem 0;
+  font-weight: bold;
+  color: var(--color-primary-dark);
+}
+
+.diploma-info p {
+  color: var(--color-text-main);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* PDF-länken med bild/ikon */
+.pdf-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  /* border: 2px dashed var(--color-accent-light); */
+  border-radius: 8px;
+  background-color: var(--color-mid-blue);
+  /* transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; */
+  min-width: 140px;
+  text-align: center;
+}
+
+.pdf-thumbnail {
+  width: 250px;
+  height: auto;
+}
+
+.pdf-link span {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--color-primary-dark);
+}
+
+.pdf-link span:hover {
+  color: var(--color-hover-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--color-hover-bright);
+}
 
 
 /* =======================================================*/
-/* ===== Sektion 7 : 3 Kolumner (Kontakt)===== */
+/* ===== Sektion 7 : 1 Kolumner (Call to action - Kontakt)===== */
 
-/* Vit sektionsbakgrund */
-#contact.section {
+/* Centrera innehållet */
+.cta-section {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.cta-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Avstånd mellan text och knapp */
+}
+
+/* Texten */
+.cta-content p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+/* Klickbar knapp */
+.cta-button {
+  display: inline-block;
+  background-color: var(--color-primary-dark);
+  color: var(--color-hover-bright);
+  font-family: 'Arial', sans-serif;
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px; /* Mjuka hörn */
+  border: 2px solid var(--color-primary-dark);
+} 
+
+/* Hover-effekt på knappen */
+.cta-button:hover {
   background-color: var(--color-hover-bright);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
 }
-
-/* Korten får isblå bakgrund och mörkblå ram i överkant */
-#contact .row-3 .col {
-  background-color: var(--color-mid-blue);
-  border-top: 4px solid var(--color-primary-dark);
-}
-
 
 
 /* =======================================================*/
@@ -401,14 +502,14 @@ body {
 }
 
 .footer-column h2 {
-  color: var(--color-text-bright);
+  color: var(--color-primary-dark);
   /* Color for h2-text */
   margin: 0 0 0.5rem;
   /* Remove top margin and keep space below */
 }
 
 .footer-column ul {
-  color: var(--color-text-bright);
+  color: var(--color-primary-dark);
   /* Color for text */
   list-style: none;
   /* Remove bullet points */
