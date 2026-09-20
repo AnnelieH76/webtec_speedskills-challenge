@@ -10,25 +10,29 @@
 </head>
 
 <body id="top">
-  <header class="siteheader">
-    <div>
-      <a href="onepage.html" class="brand">
-        <img src="img/QA_logo.png" alt="Logotyp" class="site-logo">
-        <span>Software Tester & QA Portfolio</span>
-      </a>
-    </div>
 
-    <nav class="navbar">
-      <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
-      <ul id="nav-links" class="nav-links">
-        <li><a href="#about">Om</a></li>
-        <li><a href="#competencies">Kompetenser</a></li>
-        <li><a href="#projects">Projekt</a></li>
-        <li><a href="#tech-stack">Verktyg</a></li>
-        <li><a href="#education">Utbildning</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
-    </nav>
+  <header class="siteheader">
+    <div class="header-container">
+      <!-- Vänster sida: Logga + text -->
+      <div class="header-brand-wrap">
+        <a href="onepage.html" class="brand">
+          <img src="img/QA_logo.png" alt="Logotyp" class="site-logo">
+          <span>Software Tester & QA Portfolio</span>
+        </a>
+      </div>
+
+      <nav class="navbar">
+        <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#about">Om</a></li>
+          <li><a href="#competencies">Kompetenser</a></li>
+          <li><a href="#projects">Delkurser</a></li>
+          <li><a href="#tech-stack">Verktyg</a></li>
+          <li><a href="#education">Utbildning</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main class="wrapper">
@@ -46,22 +50,39 @@
       <div class="intro-content">
         <p>Den här sidan är en portfolio från min YH-utbildning till Mjukvarutestare</p>
       </div>
-      <div class="row row-2">
-        <div class="col">
-          <h3>Verksamhetskonsulent & QA</h3>
-          <p>Examen från EC Utbildning med praktisk spetskompetens
-            inom testautomation och gedigen erfarenhet av komplexa affärssystem.</p>
 
-          <p>Med en bakgrund som verksamhetskonsulent har jag dagligen arbetat i
-            affärskritiska system för fakturering, bokning och rapportering.
-            Den förståelsen för slutanvändaren tar jag med mig in i QA-rollen.</p>
+      <div class="row row-2">
+
+        <!-- Vänster kort -->
+        <div class="col">
+          <h3>Verksamhetskonsult &amp; QA</h3>
+          <p>Med 17 års erfarenhet som verksamhetskonsulent med daglig användning av affärskritiska system bygger jag en
+            naturlig bro mellan
+            verksamhet och kod:</p>
+          <ul class="feature-list">
+            <li><strong>Verksamhetsförståelse:</strong> Djup vana vid boknings-, fakturerings- och
+              administrationsflöden.</li>
+            <li><strong>Användarfokus:</strong> Identifierar logiska brister och användarrisker tidigt i
+              utvecklingscykeln.</li>
+          </ul>
         </div>
 
-        <div class="col">
-          <h3>EC Utbildning (400 yhp)</h3>
-          <p>Under utbildningen har jag fördjupat mig i agil testmetodik,
-            kodanalys för att åtgärda felkällor och automatiserade flöden i
-            nära samverkan med näringslivet.</p>
+        <!-- Höger kort med integrerad profilbild -->
+        <div class="col col-with-thumb">
+          <div class="card-top-row">
+            <div class="card-heading-group">
+              <h3>EC Utbildning (400 YHP)</h3>
+              <p>Examen som Mjukvarutestare (400 YHP) med högsta betyg (VG) i alla delkurser:</p>
+            </div>
+            <div class="profile-thumb-wrap">
+              <img src="img/profilbild.png" alt="Profilbild på Annelie Hagen" class="profile-thumb">
+            </div>
+          </div>
+
+          <ul class="feature-list">
+            <li><strong>Automation &amp; CI/CD:</strong> Playwright, Selenium och GitHub Actions i praktiska projekt.</li>
+            <li><strong>Examensarbete:</strong> Principer för stabil testautomation med semantisk HTML och robusta locatorer.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -72,30 +93,146 @@
       <div class="row row-3">
         <div class="col">
           <h3>Testmetodik</h3>
-          <p>Planering, testdesign och buggrapportering.</p>
+          <p>Praktisk tillämpning av strukturerad testmetodik från planering
+            och testdesign till träffsäker buggrapportering i ReQtest.</p>
         </div>
         <div class="col">
           <h3>Testautomation</h3>
-          <p>Playwright, Selenium, TypeScript och CI/CD.</p>
+          <p>Utveckling av robust testautomation med Playwright och Selenium i TypeScript
+            och Java, BDD/TDD med Cucumber samt automatiserade CI/CD-flöden i GitHub Actions.</p>
         </div>
         <div class="col">
           <h3>Icke-funktionella tester</h3>
-          <p>Prestanda, säkerhet och kvalitetssäkring.</p>
+          <p>Kvalitetssäkring av icke-funktionella krav med fokus på prestanda, tillgänglighet och säkerhet genom
+            benchmarking och API-tester i Postman</p>
         </div>
       </div>
     </section>
 
-    <!-- Sektion 4: 1 Kolumn (Horisontell scroll) -->
+    <!-- Sektion 4: Testprojekt & delkurser (Horisontell scroll med 8 thumbnails) -->
     <section id="projects" class="section">
-      <h2>Testprojekt & delkurser</h2>
+      <h2>Delkurser, projekt och LIA</h2>
       <div class="scroll-container">
-        <div class="scroll-item">Projekt 1: LIA Playwright</div>
-        <div class="scroll-item">Projekt 2: Examensarbete</div>
-        <div class="scroll-item">Projekt 3: API-tester Postman</div>
-        <div class="scroll-item">Projekt 4: BDD Cucumber</div>
+
+        <!-- Kort 1 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card1.png" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 1: Introduktion till mjukvarutestning</h3>
+          </div>
+          <p class="thumb-desc">Jag utvecklar teoretiska och praktiska färdigheter inom hela testprocessen,
+            från att skriva testfall till buggrapporter samt att använda AI som stöd i testarbetet.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare-
+        a4a0d812f3f548db991640fd5087632a?p=6d8d6af123ca44e9bf931f66fedad3de&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
+        <!-- Kort 2 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card2.jpeg" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 2: Introduktion till programmering</h3>
+          </div>
+          <p class="thumb-desc">Kursen har gett mig praktiska och teoretiska programmeringskunskaper
+            anpassade för mjukvarutestare, med fokus på källkod, felrättning,
+            versionshantering och enhetstester.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare
+        -a4a0d812f3f548db991640fd5087632a?p=f6b02158f3d3460ba091aa73256f5e5e&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
+        <!-- Kort 3 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card3.jpeg" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 3: Praktiskt projektarbete inom mjukvarutestning</h3>
+          </div>
+          <p class="thumb-desc">Genom praktiskt agilt projektarbete har jag utvecklat mig inom
+            testmetodik, kommunikation och hantering av testsviter och buggar i ReQtest och Figma.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare-
+        a4a0d812f3f548db991640fd5087632a?p=a6721e6cf38d4c5ebeb6d7717bfa0c2a&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
+        <!-- Kort 4 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card4.jpeg" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 4: Testautomatisering och programmering</h3>
+          </div>
+          <p class="thumb-desc"> Kursen har fördjupat kompetensen
+            inom programmering, testautomatisering och CI/CD genom att praktiskt
+            bygga TDD/BDD-baserade tester med Selenium, Cucumber, GitHub Actions och AI.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare-
+        a4a0d812f3f548db991640fd5087632a?p=31c70ff6b41548afa24fde33e9b5285d&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
+        <!-- Kort 5 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card5.jpeg" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 5: Icke funktionella tester</h3>
+          </div>
+          <p class="thumb-desc">Kursen ger praktisk och teoretisk förståelse för
+            icke-funktionella tester inom prestanda, säkerhet, tillgänglighet och benchmarking.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare
+        -a4a0d812f3f548db991640fd5087632a?p=841ab725e3054c65a8014fe6c5d4a8cc&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
+        <!-- Kort 6 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card6.jpg" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 6: Teststrategier, testdesign, tekniker och exekvering av test</h3>
+          </div>
+          <p class="thumb-desc">Grupparbetet ökade kompetensen inom agil testmetodik, teststrategier och
+            testdesign – från planering och val av testtekniker till skriptad
+            och utforskande exekvering, bugghantering samt tillämpning av AI-verktyg.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare
+        -a4a0d812f3f548db991640fd5087632a?p=918d24f62bae4476a9ef3c8c2c178b54&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
+        <!-- Kort 7 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card7.jpeg" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 7: Examensarbete - Principer för stabil testautomatisering</h3>
+          </div>
+          <p class="thumb-desc">Examensarbetet undersöker hur testvänlig, semantisk HTML
+            och genomtänkta locator-strategier minskar underhållskostnader och
+            skapar robusta automatiserade tester i dynamiska webbmiljöer.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare-
+        a4a0d812f3f548db991640fd5087632a?p=bc418d3b1898481a98d1b6f93cdc85ed&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
+        <!-- Kort 8 -->
+        <div class="scroll-item">
+          <div class="thumb-header">
+            <img src="img/card8.jpg" alt="Projektminiatyr" class="thumb-img">
+            <h3>Kurs 8: LIA, Testautomation på Knowit</h3>
+          </div>
+          <p class="thumb-desc">LIA-praktik som mjukvarutestare på Knowit Experience
+            med fokus på att bygga Playwright-ramverk i TypeScript, automatisera smoke-
+            och regressionstester samt konfigurera CI i GitHub Actions med AI-stöd.</p>
+          <div class="thumb-links">
+            <a href="https://app.notion.com/p/Annelie-Hagens-portfolio-Mjukvarutestare-
+        a4a0d812f3f548db991640fd5087632a?p=0f58c05e9297492fa9edec0aee3fa30a&pm=c" class="link-text">Läs mer</a>
+          </div>
+        </div>
+
       </div>
     </section>
-
 
     <!-- Sektion 5: 1 Kolumn (Innehåll som wrappas) -->
     <section id="tech-stack" class="section section-alt">
@@ -108,19 +245,20 @@
         <span class="badge">Git</span>
         <span class="badge">GitHub Actions</span>
         <span class="badge">Postman</span>
+        <span class="badge">JUnit</span>
+        <span class="badge">Cucumber</span>
         <span class="badge">ReQtest</span>
+        <span class="badge">C++</span>
       </div>
     </section>
-
 
     <!-- Sektion 6: 1 Kolumn (Examensbevis) -->
     <section id="education" class="section">
       <h2>Examensbevis</h2>
       <div class="diploma-card">
         <div class="diploma-info">
-          <h3>Mjukvarutestare (400 YHP)</h3>
-          <p class="school">EC Utbildning</p>
-          <p>Högsta betyg (VG) i samtliga delkurser.</p>
+          <h3>Mjukvarutestare, Betyg VG (Högsta möjliga)</h3>
+          <p class="school">EC Utbildning, 400 YHP</p>
           <p>Fullständig yrkeshögskoleexamen med inriktning mot testautomation, agil kvalitetssäkring och manuell
             testmetodik.</p>
         </div>
@@ -141,40 +279,41 @@
         <a href="mailto:anneliehagen@hotmail.com" class="cta-button">Kontakta mig</a>
       </div>
     </section>
-
   </main>
 
   <footer class="sitefooter">
-    <div class="footer-triptych">
+    <div class="footer-container">
+      <div class="footer-triptych">
 
-      <div class="footer-column">
-        <h2>Länkar</h2>
-        <ul>
-          <li><strong>GitHub:</strong> <a href="https://github.com/AnnelieH76" target="_blank"
-              rel="noopener">AnnelieH76</a></li> <!--Ny flik med ökad säkerhet och prestanda -->
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/annelie-hagen/">Annelie Hagen</a></li>
-        </ul>
+        <div class="footer-column">
+          <h2>Länkar</h2>
+          <ul>
+            <li><strong>GitHub:</strong> <a href="https://github.com/AnnelieH76" target="_blank"
+                rel="noopener">AnnelieH76</a></li> <!--Ny flik med ökad säkerhet och prestanda -->
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/annelie-hagen/">Annelie Hagen</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h2>Profil</h2>
+          <ul>
+            <li><strong>Roll:</strong> Mjukvarutestare / QA</li>
+            <li><strong>Ort:</strong> Linköping, Sverige</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h2>Kontakt</h2>
+          <ul>
+            <li><strong>E-post:</strong> <a href="mailto:anneliehagen@hotmail.com">anneliehagen@hotmail.com</a></li>
+            <li><strong>Mobil:</strong> 073-154 48 58</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="footer-column">
-        <h2>Profil</h2>
-        <ul>
-          <li><strong>Roll:</strong> Mjukvarutestare / QA</li>
-          <li><strong>Ort:</strong> Linköping, Sverige</li>
-        </ul>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Software Tester & QA Portfolio. Copyright av Annelie Hagen.</p>
       </div>
-
-      <div class="footer-column">
-        <h2>Kontakt</h2>
-        <ul>
-          <li><strong>E-post:</strong> <a href="mailto:anneliehagen@hotmail.com">anneliehagen@hotmail.com</a></li>
-          <li><strong>Mobil:</strong> 073-154 48 58</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 Software Tester & QA Portfolio. Copyright av Annelie Hagen.</p>
     </div>
   </footer>
 
