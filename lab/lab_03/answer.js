@@ -34,15 +34,14 @@ export function sumLoop(stop) {
  * @returns {number} The resulting sum.
  */
 export function sumLoop2(start, stop) {
-  // TODO: Write your code here.
   let sum = 0
 
   for (let i = start; i < stop; i++) {
     sum += i
   }
+
   return sum
 }
-
 
 
 
@@ -174,28 +173,28 @@ export function reverseString(word) {
   // TODO: Write your code here.
   let newword = "" // Store the resulting reversed string
 
-  let i= word.length -1 // Start at the last index of the input string
+  let i = word.length - 1 // Start at the last index of the input string
 
-  while (i >=0) { // Loop backwards down to index 0
-    newword +=word [i] // Append the character at the current index
+  while (i >= 0) { // Loop backwards down to index 0
+    newword += word[i] // Append the character at the current index
     i--  // Move to the preceding character
   }
 
-  return newword 
+  return newword
 }
 
 
 
-// /**
-//  * Use a while-loop to create a comma separated string with the first n numbers in the Fibonacci sequence.
-//  * Hint: https://en.wikipedia.org/wiki/Fibonacci_sequence
-//  * 
-//  * Return the resulting string.
-//  *
-//  * @param {number} n The number of values in the Fibonacci sequence to be calculated.
-//  * @returns {string} The resulting string.
-//  */
-// export function fibonacci(n) {
-//   // TODO: Write your code here.
-//   return -1
-// }
+/**
+ * Use a while-loop to create a comma separated string with the first n numbers in the Fibonacci sequence.
+ * Hint: https://en.wikipedia.org/wiki/Fibonacci_sequence
+ *
+ * Return the resulting string.
+ *
+ * @param {number} n The number of values in the Fibonacci sequence to be calculated.
+ * @returns {string} The resulting string.
+ */
+export function fibonacci(n) {
+  // TODO: Write your code here.
+  return -1
+}
