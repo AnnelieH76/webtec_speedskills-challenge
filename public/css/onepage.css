@@ -22,10 +22,12 @@ body {
   --color-text-main: #1a2530;
   /* Mörk text för ljusa sektioner */
 
-  body {
-    background-color: var(--color-primary-dark);
-  }
 }
+
+body {
+  background-color: var(--color-primary-dark);
+}
+
 
 /* =======================================================*/
 /* ===== Header layout ================================== */
@@ -50,11 +52,14 @@ body {
 /* Centered inner wrapper keeping content aligned with the site */
 .header-container {
   width: 100%;
-  max-width: 1100px; /* Aligns with other sections on large screens */
-  margin: 0 auto;    /* Centers the container horizontally */
+  max-width: 1100px;
+  /* Aligns with other sections on large screens */
+  margin: 0 auto;
+  /* Centers the container horizontally */
   padding: 0.75rem 1.5rem;
   display: flex;
-  justify-content: space-between; /* Brand to the left, navigation to the right */
+  justify-content: space-between;
+  /* Brand to the left, navigation to the right */
   align-items: center;
   box-sizing: border-box;
 }
@@ -174,12 +179,11 @@ body {
   align-items: center;
   text-align: center;
   border-top: 4px solid var(--color-accent-light);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .row-3 .col:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .row .col h3 {
@@ -199,7 +203,7 @@ body {
   margin: 1rem 0 0 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Luft mellan punkterna */
+  gap: 0.75rem;
 }
 
 
@@ -228,6 +232,18 @@ body {
   font-size: 1.15rem;
   font-weight: 500;
   margin: 0;
+}
+
+/* Accessible hidden text for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
 }
 
 
@@ -291,14 +307,16 @@ body {
   padding: 1rem 0.5rem 1.5rem 0.5rem;
   max-width: 1100px;
   margin: 0 auto;
-  /* Enables smooth scrolling on touch screens */
-  -webkit-overflow-scrolling: touch;
+  /* W3C Standard Scrollbar */
+  scrollbar-width: thin;
 }
 
 /* Enskilt projektkort som thumbnail */
 .scroll-item {
-  flex: 0 0 240px;       /* 0 = får inte växa, 0 = får inte krympa, 240px = fast basbredd */
-  width: 240px;          /* Låser bredden */
+  flex: 0 0 240px;
+  /* 0 = får inte växa, 0 = får inte krympa, 240px = fast basbredd */
+  width: 240px;
+  /* Låser bredden */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -306,7 +324,7 @@ body {
   padding: 0.5rem;
   border-radius: 8px;
   border-bottom: 4px solid var(--color-accent-light);
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 /* Bild och rubrik i toppen av kortet */
@@ -337,7 +355,8 @@ body {
   font-size: 0.9rem;
   line-height: 1.4;
   color: var(--color-text-main);
-  flex-grow: 1; /* Håller länkarna längst ner på samma rad */
+  flex-grow: 1;
+  /* Håller länkarna längst ner på samma rad */
 }
 
 /* Knapprad i botten */
@@ -381,24 +400,7 @@ body {
   color: var(--color-primary-dark);
 }
 
-/* Scrollisten */
-.scroll-container::-webkit-scrollbar {
-  height: 8px;
-}
 
-.scroll-container::-webkit-scrollbar-track {
-  background: var(--color-mid-blue);
-  border-radius: 4px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-  background: var(--color-accent-light);
-  border-radius: 4px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-dark);
-}
 
 
 /* =======================================================*/
@@ -431,7 +433,6 @@ body {
   font-size: 1rem;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  /* Rounded pill shape */
   border-radius: 20px;
   background-color: var(--color-primary-dark);
   color: var(--color-hover-bright);
@@ -448,7 +449,6 @@ body {
   background-color: var(--color-hover-bright);
   border-radius: 8px;
   border-left: 4px solid var(--color-primary-dark);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
   padding: 2rem;
   display: flex;
   flex-direction: row;
@@ -487,10 +487,8 @@ body {
   text-decoration: none;
   gap: 0.5rem;
   padding: 0.5rem;
-  /* border: 2px dashed var(--color-accent-light); */
   border-radius: 8px;
   background-color: var(--color-mid-blue);
-  /* transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; */
   min-width: 140px;
   text-align: center;
 }
@@ -528,7 +526,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem; /* Avstånd mellan text och knapp */
+  gap: 1.5rem;
+  /* Avstånd mellan text och knapp */
 }
 
 /* Texten */
@@ -550,9 +549,10 @@ body {
   font-weight: bold;
   text-decoration: none;
   padding: 0.8rem 2rem;
-  border-radius: 50px; /* Mjuka hörn */
+  border-radius: 50px;
+  /* Mjuka hörn */
   border: 2px solid var(--color-primary-dark);
-} 
+}
 
 /* Hover-effekt på knappen */
 .cta-button:hover {
