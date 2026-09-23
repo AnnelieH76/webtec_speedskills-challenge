@@ -87,3 +87,4 @@ if (initialBox) {
   initialBox.addEventListener('click', toggleSelected)
   initialBox.addEventListener('dblclick', doubleClick)
 }
+
