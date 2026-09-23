@@ -4,3 +4,13 @@
   height: 200px;
   background-color: #2b6cb0;
 }
+
+/* Selected state outline */
+.selected {
+  outline: 20px solid #f39c12;
+}
+
+/* Animate element dimensions */
+.animateSize {
+  transition: width 1s, height 1s;
+}
