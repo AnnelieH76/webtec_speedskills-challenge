@@ -6,17 +6,39 @@
   <!-- Responsivitet -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/dom.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive-design.css">
   <title>Manipulera DOM</title>
   <meta name="description" content="Uppgift om att manipulera DOM-trädet med JavaScript">
 </head>
 
 
 <body>
-  <div id="box"></div>
+  <header class="siteheader">
+    <div>
+      <a class="brand" href="me.html">
+        <img src="img/leaf.png" alt="Logotyp">
+        <span>Kursen webtec</span>
+      </a>
+    </div>
 
+    <nav class="navbar">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="me.html">Me</a></li>
+        <li><a href="report.html">Redovisa</a></li>
+        <li><a href="about.html">Om</a></li>
+        <li><a href="onepage.html">Onepage</a></li>
+        <li><a href="dom.html">DOM</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <div id="box" class="box black"></div>
 
   <!-- JavaScript inläsning längst ner i body för att inte blockera html-->
-  <script type="module" src="js/dom.js" defer></script> <!-- defer laddar ner i bakgrunden -->
+  <script type="module" src="js/dom.js"></script> 
 </body>
 
 </html>

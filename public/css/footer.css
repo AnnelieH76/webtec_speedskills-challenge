@@ -1,8 +1,3 @@
-/* Matches the footer's background so any extra space below it on tall
-   viewports looks like the footer instead of a white gap. */
-body {
-  background-color: #2e2e2e;
-}
 
 /* General styling for the footer */
 .sitefooter {

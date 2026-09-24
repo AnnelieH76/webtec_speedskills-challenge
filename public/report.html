@@ -26,6 +26,7 @@
         <li><a href="report.html">Redovisa</a></li>
         <li><a href="about.html">Om</a></li>
         <li><a href="onepage.html">Onepage</a></li>
+        <li><a href="dom.html">DOM</a></li>
       </ul>
     </nav>
   </header>
@@ -35,10 +36,10 @@
       <h2>Innehållsförteckning</h2>
 
       <ul>
-        <li><a href="#kmom01">kmom01</a></li>
-        <li><a href="#kmom02">kmom02</a></li>
-        <li><a href="#kmom03">kmom03</a></li>
-        <li><a href="#kmom04">kmom04</a></li>
+        <li><a href="#kmom01">kmom01 - Kom igång med HTML, CSS och JavaScript</a></li>
+        <li><a href="#kmom02">kmom02 - Responsiv webbplats</a></li>
+        <li><a href="#kmom03">kmom03 - Onepage, struktur och stil</a></li>
+        <li><a href="#kmom04">kmom04 - Manipulering av DOM</a></li>
         <li><a href="#kmom05">kmom05</a></li>
         <li><a href="#kmom06">kmom06</a></li>
         <li><a href="#kmom10">kmom10</a></li>
@@ -51,9 +52,9 @@
         <p>Här kommer mina redovisningstexter från de olika kursmomenten i denna kursen.</p>
 
         <section id="kmom01">
-          <h2>kmom01</h2>
+          <h2>kmom01 - Kom igång med HTML, CSS och JavaScript</h2>
 
-          <p>Det första kursmomentet har varit både lärorikt och bitvis utmanande att ta sig an.
+          <p>Det första kursmomentet, att komma igång med att skapa den här webbsidan, har varit både lärorikt och bitvis utmanande att ta sig an.
             Min utvecklingsmiljö består av ett hemmakontor med en kraftfull bärbar dator kopplad till två externa
             skärmar, vilket ger en utmärkt överblick över både kod och dokumentation.
             Installationen av kursens miljö tog sin tid men flöt på stabilt utan större hinder.
@@ -81,7 +82,7 @@
         </section>
 
         <section id="kmom02">
-          <h2>kmom02</h2>
+          <h2>kmom02 - Responsiv webbplats</h2>
 
           <p>Att arbeta sig igenom övningen gick smidigt, men själva uppgiften bjöd på lite mer motstånd. Till skillnad
             från föregående kursmoment, där uppgiften byggde vidare direkt på övningsmomenten, upplevde jag denna vecka
@@ -109,9 +110,9 @@
         </section>
 
         <section id="kmom03">
-          <h2>kmom03</h2>
+          <h2>kmom03 - Onepage, struktur och stil</h2>
 
-          <p>Min webbplats är en portfolio som visar upp min YH-utbildning och bakgrund inom mjukvarutestning och QA. 
+          <p>Min Onepage-sida är en portfolio som visar upp min YH-utbildning och bakgrund inom mjukvarutestning och QA. 
             Jag ville att sidan skulle se ren och teknisk ut. Därför valde jag en mörkblå färg för header och 
             footer som ger en stadig grund, och en ljus gråblå färg som bakgrund. Det ljusblåa lade jag 
             till som en accentfärg på detaljer och knappar så att allt hänger ihop och blir lätt att läsa.</p>
@@ -137,9 +138,27 @@
         </section>
 
         <section id="kmom04">
-          <h2>kmom04</h2>
+          <h2>kmom04 - Manipulering av DOM</h2>
 
-          <p>Här kommer redovisningstexter</p>
+          <p>I det här kursmomentet blev samspelet mellan webbens tre delar väldigt tydligt. 
+            HTML står för grunden och strukturen, CSS styr utseendet och layouten, 
+            och JavaScript gör sidan interaktiv och levande genom att reagera på händelser.</p>
+
+          <p>Jag känner att jag har fått bra kontroll över att manipulera DOM-trädet. 
+            Det var både roligt och lärorikt att skapa helt nya element dynamiskt med document.createElement(), 
+            placera ut dem på sidan och koppla på eventlyssnare för både musklick och tangenttryckningar. 
+            Jag har också fått bra grepp om hur man läser av fönstrets mått med window.innerWidth och 
+            window.innerHeight för att hålla elementen inom skärmens kanter. 
+            Här valde jag att göra behålla sidhuvudet fast inte uppgiften krävde det, 
+            så jag räknade bort sidhuvudet för att det inte skulle skymmas av elementen.</p>
+
+          <p>Kodstrukturen är lätt att överblicka med tydliga kommentarer och numrering som matchar uppgifterna. 
+            Jag valde att samla alla funktionsdefinitioner i början av filen och lade initieringen och händelselyssnarna längst ner. 
+            Att samla alla tangenttryckningar i en gemensam hanterare gjorde koden enkel att bygga vidare på när nya funktioner tillkom.</p>  
+
+          <p>Min största TIL (Today I Learned) för detta moment var hur viktigt det är att vara noggrann med sina väljare och CSS-specificitet. När jag i början 
+            sökte brett på alla div-taggar råkade jag även välja element i min header, vilket visade hur avgörande det är att avgränsa med specifika klasser.</p>  
+
         </section>
 
         <section id="kmom05">
