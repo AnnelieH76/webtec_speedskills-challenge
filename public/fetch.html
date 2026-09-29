@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive-design.css">
+  <link rel="stylesheet" href="css/fetch.css">
+  <title>En sida för Fetch-uppgiften | Kursen webtec</title>
+  <meta name="description" content="Min Fetch-uppgift i kursen webtec">
+</head>
+
+<body>
+  <header class="siteheader">
+    <div>
+      <a class="brand" href="me.html">
+        <img src="img/leaf.png" alt="Logotyp">
+        <span>Kursen webtec</span>
+      </a>
+    </div>
+
+    <nav class="navbar">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="me.html">Me</a></li>
+        <li><a href="report.html">Redovisa</a></li>
+        <li><a href="about.html">Om</a></li>
+        <li><a href="onepage.html">Onepage</a></li>
+        <li><a href="dom.html">DOM</a></li>
+        <li><a href="fetch.html">Fetch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <main class="main">
+      <article class="article">
+        <h1>Uppgift: Fetch API</h1>
+
+        <p>I denna uppgift används Fetch API för att asynkront hämta extern data över HTTP och presentera
+          den i en dynamisk HTML-tabell. Applikationen jämför koldioxidutsläpp över tid för Sverige,
+          Norge och Danmark baserat på öppna data från Our World in Data (OWID).</p>
+
+        <!-- Container för tabell och kontroller -->
+        <div class="carbon-card">
+          <h2 class="card-title">Koldioxidutsläpp</h2>
+
+          <div class="table-controls">
+            <select id="year-select" aria-label="Select year">
+              <!-- Alternativ 1900-2019 genereras dynamiskt av fetch.js -->
+            </select>
+          </div>
+
+          <table id="emissions-table">
+            <thead>
+              <tr>
+                <th scope="col">Country</th>
+                <th scope="col">Co2 (million tonnes)</th>
+                <th scope="col">Co2 per capita (tonnes per person)</th>
+                <th scope="col">Oil Co2 (million tonnes)</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Rader fylls i dynamiskt av fetch.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </article>
+    </main>
+  </div>
+
+
+  <footer class="sitefooter">
+    <div class="footer-triptych">
+      <div class="footer-column">
+        <h2>Tekniker</h2>
+        <ul>
+          <li><a href="https://www.w3schools.com/html/">HTML Tutorial</a></li>
+          <li><a href="https://www.w3schools.com/css/">CSS Tutorial</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3Ht9L_9mB6M&list=PLKtP9l5q3ce8v_z6kLJsIfCJNP4zEtd9c">Kom i gång
+              med JavaScript</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h2>Manualer</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">MDN: HTML referens</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">MDN: CSS referens</a></li>
+          <li><a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a></li>
+          <li><a href="https://www.w3.org/Style/CSS/">CSS Standard</a></li>
+          <li><a href="https://www.w3.org/2009/cheatsheet/">Cheat Sheet</a></li>
+          <li><a href="https://whatwg.org/">WHATWG Standardiseringsorgan</a></li>
+          <li><a href="https://www.w3.org/">W3C Standardiseringsorgan</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h2>Verktyg</h2>
+        <ul>
+          <li><a href="https://caniuse.com/">CanIUse</a></li>
+          <li><a href="https://codepen.io/">CodePen</a></li>
+          <li><a href="https://validator.w3.org/">W3C:s HTML-validation </a></li>
+          <li><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">W3C:s CSS-validation </a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Kursen Webtec. Copyright av Annelie Hagen.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/fetch.js"></script>
+  <script src="js/responsive-design.js"></script>
+</body>
+
+</html>

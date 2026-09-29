@@ -1,0 +1,51 @@
+/**
+ * Styling for kmom05: Fetch API
+ */
+
+/* Dropdown styling and spacing */
+#year-select {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding: 4px 10px;
+  font-size: 1rem;
+  border: 1px solid #777;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Table layout */
+#emissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Header and data cells */
+#emissions-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 700;
+  color: #111;
+  border-bottom: 1px solid #ddd;
+}
+
+#emissions-table td {
+  padding: 12px 16px;
+  color: #222;
+}
+
+/* Striping: give the middle row (Norway) a light gray background */
+#emissions-table tbody tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+/* Green highlight for the winning value (lowest Co2) */
+#emissions-table td.winner {
+  background-color: #5c9a67;
+  color: #fff;
+  font-weight: 700;
+}
