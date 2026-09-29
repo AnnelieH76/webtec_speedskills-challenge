@@ -38,7 +38,7 @@
   color: #222;
 }
 
-/* Striping: give the middle row (Norway) a light gray background */
+/* Striping: give the even rows a light gray background */
 #emissions-table tbody tr:nth-child(even) {
   background-color: #f0f0f0;
 }
