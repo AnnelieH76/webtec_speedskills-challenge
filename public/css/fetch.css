@@ -22,6 +22,7 @@
   font-family: inherit;
   font-size: 1rem;
   margin-top: 10px;
+  border: 1px solid #777;
 }
 
 /* Header and data cells */
@@ -30,12 +31,14 @@
   padding: 12px 16px;
   font-weight: 700;
   color: #111;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #777;
+  border-bottom: 2px solid #777;
 }
 
 #emissions-table td {
   padding: 12px 16px;
   color: #222;
+  border: 1px solid #777;
 }
 
 /* Striping: give the even rows a light gray background */
@@ -43,7 +46,7 @@
   background-color: #f0f0f0;
 }
 
-/* Green highlight for the winning value (lowest Co2) */
+/* Green highlight for the winning (lowest) value  */
 #emissions-table td.winner {
   background-color: #5c9a67;
   color: #fff;

@@ -26,4 +26,34 @@
   /* Allocates 1 part of available space to the aside */
   background-color: #f1f1f1;
   /* Slightly darker gray background */
+  border-radius: 8px;
+  /* Rounded corners for a modern look */
+  padding: 1.5rem;
+  /* Space around the content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for a floating effect */
 }
+
+/* Skapa lite avstånd mellan varje val */
+.aside li {
+  margin-bottom: 0.5rem;
+}
+
+/* Ta bort standardpunkterna och justera indrag */
+.aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aside a:hover {
+  background-color: #eaf5ea;
+  border-left-color: #006400;
+  color: #006400;
+}
+
+.aside h2 {
+  margin-top: 0;
+}
+
+

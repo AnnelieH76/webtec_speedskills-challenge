@@ -13,7 +13,8 @@ const countries = [
 // FUNCTION DEFINITIONS
 // ------------------------------------------------------------------------------------
 
-// Generates and appends year options to the select element.
+
+// GENERATES AND APPENDS YEAR OPTIONS
 export function populateYearSelect() {
   // find the select menu by its unique HTML ID attribute
   const selectElement = document.getElementById('year-select')
@@ -25,36 +26,60 @@ export function populateYearSelect() {
     // Instantiate a new <option> HTML element in memory
     const option = document.createElement('option')
     // Set the hidden value when an option is selected
-    option.value = year 
+    option.value = year
     // The visible text for the user i dropdown list
-    option.textContent = year 
+    option.textContent = year
     // Append option element into the menu
-    selectElement.appendChild(option) 
+    selectElement.appendChild(option)
   }
 }
 
-// Builds table rows and highlights the lowest Co2 emission in green.
+// BUILDS TABLE AND HIGHLIGHTS THE LOWEST EMMISSION IN GREEN.
 export function renderTable(rows) {
   // Target the table body element where rows should be placed
   const tableBody = document.getElementById('table-body')
   // Stop the function immediately if the element does not exist
-  if (!tableBody) return 
+  if (!tableBody) return
 
   // Empty old rows so we do not get duplicate data
   tableBody.innerHTML = ''
 
-  // Start with the array of country objects and store the filtered numbers in a new array
+  // ----------------------------------------------------------------------------------------
+  // Co2: Start with the array of country objects and store the filtered numbers in a new array
   const validCo2Values = rows
     // Extract only the co2 value from each country object, creating an array of just numbers/nulls. Ex: [{ country: 'Sweden', co2: 9.171 }, ...] to [9.171, 4.155, 5.148]
     .map(row => row.co2)
     // Filter only actual numbers, removing null or undefined values
     .filter(val => typeof val === 'number')
 
-  // Declare a constant to hold the lowest emission number, check if the array contains at least one numeric value, Ternary operator(?) - If true: find the smallest number,
-  // Spread operator (...): unpacks array items into individual arguments, Colon (:) - If false: default to null
+  // Declare a constant to hold the lowest emission number, check if the array contains at least one numeric value, Ternary operator(?), If true: find the smallest number,
+  // Spread operator (...): unpacks array items into individual arguments, - If false: default to null
   const minCo2 = validCo2Values.length > 0 ? Math.min(...validCo2Values) : null
 
-  // Loop through each country's data object in the rows array
+  //-----------------------------------------------------------------------------------------
+  // Co2 PER CAPITA
+  // Collect all valid Co2 per capita numbers and calculate the lowest value
+  const validCo2PerCapita = rows
+    // Extract only the co2 value from each country object, creating an array of just numbers/nulls. Ex: [{ country: 'Sweden', co2: 9.171 }, ...] to [9.171, 4.155, 5.148]
+    .map(row => row.co2PerCapita)
+    // Filter only actual numbers, removing null or undefined values
+    .filter(val => typeof val === 'number')
+
+  // Declare a constant to hold the lowest emission number, check if the array contains at least one numeric value, Ternary operator(?), If true: find the smallest number,
+  // Spread operator (...): unpacks array items into individual arguments, - If false: default to null
+  const minPerCapita = validCo2PerCapita.length > 0 ? Math.min(...validCo2PerCapita) : null
+
+  // ------------------------------------------------------------------------------
+  // OIL CO2 
+  // Collect all valid oil Co2 numbers and calculate the lowest value
+  const validOilValues = rows
+    .map(row => row.oilCo2)
+    .filter(val => typeof val === 'number')
+
+  const minOilCo2 = validOilValues.length > 0 ? Math.min(...validOilValues) : null
+
+  //------------------------------------------------------------------------------------
+  // LOOP THROUGH EACH COUNTRY'S DATA OBJECT IN THE ROWS ARRAY
   for (let i = 0; i < rows.length; i++) {
     // Reference the current country object in this iteration
     const item = rows[i]
@@ -78,29 +103,37 @@ export function renderTable(rows) {
     // Condition: verify a minimum value exists and matches this country's emission number
     if (minCo2 !== null && item.co2 === minCo2) {
       // Add CSS class for green color
-      tdCo2.classList.add('winner') 
+      tdCo2.classList.add('winner')
     }
     // Append the Co2 cell to the row
     tr.appendChild(tdCo2)
 
     // 3. CO2 PER CAPITA CELL
-    // Create the data cell for emissions per inhabitant
+    // Create the data cell for emissions per capita
     const tdPerCapita = document.createElement('td')
     // Display the per-capita number, or fallback to '-' if no data exists for this year
     tdPerCapita.textContent = item.co2PerCapita !== null ? item.co2PerCapita : '-'
-    // Append the per-capita cell to the row
+
+    // Condition: verify a minimum value exists and matches this country's emission number
+    if (minPerCapita !== null && item.co2PerCapita === minPerCapita) {
+      tdPerCapita.classList.add('winner')
+    }
     tr.appendChild(tdPerCapita)
 
     // 4. OIL CO2 CELL
-    // Create the data cell for oil-derived emissions
+    // Create the data cell for oil emissions
     const tdOilCo2 = document.createElement('td')
     tdOilCo2.textContent = item.oilCo2 !== null ? item.oilCo2 : '-'
+    if (minOilCo2 !== null && item.oilCo2 === minOilCo2) {
+      tdOilCo2.classList.add('winner')
+    }
     tr.appendChild(tdOilCo2)
     tableBody.appendChild(tr)
   }
 }
 
-// Asynchronous event handler triggered when a user selects a year in the dropdown.
+// -------------------------------------------------------------------------------
+// EVENT HANDLER TRIGGERED WHEN A USER SELECTS A YEAR IN THE DROPDOWN.
 export async function fetchData(event) {
   // Read selected value from dropdown and parse string into base-10 integer
   const selectedYear = parseInt(event.target.value, 10)

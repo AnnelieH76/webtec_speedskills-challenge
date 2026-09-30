@@ -13,7 +13,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* Soft shadow for a floating effect */
   display: flow-root;
-  /* Establishes a new block formatting context so the box always contains floated children, like the image further down */
+  /* Establishes a new block formatting context so the box always contains floated children */
 }
 
 /**
