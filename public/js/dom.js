@@ -64,7 +64,7 @@ export function doubleClick(event) {
  */
 export function animateTimer (element) {
   let count = 0
-  const headerHeight = document.querySelector('.siteheader')?.offsetHeight || 100
+  const headerHeight = (document.querySelector('.siteheader')?.offsetHeight || 100) + 10
 
   const intervalId = setInterval(() => {
     // Randomize shape (toggle circle)
@@ -197,8 +197,8 @@ export function keyboardPress(event) {
     const randomIndex = Math.floor(Math.random() * colors.length)
     newBox.classList.add(colors[randomIndex])
 
-    // Calculate boundaries accounting for the site header
-    const headerHeight = document.querySelector('.siteheader')?.offsetHeight || 100
+    // Calculate boundaries accounting for the site header and + outliner 10px
+    const headerHeight = (document.querySelector('.siteheader')?.offsetHeight || 100) +10
     const maxLeft = Math.max(0, window.innerWidth - 200)
     const maxTop = Math.max(headerHeight, window.innerHeight - 200)
 
@@ -241,8 +241,8 @@ export function keyboardPress(event) {
       } else if (event.key === 'ArrowRight') {
         currentLeft = Math.min(maxLeft, currentLeft + step)
       } else if (event.key === 'ArrowUp') {
-        // Stop before siteheader
-        const headerHeight = document.querySelector('.siteheader')?.offsetHeight || 100
+        // Stop (outliner 10px) before siteheader
+        const headerHeight = (document.querySelector('.siteheader')?.offsetHeight || 100) +10
         currentTop = Math.max(headerHeight, currentTop - step)
       } else if (event.key === 'ArrowDown') {
         currentTop = Math.min(maxTop, currentTop + step)

@@ -1,5 +1,11 @@
+/* Instruction-link */
+.instructions {
+  margin: 1.5rem 0 0 1.5rem;
+}
+
 /* Base styles for both the start box and all spawned boxes */
-#box, .box {
+#box,
+.box {
   position: absolute;
   width: 200px;
   height: 200px;
@@ -26,12 +32,30 @@
 }
 
 /* Colors */
-.red { background-color: #e74c3c; }
-.orange { background-color: #e67e22; }
-.yellow { background-color: #f1c40f; }
-.green { background-color: #2ecc71; }
-.blue { background-color: #3498db; }
-.indigo { background-color: #4b0082; }
-.violet { background-color: #9b59b6; }
+.red {
+  background-color: #e74c3c;
+}
 
+.orange {
+  background-color: #e67e22;
+}
 
+.yellow {
+  background-color: #f1c40f;
+}
+
+.green {
+  background-color: #2ecc71;
+}
+
+.blue {
+  background-color: #3498db;
+}
+
+.indigo {
+  background-color: #4b0082;
+}
+
+.violet {
+  background-color: #9b59b6;
+}
