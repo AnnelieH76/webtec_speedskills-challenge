@@ -1,0 +1,10 @@
+{
+  "name": "Lisa",
+  "age": 28,
+  "isStudent": false,
+  "courses": ["Programmering", "Webbutveckling", "Databaser"],
+  "adress": {
+    "street": "Exempelgatan 12",
+    "city": "Göteborg"
+  }
+}

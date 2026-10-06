@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  padding: 2rem 1rem;
+}
+
+.content {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+label {
+  display: block;
+  margin-top: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Form input elements */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="color"] {
+  width: 100%;
+  height: 42px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  background: none;
+}
+
+input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Focus and validation outlines */
+input:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* User-invalid state after interaction */
+input.touched:invalid,
+select.touched:invalid {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+input:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+/* Fieldset and legend */
+fieldset {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1.2rem;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+}
+
+.inline-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: normal;
+  margin-right: 1.2rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+input[type="submit"] {
+  flex: 2;
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+  background-color: #111827;
+}
+
+#reset-btn {
+  flex: 1;
+  background-color: #e5e7eb;
+  color: #374151;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#reset-btn:hover {
+  background-color: #d1d5db;
+}
+
+/* Result box */
+.result-box {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  border-radius: 6px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+}
+
+.result-box h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-box pre {
+  font-family: monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.hidden {
+  display: none;
+}

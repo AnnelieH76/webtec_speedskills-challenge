@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaktivt formulär med validering</title>
+  <link rel="stylesheet" href="input-demo.css">
+</head>
+<body>
+
+  <!-- EXAMPLE FORM MAID WITH AI -->
+  <div id="content" class="content">
+    <form id="advanced-form" novalidate>
+      <h1>Formulär &amp; Interaktioner</h1>
+
+      <!-- Text: Required + Regex pattern + Min/Max length -->
+      <label for="username">Användarnamn (3-12 bokstäver):</label>
+      <input 
+        id="username" 
+        name="username" 
+        type="text" 
+        required 
+        minlength="3" 
+        maxlength="12" 
+        pattern="^[a-zA-ZåäöÅÄÖ]+$" 
+        placeholder="T.ex. Johan"
+      >
+
+      <!-- Number: Min/Max boundary + Step intervals -->
+      <label for="score">Poäng (intervall 0-100, steg om 5):</label>
+      <input 
+        id="score" 
+        name="score" 
+        type="number" 
+        min="0" 
+        max="100" 
+        step="5" 
+        value="50"
+      >
+
+      <!-- Range Slider: Synced dynamically via JS -->
+      <label for="volume">Volymkontroll: <span id="volume-val">70</span>%</label>
+      <input 
+        id="volume" 
+        name="volume" 
+        type="range" 
+        min="0" 
+        max="100" 
+        value="70"
+      >
+
+      <!-- Date: Min and Max dates -->
+      <label for="event-date">Bokningsdatum:</label>
+      <input 
+        id="event-date" 
+        name="eventDate" 
+        type="date" 
+        min="2026-01-01" 
+        max="2026-12-31" 
+        required
+      >
+
+      <!-- Color picker -->
+      <label for="fav-color">Välj färg:</label>
+      <input 
+        id="fav-color" 
+        name="favColor" 
+        type="color" 
+        value="#3b82f6"
+      >
+
+      <!-- Dropdown Select -->
+      <label for="category">Kategori:</label>
+      <select id="category" name="category" required>
+        <option value="">-- Välj en kategori --</option>
+        <option value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+        <option value="testing">Testautomation</option>
+      </select>
+
+      <!-- Radio Buttons -->
+      <fieldset>
+        <legend>Erfarenhetsnivå:</legend>
+        <label class="inline-label">
+          <input type="radio" name="level" value="junior" checked> Junior
+        </label>
+        <label class="inline-label">
+          <input type="radio" name="level" value="mid"> Mellannivå
+        </label>
+        <label class="inline-label">
+          <input type="radio" name="level" value="senior"> Senior
+        </label>
+      </fieldset>
+
+      <!-- Checkbox toggle: Disables/enables additional input -->
+      <fieldset>
+        <legend>Inställningar:</legend>
+        <label class="inline-label">
+          <input id="newsletter" name="newsletter" type="checkbox"> Prenumerera på nyhetsbrev
+        </label>
+        <input 
+          id="email-input" 
+          name="email" 
+          type="email" 
+          placeholder="Ange din e-postadress" 
+          disabled
+        >
+      </fieldset>
+
+      <!-- Button group -->
+      <div class="button-group">
+        <input type="submit" id="submit-btn" value="Skicka och granska">
+        <button type="button" id="reset-btn">Återställ</button>
+      </div>
+    </form>
+
+    <!-- Output container -->
+    <div id="result-box" class="result-box hidden">
+      <h2>Insamlad data</h2>
+      <pre id="output-json"></pre>
+    </div>
+  </div>
+
+  <script type="module" src="input-demo.js"></script>
+</body>
+</html>

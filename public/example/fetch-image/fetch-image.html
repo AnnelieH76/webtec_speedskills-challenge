@@ -1,0 +1,32 @@
+<!-- Se resultatet av fech-image (enklast): 
+Högerklicka på fech-image.html i filträdet
+välj Open with Live Server -->
+
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakgrundsbild med Fetch</title>
+  <style>
+    /* Nollställ marginaler på body så bakgrunden täcker hela rutan */
+    body {
+      margin: 0;
+    }
+
+    .background {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- type="module" krävs för att kunna köra await direkt i filen -->
+  <script type="module" src="fetch-image.js"></script>
+</body>
+</html>
