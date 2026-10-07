@@ -5,5 +5,6 @@ document.getElementById("nav-links").innerHTML = `
     <li><a href="onepage.html">Onepage</a></li>
     <li><a href="dom.html">DOM</a></li>
     <li><a href="fetch.html">Fetch</a></li>
+    <li><a href="duckhunt.html">Duckhunt</a></li>
   </ul>
 `

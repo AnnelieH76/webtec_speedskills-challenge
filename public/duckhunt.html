@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive-design.css">
+  <link rel="stylesheet" href="css/duckhunt.css">
+  <title>En sida för Duckhunt-uppgiften | Kursen webtec</title>
+  <meta name="description" content="Min Duckhunt-uppgift i kursen webtec">
+</head>
+
+<body>
+  <header class="siteheader">
+    <div>
+      <a class="brand" href="me.html">
+        <img src="img/leaf.png" alt="Logotyp">
+        <span>Kursen webtec</span>
+      </a>
+    </div>
+    <nav class="navbar">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
+      <ul id="nav-links" class="nav-links"></ul>
+    </nav>
+  </header>
+
+  <!-- DUCKHUNT GAME -->
+  <div class="wrap">
+    <main class="main">
+      <article class="article">
+        <h1>Duckhunt game</h1>
+
+        <p>Välj inställningar nedan och tryck på "Starta spelet" för att sätta igång jakten på ankan!</p>
+
+        <!-- Container för inställningar -->
+        <div class="carbon-card" id="settings-card">
+          <h2 class="card-title">Inställningar</h2>
+
+          <form id="game-settings-form">
+            <!-- Bakgrundsbild: Inputfält för 0-5 (0 = slumpa) -->
+            <label for="bg-select">Bakgrund (0 för slumpa, 1–5):</label>
+            <!--  Gränsvärden 0-5, grundvärde 0, heltal, obligatoriskt-->
+            <input id="bg-select" name="background" type="number" min="0" max="5" value="0" step="1" required>
+
+            <!-- Speltid: Dropdown meny för 10, 20 eller 30 sekunder (select spärrar allt annat) -->
+            <label for="game-duration">Speltid:</label>
+            <select id="game-duration" name="duration" required>
+              <option value="10">10 sekunder</option>
+              <option value="20">20 sekunder</option>
+              <option value="30">30 sekunder</option>
+            </select>
+
+            <!-- Förflyttningsintervall: Dropdown meny för 1, 2 eller 3 sekunder -->
+            <label for="duck-speed">Hastighet (intervall):</label>
+            <select id="duck-speed" name="speed" required>
+              <option value="1">1 sekund (Snabb)</option>
+              <option value="2" selected>2 sekunder (Medel)</option>
+              <option value="3">3 sekunder (Långsam)</option>
+            </select>
+
+            <input type="submit" id="start-btn" value="Starta spelet">
+          </form>
+
+          <!-- Laddningsindikator medan fetch hämtar bilderna -->
+          <div id="loading-overlay" class="hidden">
+            <p>Laddar, var god vänta...</p>
+          </div>
+        </div>
+
+        <!-- Spelområdet (dolt tills spelet startar) -->
+        <div id="game-area" class="game-area hidden">
+          <!-- Statusfält för poäng och tid -->
+          <div class="game-hud">
+            <span class="hud-item">Tid kvar: <strong id="time-left">0</strong>s</span>
+            <span class="hud-item">Poäng: <strong id="score-display">0</strong></span>
+          </div>
+
+          <!-- Själva ankan som skapas och flyttas i DOM -->
+          <img id="duck" class="duck hidden" alt="Anka">
+        </div>
+
+        <!-- Slutskärm med resultat -->
+        <div id="game-over-modal" class="carbon-card hidden">
+          <h2>Tiden är ute!</h2>
+          <p>Ditt slutresultat: <strong id="final-score">0</strong> poäng.</p>
+          <button type="button" id="play-again-btn">Spela igen</button>
+        </div>
+      </article>
+    </main>
+  </div>
+
+
+  <footer class="sitefooter">
+    <div class="footer-triptych">
+      <div class="footer-column">
+        <h2>Tekniker</h2>
+        <ul>
+          <li><a href="https://www.w3schools.com/html/">HTML Tutorial</a></li>
+          <li><a href="https://www.w3schools.com/css/">CSS Tutorial</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3Ht9L_9mB6M&list=PLKtP9l5q3ce8v_z6kLJsIfCJNP4zEtd9c">Kom i gång
+              med JavaScript</a></li>
+          <li><a href="https://www.markdownguide.org/cheat-sheet/">Markdown textfiler</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h2>Manualer</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">MDN: HTML referens</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">MDN: CSS referens</a></li>
+          <li><a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a></li>
+          <li><a href="https://www.w3.org/Style/CSS/">CSS Standard</a></li>
+          <li><a href="https://www.w3.org/2009/cheatsheet/">Cheat Sheet</a></li>
+          <li><a href="https://whatwg.org/">WHATWG Standardiseringsorgan</a></li>
+          <li><a href="https://www.w3.org/">W3C Standardiseringsorgan</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h2>Verktyg</h2>
+        <ul>
+          <li><a href="https://validator.w3.org/">W3C:s HTML-validation </a></li>
+          <li><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">W3C:s CSS-validation </a></li>
+          <li><a href="https://mermaid.js.org/syntax/flowchart.html">Mermaid Flowchart för md-filer</a></li>
+          <li><a href="https://caniuse.com/">CanIUse</a></li>
+          <li><a href="https://codepen.io/">CodePen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Kursen Webtec. Copyright av Annelie Hagen.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/menu.js"></script>
+  <script type="module" src="js/duckhunt.js"></script>
+  <script src="js/responsive-design.js"></script>
+
+</body>
+
+</html>
