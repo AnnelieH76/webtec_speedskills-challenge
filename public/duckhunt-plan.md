@@ -96,7 +96,7 @@ Function moveDuck()
 Function onDuckClick()
   Öka GameObject.score med 1
   Uppdatera poäng i DOM
-  Flytta ankan direkt (moveDuck()) för direkt respons
+  Flytta ankan (moveDuck())
 
 // 4. Avsluta spelet
 Function endGame()

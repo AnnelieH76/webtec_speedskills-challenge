@@ -29,9 +29,13 @@
   <div class="wrap">
     <main class="main">
       <article class="article">
-        <h1>Duckhunt game</h1>
 
-        <p>Välj inställningar nedan och tryck på "Starta spelet" för att sätta igång jakten på ankan!</p>
+        <div id="game-intro">
+          <h1>Duckhunt game</h1>
+
+          <p>Välj inställningar nedan och tryck på "Starta spelet" för att sätta igång jakten på ankan!</p>
+          <p>För varje gång du klickar på ankan får du 1 poäng.</p>
+        </div>
 
         <!-- Container för inställningar -->
         <div class="carbon-card" id="settings-card">
@@ -39,7 +43,7 @@
 
           <form id="game-settings-form">
             <!-- Bakgrundsbild: Inputfält för 0-5 (0 = slumpa) -->
-            <label for="bg-select">Bakgrund (0 för slumpa, 1–5):</label>
+            <label for="bg-select">Välj bakgrund 1–5 (0 för slumpa):</label>
             <!--  Gränsvärden 0-5, grundvärde 0, heltal, obligatoriskt-->
             <input id="bg-select" name="background" type="number" min="0" max="5" value="0" step="1" required>
 
@@ -55,7 +59,7 @@
             <label for="duck-speed">Hastighet (intervall):</label>
             <select id="duck-speed" name="speed" required>
               <option value="1">1 sekund (Snabb)</option>
-              <option value="2" selected>2 sekunder (Medel)</option>
+              <option value="2" selected>2 sekunder (Medel)</option> <!--Förvald -->
               <option value="3">3 sekunder (Långsam)</option>
             </select>
 
