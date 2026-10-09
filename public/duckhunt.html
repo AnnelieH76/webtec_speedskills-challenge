@@ -39,36 +39,52 @@
 
         <!-- Container för inställningar -->
         <div class="carbon-card" id="settings-card">
-          <h2 class="card-title">Inställningar</h2>
+          <div class="settings-body">
 
-          <form id="game-settings-form">
-            <!-- Bakgrundsbild: Inputfält för 0-5 (0 = slumpa) -->
-            <label for="bg-select">Välj bakgrund 1–5 (0 för slumpa):</label>
-            <!--  Gränsvärden 0-5, grundvärde 0, heltal, obligatoriskt-->
-            <input id="bg-select" name="background" type="number" min="0" max="5" value="0" step="1" required>
+            <!-- Form on the left -->
+            <form id="game-settings-form">
+              <h2 class="card-title">Inställningar</h2>
+              <!-- Bakgrundsbild: Inputfält för 0-5 (0 = slumpa) -->
+              <label for="bg-select">Ange bakgrund 1–5, eller 0 för att slumpa:</label>
+              <!--  Gränsvärden 0-5, grundvärde 0, heltal, obligatoriskt-->
+              <input id="bg-select" name="background" type="number" min="0" max="5" value="0" step="1" required>
 
-            <!-- Speltid: Dropdown meny för 10, 20 eller 30 sekunder (select spärrar allt annat) -->
-            <label for="game-duration">Speltid:</label>
-            <select id="game-duration" name="duration" required>
-              <option value="10">10 sekunder</option>
-              <option value="20">20 sekunder</option>
-              <option value="30">30 sekunder</option>
-            </select>
+              <!-- Speltid: Dropdown meny för 10, 20 eller 30 sekunder (select spärrar allt annat) -->
+              <label for="game-duration">Speltid:</label>
+              <select id="game-duration" name="duration">
+                <option value="10">10 sekunder</option>
+                <option value="20">20 sekunder</option>
+                <option value="30">30 sekunder</option>
+              </select>
 
-            <!-- Förflyttningsintervall: Dropdown meny för 1, 2 eller 3 sekunder -->
-            <label for="duck-speed">Hastighet (intervall):</label>
-            <select id="duck-speed" name="speed" required>
-              <option value="1">1 sekund (Snabb)</option>
-              <option value="2" selected>2 sekunder (Medel)</option> <!--Förvald -->
-              <option value="3">3 sekunder (Långsam)</option>
-            </select>
+              <!-- Förflyttningsintervall: Dropdown meny för 1, 2 eller 3 sekunder -->
+              <label for="duck-speed">Hastighet:</label>
+              <select id="duck-speed" name="speed">
+                <option value="1">1 sekund (Snabb)</option>
+                <option value="2" selected>2 sekunder (Medel)</option> <!--Förvald -->
+                <option value="3">3 sekunder (Långsam)</option>
+              </select>
 
-            <input type="submit" id="start-btn" value="Starta spelet">
-          </form>
+              <!-- Svårighetsgrad: Dropdown meny för lätt, medel eller svår -->
+              <label for="game-difficulty">Svårighetsgrad:</label>
+              <select id="game-difficulty" name="difficulty">
+                <option value="easy">Lätt (Stor anka, 1p)</option>
+                <option value="medium" selected>Medel (Normal anka, 2p)</option>
+                <option value="hard">Svår (Liten anka, 3p)</option>
+              </select>
 
-          <!-- Laddningsindikator medan fetch hämtar bilderna -->
-          <div id="loading-overlay" class="hidden">
-            <p>Laddar, var god vänta...</p>
+              <input type="submit" id="start-btn" value="Starta spelet">
+            </form>
+
+            <!-- Image on the right  / bottom on responsive view -->
+            <div class="settings-image-wrapper">
+              <img src="img/frontimage.png" alt="Game preview" class="settings-front-img">
+            </div>
+
+            <!-- Laddningsindikator medan fetch hämtar bilderna -->
+            <div id="loading-overlay" class="hidden">
+              <p>Laddar, var god vänta...</p>
+            </div>
           </div>
         </div>
 
@@ -81,7 +97,7 @@
           </div>
 
           <!-- Själva ankan som skapas och flyttas i DOM -->
-          <img id="duck" class="duck hidden" alt="Anka">
+          <img id="duck" class="duck hidden" src="img/duckie.png" alt="Anka">
         </div>
 
         <!-- Slutskärm med resultat -->

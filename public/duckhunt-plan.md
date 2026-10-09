@@ -45,10 +45,9 @@ När tiden är slut presenteras poängen via funktionen endGame() och spelet är
 
 ### Extra uppgifter (optionellt)
 Se till så man kan välja svårighetsgrad som påverkar till exempel:
-ankans storlek?
+ankans storlek
+poängen
 Kan man få ankan att röra sig i olika riktningar och inte slumpas fram?
-Snurra?
-Ljud?
 
 
 ## 3. Pseudokod & Flöde

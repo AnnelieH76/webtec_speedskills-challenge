@@ -9,11 +9,16 @@
 const BACKGROUND_BASE_URL = 'https://raw.githubusercontent.com/bth-webtec/teacher/main/kmom06/backgrounds/'
 const DUCK_IMAGE_URL = 'https://raw.githubusercontent.com/bth-webtec/teacher/main/kmom06/duck/duck.png'
 
+// Sound effect for successful duck hits
+const hitSound = new Audio('audio/pop.mp3')
+
 // Global game object holding active values, timers, and blob references
 const gameObject = {
   score: 0,
   duration: 10,
   speed: 2000,
+  duckSize: 70,
+  pointsPerHit: 2,
   backgroundId: 0,
   bgBlobUrl: null,
   duckBlobUrl: null,
@@ -34,6 +39,7 @@ const startBtn = document.getElementById('start-btn') // submit button
 const bgInput = document.getElementById('bg-select') // Background number 
 const durationSelect = document.getElementById('game-duration') // Duration dropdown menu
 const speedSelect = document.getElementById('duck-speed') // Speed dropdown menu
+const difficultySelect = document.getElementById('game-difficulty')
 
 // DOM references: gameplay area, HUD, and modal
 const gameArea = document.getElementById('game-area')
@@ -88,6 +94,19 @@ async function setupGame() {
   const chosenBg = parseInt(bgInput.value, 10)
   const chosenDuration = parseInt(durationSelect.value, 10)
   const chosenSpeed = parseInt(speedSelect.value, 10)
+  const chosenDifficulty = difficultySelect.value
+
+  // Configure duck dimensions and score weight based on selected tier
+  if (chosenDifficulty === 'easy') {
+    gameObject.duckSize = 100
+    gameObject.pointsPerHit = 1
+  } else if (chosenDifficulty === 'hard') {
+    gameObject.duckSize = 45
+    gameObject.pointsPerHit = 3
+  } else {
+    gameObject.duckSize = 70
+    gameObject.pointsPerHit = 2
+  }
 
   // Pick random background ID (1-5) if input is 0, else keep selected ID
   gameObject.backgroundId = chosenBg === 0 ? Math.floor(Math.random() * 5) + 1 : chosenBg
@@ -101,8 +120,8 @@ async function setupGame() {
   // Disable submit button to prevent redundant network requests
   startBtn.disabled = true
 
-  // Artificial 1-second delay to keep the loading message visible
-  await delay(1000)
+  // Artificial delay in milliseconds to keep the loading message visible
+  await delay(500) 
 
   try {
     // Construct full image URL for the chosen background file
@@ -139,27 +158,36 @@ async function setupGame() {
 // -----------------------------------------------------
 
 /**
- * Compute random coordinates within board bounds and move duck
+ * Calculate dynamic boundaries and reposition the duck within the gameboard
  */
 function moveDuck() {
-  // Duck size matches 80px in duckhunt.css
-  const duckSize = 80
+  // Use duckElement offset dimensions (or gameObject.duckSize) to prevent edge overflow
+  const duckWidth = duckElement.offsetWidth || gameObject.duckSize
+  const duckHeight = duckElement.offsetHeight || gameObject.duckSize
 
-  // Calculate highest allowed X and Y coordinates inside boundaries
-  const maxX = Math.max(0, gameArea.clientWidth - duckSize)
-  const maxY = Math.max(0, gameArea.clientHeight - duckSize)
+  // Calculate available coordinates while keeping the entire duck visible
+  const maxX = Math.max(0, gameArea.clientWidth - duckWidth)
+  const maxY = Math.max(0, gameArea.clientHeight - duckHeight)
 
-  // Apply randomized positions
-  duckElement.style.left = `${Math.floor(Math.random() * maxX)}px`
-  duckElement.style.top = `${Math.floor(Math.random() * maxY)}px`
+  // Generate safe random positions
+  const randomX = Math.floor(Math.random() * maxX)
+  const randomY = Math.floor(Math.random() * maxY)
+
+  duckElement.style.left = `${randomX}px`
+  duckElement.style.top = `${randomY}px`
 }
 
 /**
  * The function increment score and relocate target
  */
 function handleDuckHit() {
-  // Increment captured score count by 1
-  gameObject.score += 1
+
+  // Reset sound to start and play immediately on every hit
+  hitSound.currentTime = 0
+  hitSound.play()
+
+  // Increment score based on difficulty
+  gameObject.score += gameObject.pointsPerHit
   // Update score count text in HUD
   scoreDisplay.textContent = gameObject.score
 
@@ -194,6 +222,11 @@ function endGame() {
  * Initialize round, bind assets to DOM, and start countdown timers
  */
 function startGame() {
+
+  // Clear any residual running intervals
+  clearInterval(gameObject.gameTimer)
+  clearInterval(gameObject.duckInterval)
+
   // Reset active score counter to 0
   gameObject.score = 0
   // Initialize remaining time from selected duration
@@ -202,11 +235,11 @@ function startGame() {
   scoreDisplay.textContent = gameObject.score
   // Render initial countdown timer to HUD
   timeLeftDisplay.textContent = gameObject.timeLeft
-
-  // Set board background and duck image using local blob URL
+  // Set board background image using local blob URL
   gameArea.style.backgroundImage = `url('${gameObject.bgBlobUrl}')`
+  // Set duck image using local blob URL and dimensions according to selected difficulty
   duckElement.src = gameObject.duckBlobUrl
-
+  duckElement.style.width = `${gameObject.duckSize}px`
   // Hide game intro
   gameIntro.classList.add('hidden')
   // Hide setting card

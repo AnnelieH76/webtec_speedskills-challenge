@@ -15,7 +15,7 @@
 /* 2. Gör kortet följsamt och centrera vid behov */
 .carbon-card {
   width: 100%;
-  max-width: 300px; /* Håller formuläret behagligt brett på stora skärmar */
+  max-width: 800px; /* Håller formuläret behagligt brett på stora skärmar */
   box-sizing: border-box;
 }
 
@@ -27,12 +27,13 @@
 /* --------------------------------------------------------------------------
    Settings Form & Controls
    -------------------------------------------------------------------------- */
+
 #game-settings-form {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1rem;
-  width: 100%;
+  gap: 0.5rem;
+  margin-top: 0rem;
+  flex: 0 0 280px; /* Ger formuläret fast bredd */
   box-sizing: border-box;
 }
 
@@ -121,12 +122,10 @@
   color: #4ade80;
 }
 
-/* --------------------------------------------------------------------------
-   The Duck
-   -------------------------------------------------------------------------- */
+/* The Duck */
 .duck {
   position: absolute;
-  width: 80px;
+  width: 70px;
   height: auto;
   cursor: pointer;
   z-index: 5;
@@ -145,4 +144,57 @@
 #game-over-modal h2 {
   margin-bottom: 0.5rem;
   color: #1a1a1a;
+}
+/* --------------------------------------------------------------------------
+   Front image
+   --------------------------------------------------------------- */
+/* Layout för inställningskortets innehåll */
+.settings-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* Bildbehållaren och bildstorlek */
+.settings-image-wrapper {
+  flex: 1; /* Låter bildbehållaren ta resten av utrymmet till höger */
+  display: flex;
+  justify-content: flex-end; /* Trycker bilden hela vägen mot högerkanten */
+  align-items: center;
+}
+
+.settings-front-img {
+  width: 100%;
+  max-width: 380px; /* Lagom storlek så den inte tar över hela kortet */
+  height: auto;
+  border-radius: 6px; /* Mjuka hörn som matchar spelet */
+}
+
+
+/* ------------------------------------------------------
+Responsiv layout
+--------------------------------------------------------- */
+@media (max-width: 650px) {
+  .settings-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #game-settings-form {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .settings-image-wrapper {
+    justify-content: center; /* Centrerar bilden under formuläret */
+    margin-top: 1.5rem;
+  }
+
+  .settings-front-img {
+    width: 100%;
+    max-width: 260px; /* Responsiv och prydlig på mindre skärmar */
+  }
 }
