@@ -7,7 +7,6 @@
 
 ---
 
-
 ## 2. Krav
 
 ### Setup (Innan spelet startar)
