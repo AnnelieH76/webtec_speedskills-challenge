@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Responsivitet -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/project.css">
+  <title>Spela SpeedSkills Challenge | Projekt kmom10</title>
+  <meta name="description" content="Spelmodul">
+</head>
+
+<body>
+  <!-- Navigation / Header -->
+  <header class="siteheader">
+    <div class="header-container">
+      <div class="header-brand-wrap">
+        <a class="brand" href="project.html">
+          <img src="img-project/ss_challenge_logo.jpeg" alt="Logotyp" class="site-logo">
+        </a>
+      </div>
+
+      <nav class="navbar">
+        <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
+        <ul id="nav-links" class="nav-links">
+          <li><a href="project.html#home">Home</a></li>
+          <li><a href="project.html#about">Om spelet</a></li>
+          <li><a href="project.html#instructions">Instruktioner</a></li>
+          <li><a href="project.html#highscore">Poängtabell</a></li>
+          <li><a href="project.html#contact">Kontakt</a></li>
+          <li><a href="play.html" class="nav-btn-highlight">Spela nu</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <article class="article">
+
+      <!-- 1. Introduktion före start -->
+      <div id="game-intro">
+        <h1>SpeedSkills Challenge</h1>
+        <p>Jaga motorcyklar, apex och målflaggan men undvik vattenpölarna.</p>
+
+      </div>
+
+      <!-- 2. Inställningskort (visas innan spelstart) -->
+      <div class="carbon-card" id="settings-card">
+        <div class="settings-body">
+          <form id="game-settings-form">
+            <h2 class="card-title">Inställningar</h2>
+
+            <!-- Svårighetsgrad kopplad till easy.json, normal.json, hard.json -->
+            <label for="game-difficulty">Välj grupp (svårighetsgrad):</label>
+            <select id="game-difficulty" name="difficulty">
+              <option value="easy">Lugnt tempo, stor träffyta, 1p</option>
+              <option value="normal" selected>Medeltempo, normalt träffyta, 2p</option>
+              <option value="hard">Snabbt tempo, liten träffyta, 3p</option>
+            </select>
+
+            <!-- Val av bana / bakgrundsbild -->
+            <label for="track-select">Välj bana:</label>
+            <select id="track-select" name="track">
+              <option value="img-project/karlskoga_bana.jpeg">Karlskoga Motorarena </option>
+              <option value="img-project/mantorp_bana.jpeg">Mantorp Motorarena</option>
+              <option value="img-project/vastgota_bana.jpeg">Västgötabanan</option>
+            </select>
+
+            <input type="submit" id="start-btn" class="btn btn-primary" value="Starta utmaningen">
+          </form>
+
+          <div class="settings-image-wrapper">
+            <img src="img-project/target_mc.jpeg" alt="Förare på bana" class="settings-preview-img">
+          </div>
+        </div>
+
+        <!-- Laddningsindikator vid fetch av JSON -->
+        <div id="loading-overlay" class="hidden">
+          <p>Laddar, var god vänta...</p>
+        </div>
+      </div>
+
+      <!-- 3. Spelplan, dold tills spelet startas -->
+      <div id="game-area" class="game-area hidden">
+        <div class="game-hud">
+          <span class="hud-item">Tid kvar: <strong id="time-left">30</strong>s</span>
+          <span class="hud-item">Poäng: <strong id="score-display">0</strong></span>
+          <span class="hud-item">Svårighetsgrad: <strong id="tier-display">-</strong></span>
+        </div>
+      
+        <!-- Målobjektet som flyttar runt -->
+        <img id="target-element" class="target-item hidden" src="img-project/target_apex.jpeg" alt="Mål på banan">
+      </div>
+
+      <!-- 4. Resultat / Game Over, visas när tiden är slut -->
+      <div id="game-over-modal" class="carbon-card hidden">
+        <h2>Målflagg! Passet är slut</h2>
+        <p>Grattis, ditt slutresultat blev: <strong id="final-score">0</strong> poäng.</p>
+        <div class="modal-actions">
+          <button type="button" id="play-again-btn" class="btn btn-primary">Kör igen</button>
+          <a href="project.html#highscore" class="btn btn-secondary">Visa Poängtabell</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Läs in JavaScript i slutet -->
+  <script type="module" src="js/project.js"></script>
+</body>
+
+</html>

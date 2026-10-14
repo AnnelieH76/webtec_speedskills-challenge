@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html lang="sv">
 
 <head>
   <meta charset="UTF-8">
   <!-- Responsivitet -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/project.css">
   <title>SpeedSkills Challenge|Projekt komom10</title>
   <meta name="description"
@@ -12,12 +13,13 @@
 </head>
 
 <body id="home">
+  <!-- Navigation / Header -->
   <header class="siteheader">
     <div class="header-container">
       <div class="header-brand-wrap">
         <a class="brand" href="project.html">
-          <img src="img-project/SpeedSkills_logo.png" alt="Logotyp" class="site-logo">
-          <span>SpeedSkills Challange</span>
+          <img src="img-project/ss_challenge_logo.jpeg" alt="Logotyp" class="site-logo">
+          <span>SpeedSkills Challenge</span>
         </a>
       </div>
 
@@ -29,103 +31,109 @@
           <li><a href="#instructions">Instruktioner</a></li>
           <li><a href="#highscore">Poängtabell</a></li>
           <li><a href="#contact">Kontakt</a></li>
-          <li><a href="play.html" class="nav-btn-highlight">Spela nu</a></li>
+          <li><a href="project_play.html" class="nav-btn-highlight">Spela nu</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="wrapper">
+    <article class="article">
 
-    <!-- Hero Section 1-->
-    <section id="hero" class="hero-section">
-      <div class="hero-content">
-        <h1>FART, UTMANING OCH PRECISION</h1>
-        <p class="hero-lead">Sätt reaktionsförmågan på prov på banan. Jaga apex, kapa tider och slå banrekordet innan
-          målflaggan viftar!</p>
-        <a href="play.html" class="btn btn-primary">Starta utmaningen</a>
-      </div>
-    </section>
+      <!-- Hero Section 1-->
+      <section id="hero" class="hero-section">
+        <div class="hero-content">
+          <h1>SpeedSkills Challenge</h1>
+          <h2>FART, UTMANING OCH PRECISION</h2>
+          <p class="hero-lead">Sätt reaktionsförmågan på prov på banan. Jaga motorcyklar, apex och målflaggan men undvik vattenpölarna!</p>
+          <a href="project_play.html" class="btn btn-primary">Starta utmaningen</a>
+        </div>
+      </section>
 
-    <!-- Sektion 2: Om spelet och spelidén (Krav 2.4) -->
-    <section id="about" class="section2">
-      <div class="section-heading">
-        <h2>Spelidén: SpeedSkills Challenge</h2>
-        <div class="heading-line"></div>
-      </div>
-      <div class="grid-2-col">
-        <div class="col-text">
-          <p>
-            Efter succén med Duckhunt tar SpeedSkills upplevelsen till asfalten. 
-            I <strong>SpeedSkills Challenge</strong> sätts din reaktionsförmåga och precision på prov i en intensiv jakt.
-          </p>
-          <p>
-            Målet är enkelt men utmanande: "Hit the apex" genom att klicka på kurvan och jaga motorcyklarna. Varje träff ger poäng, men klockan tickar obönhörligt nedåt.
-          </p>
-          <p>
-            Spelet anpassar svårighetsgrad, motorcykelns storlek och poängvikt dynamiskt via externa JSON-profiler för en skräddarsydd upplevelse.
-          </p>
+      <!-- Sektion 2: Om spelet och spelidén (Krav 2.4) -->
+      <section id="about" class="section2">
+        <div class="section-heading">
+          <h2>Spelidén: SpeedSkills Challenge</h2>
+          <div class="heading-line"></div>
         </div>
-        <div class="col-image">
-          <img src="img-project/" alt="SpeedSkills Challenge förhandsvisning" class="game-img">
+        <div class="grid-2-col">
+          <div class="col-text">
+            <p>
+              Efter succén-spelet Duckhunt tar vi upplevelsen till roadracingbanan.
+              I <strong>SpeedSkills Challenge</strong> sätts din reaktionsförmåga och precision på prov i en intensiv
+              jakt.
+            </p>
+            <p>
+              Målet är enkelt men utmanande: Klicka på motorcyklar, apex och målflagga men gör allt för att undvika vattenpölarna! Varje
+              träff ger poäng förutom vattenpölarna som ger minuspoäng medan klockan tickar obönhörligt nedåt.
+            </p>
+            <p>
+              Spelet anpassar tempo och utmaningar dynamiskt efter svårighetsgrad via externa JSON-filer för
+              en skräddarsydd upplevelse.
+            </p>
+          </div>
+          <div class="col-image">
+            <img src="img-project/" alt="SpeedSkills Challenge förhandsvisning" class="game-img">
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Sektion 3: Instruktioner (Krav 2.5) -->
-    <section id="how-to-play" class="section3 alternate-bg">
-      <div class="section-heading">
-        <h2>Hur man spelar</h2>
-        <div class="heading-line"></div>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">01</div>
-          <h3>Välj setup</h3>
-          <p>Välj din svårighetsgrad. Profilen läser asynkront in inställningar för fart, fordonsstorlek och poängfaktor via JSON.</p>
+      <!-- Sektion 3: Instruktioner (Krav 2.5) -->
+      <section id="instructions" class="section3 alternate-bg">
+        <div class="section-heading">
+          <h2>Hur man spelar</h2>
+          <div class="heading-line"></div>
         </div>
-        <div class="step-card">
-          <div class="step-number">02</div>
-          <h3>Jaga apex</h3>
-          <p>Klicka på symbolerna så fort den dyker upp på banan. Ju högre svårighetsgrad, desto mindre mål och snabbare förflyttning.</p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Välj setup</h3>
+            <p>Välj bana och svårighetsgrad.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Jaga apex</h3>
+            <p>Klicka på symbolerna så fort den dyker upp på banan. Ju högre svårighetsgrad, desto mindre mål och
+              snabbare förflyttning.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Sätt rekord</h3>
+            <p>Samla så många poäng du kan under utsatt tid och ta en plats på sessionens officiella highscorelista.</p>
+          </div>
         </div>
-        <div class="step-card">
-          <div class="step-number">03</div>
-          <h3>Sätt banrekord</h3>
-          <p>Samla så många poäng du kan under utsatt tid och ta en plats på sessionens officiella highscorelista.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Sektion 4: Highscorelista i tabell (Krav 3) -->
-    <section id="highscore-section" class="section4 alternate-bg">
-      <div class="section-heading">
-        <h2>Dagens Poängtabell</h2>
-        <div class="heading-line"></div>
-      </div>
-      <p class="section-intro">
-        Dagens pass sparas i sessionens resultatlista nedan och sorteras efter högst poäng.
-      </p>
-      
-      <div class="table-container">
-        <table class="highscore-table" id="highscore-table">
-          <thead>
-            <tr>
-              <th>Grupp (Svårighet)</th>
-              <th>Placering</th>
-              <th>Poäng</th>
-            </tr>
-          </thead>
-          <tbody id="highscore-body">
-            <!-- Rader genereras dynamiskt av project.js -->
-            <tr class="empty-row">
-              <td colspan="4">Inga tider satta ännu. Starta en session ovan!</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <!-- Sektion 4: Highscorelista i tabell (Krav 3) -->
+      <section id="highscore" class="section4 alternate-bg">
+        <div class="section-heading">
+          <h2>Poängtabell</h2>
+          <div class="heading-line"></div>
+        </div>
+        <p class="section-intro">
+          Sessionen sparas i resultatlistan nedan och sorteras efter högst poäng.
+        </p>
 
+        <div class="table-container">
+          <table class="highscore-table" id="highscore-table">
+            <thead>
+              <tr>
+                <th>Poäng</th>
+                <th>Placering</th>
+                <th>Namn</th>
+                <th>Svårighetsgrad</th>
+              </tr>
+            </thead>
+            <tbody id="highscore-body">
+              <!-- Rader genereras dynamiskt av project.js -->
+              <tr class="empty-row">
+                <td colspan="4">Inga spelade spel än. Starta en session ovan!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </article>
   </main>
 
   <!-- Tredelad Footer (Krav 1.7) -->
@@ -133,25 +141,24 @@
     <div class="footer-inner">
       <div class="footer-col">
         <h4>Kontakt</h4>
-        <p>Ett webbaserat reaktionsspel inspirerat av trackdays, kurvteknik och bankörning. 
-          Nästa utmaning är att prova detta på riktigt! 
-          Besök <a href="https://speedskills.se/">SpeedSkills hemsida</a> för kontakt med eventarrangören.</p>
+        <p>Nästa utmaning är att prova detta på riktigt!</p>
+        <p>Besök <a class="contact-link" href="https://speedskills.se/">www.speedskills.se</a></p>
       </div>
       <div class="footer-col">
         <h4>Snabblänkar</h4>
         <ul class="footer-links">
-          <li><a href="#about-game">Om spelet</a></li>
-          <li><a href="#how-to-play">Instruktioner</a></li>
-          <li><a href="#game-section">Spelplan</a></li>
-          <li><a href="#highscore-section">Highscore</a></li>
+          <li><a href="#about">Om spelet</a></li>
+          <li><a href="#instructions">Instruktioner</a></li>
+          <li><a href="#highscore">Poängtabell</a></li>
+          <li><a href="project_play.html">Spela nu</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Projektet</h4>
-        <p>Examinerande slutprojekt i kursen Webtec.</p>
+        <p>Ett webbaserat reaktionsspel inspirerat av trackdays, motorcykelkörning och kurvteknik. Detta är ett examinerande slutprojekt i kursen Webtec.</p>
       </div>
 
-       <div class="footer-bottom">
+      <div class="footer-bottom">
         <p>&copy; 2026 SpeedSkills Challenge. Copyright av Annelie Hagen.</p>
       </div>
     </div>

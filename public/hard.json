@@ -1,0 +1,7 @@
+{
+  "tierName": "Race",
+  "speed": 750,
+  "targetSize": 45,
+  "pointsPerHit": 3,
+  "gameDuration": 30
+}
