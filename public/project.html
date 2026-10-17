@@ -69,12 +69,12 @@
               träff ger poäng förutom vattenpölarna som ger minuspoäng medan klockan tickar obönhörligt nedåt.
             </p>
             <p>
-              Spelet anpassar tempo och utmaningar dynamiskt efter svårighetsgrad via externa JSON-filer för
+              Spelet anpassar tempo och utmaningar dynamiskt efter svårighetsgrad för
               en skräddarsydd upplevelse.
             </p>
           </div>
           <div class="col-image">
-            <img src="img-project/" alt="SpeedSkills Challenge förhandsvisning" class="game-img">
+            <img src="img-project/target_mc.jpeg" alt="SpeedSkills Challenge förhandsvisning" class="game-img">
           </div>
         </div>
       </section>
@@ -94,7 +94,8 @@
           <div class="step-card">
             <div class="step-number">02</div>
             <h3>Jaga poäng</h3>
-            <p>Klicka på symbolerna så fort den dyker upp på banan men undvik vattenpölarna. Ju högre svårighetsgrad, desto mindre mål och
+            <p>Klicka på symbolerna så fort de dyker upp på banan men undvik vattenpölarna. Ju högre svårighetsgrad,
+              desto mindre mål och
               snabbare förflyttning.</p>
           </div>
           <div class="step-card">
@@ -102,6 +103,130 @@
             <h3>Sätt rekord</h3>
             <p>Samla så många poäng du kan under utsatt tid och ta en plats på sessionens officiella highscorelista.</p>
           </div>
+        </div>
+      </section>
+
+      <!-- VALBARA BANOR SEKTION-->
+      <section id="tracks" class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Valbara Banor</h2>
+          <div class="section-divider"></div>
+          <p class="section-subtitle">Välj din favoritbana eller låt slumpen avgöra inför nästa pass.</p>
+        </div>
+
+        <div class="grid-3-col track-grid">
+          <!-- Bana 1 -->
+          <article class="carbon-card track-card">
+            <div class="track-img-wrap">
+              <img src="img-project/karlskoga_bana.jpeg" alt="Karlskoga Motorarena banskiss" loading="lazy">
+            </div>
+            <div class="track-card-body">
+              <h3>Karlskoga Motorarena</h3>
+              <p>En legendarisk racerbana känd för klassiska kurvor som Ejes och Hårnålen där precision avgör allt.</p>
+            </div>
+          </article>
+
+          <!-- Bana 2 -->
+          <article class="carbon-card track-card">
+            <div class="track-img-wrap">
+              <img src="img-project/mantorp_bana.jpeg" alt="Mantorp Motorarena banskiss" loading="lazy">
+            </div>
+            <div class="track-card-body">
+              <h3>Mantorp Motorarena</h3>
+              <p>Höghastighetsbana med långa rakan och tekniska sektioner som kräver snabba reflexer i varje
+                kurvkombination.</p>
+            </div>
+          </article>
+
+          <!-- Bana 3 -->
+          <article class="carbon-card track-card">
+            <div class="track-img-wrap">
+              <img src="img-project/vastgota_bana.jpeg" alt="Västgötabanan banskiss" loading="lazy">
+            </div>
+            <div class="track-card-body">
+              <h3>Västgötabanan</h3>
+              <p>Kuperad och utmanande bandesign där fokus och kontinuerligt flyt ger högst utdelning.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- DIFFICULTY SECTION -->
+      <section id="difficulty-tiers" class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Svårighetsgrader</h2>
+          <div class="section-divider"></div>
+          <p class="section-subtitle">Välj tempo och träffyta efter erfarenhet. Mindre träffyta och snabbare
+            förflyttning ger högre
+            poäng per träff.</p>
+        </div>
+
+        <div class="grid-3-col tier-grid">
+          <!-- Lugn grupp -->
+          <article class="carbon-card tier-card">
+            <div class="tier-card-header">
+              <span class="tier-badge">Nivå 1</span>
+              <h3>Lugn</h3>
+            </div>
+
+            <div class="target-preview-wrap">
+              <div class="target-preview-box">
+                <img src="img-project/target_mc.jpeg" alt="Mål 130px" class="target-circle-demo size-130"
+                  draggable="false">
+              </div>
+              <span class="target-size-tag">Stor träffyta</span>
+            </div>
+
+            <p class="tier-desc">Perfekt för uppvärmning och att bekanta sig med spelet.</p>
+            <ul class="tier-specs">
+              <li><span>Intervall / Fart:</span> <strong>1.6 s</strong></li>
+              <li><span>Poäng per träff:</span> <strong class="tier-points">+1 p</strong></li>
+            </ul>
+          </article>
+
+          <!-- Medel grupp -->
+          <article class="carbon-card tier-card tier-card-featured">
+            <div class="tier-card-header">
+              <span class="tier-badge">Nivå 2</span>
+              <h3>Medel</h3>
+            </div>
+
+            <div class="target-preview-wrap">
+              <div class="target-preview-box">
+                <img src="img-project/target_mc.jpeg" alt="Mål 100px" class="target-circle-demo size-100"
+                  draggable="false">
+              </div>
+              <span class="target-size-tag">Mellanstor träffyta</span>
+            </div>
+
+            <p class="tier-desc">Standardinställningen med bra balans mellan reaktion, precision och fart.</p>
+            <ul class="tier-specs">
+              <li><span>Intervall / Fart:</span> <strong>1.3 s</strong></li>
+              <li><span>Poäng per träff:</span> <strong class="tier-points">+2 p</strong></li>
+            </ul>
+          </article>
+
+          <!-- Race grupp -->
+          <article class="carbon-card tier-card">
+            <div class="tier-card-header">
+              <span class="tier-badge">Nivå 3</span>
+              <h3>Race</h3>
+            </div>
+
+            <div class="target-preview-wrap">
+              <div class="target-preview-box">
+                <img src="img-project/target_mc.jpeg" alt="Mål 70px" class="target-circle-demo size-70"
+                  draggable="false">
+              </div>
+              <span class="target-size-tag">Liten träffyta</span>
+            </div>
+
+            <p class="tier-desc">För rutinerade deltagare med snabba reflexer. Maximal poängutdelning vid träff.</p>
+            <ul class="tier-specs">
+              <li><span>Intervall / Fart:</span> <strong>1.0 s</strong></li>
+              <li><span>Poäng per träff:</span> <strong class="tier-points">+3 p</strong></li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -119,9 +244,9 @@
           <table class="highscore-table" id="highscore-table">
             <thead>
               <tr>
-                <th>Poäng</th>
                 <th>Placering</th>
                 <th>Namn</th>
+                <th>Poäng</th>
                 <th>Svårighetsgrad</th>
               </tr>
             </thead>
@@ -154,7 +279,7 @@
           <li><a href="project_play.html">Spela nu</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div id="contact" class="footer-col">
         <h4>Kontakt</h4>
         <p>Nästa utmaning är att prova detta på riktigt!</p>
         <p>Besök <a class="contact-link" href="https://speedskills.se/">www.speedskills.se</a></p>

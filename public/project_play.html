@@ -51,6 +51,10 @@
           <form id="game-settings-form">
             <h2 class="card-title">Inställningar</h2>
 
+            <!-- Name input -->
+            <label for="player-name">Namn:</label>
+            <input type="text" id="player-name" name="player" placeholder="Spelare" maxlength="15">
+
             <!-- Svårighetsgrad kopplad till easy.json, normal.json, hard.json -->
             <label for="game-difficulty">Välj grupp (svårighetsgrad):</label>
             <select id="game-difficulty" name="difficulty">
@@ -62,6 +66,7 @@
             <!-- Val av bana / bakgrundsbild -->
             <label for="track-select">Välj bana:</label>
             <select id="track-select" name="track">
+              <option value="random" selected>Slumpa bana</option>
               <option value="img-project/karlskoga_bana.jpeg">Karlskoga Motorarena </option>
               <option value="img-project/mantorp_bana.jpeg">Mantorp Motorarena</option>
               <option value="img-project/vastgota_bana.jpeg">Västgötabanan</option>

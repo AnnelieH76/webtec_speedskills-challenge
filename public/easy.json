@@ -2,7 +2,7 @@
 {
   "tierName": "Lugn",
   "speed": 1600,
-  "targetSize": 100,
+  "targetSize": 130,
   "pointsPerHit": 1,
   "gameDuration": 10
 }

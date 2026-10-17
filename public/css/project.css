@@ -116,7 +116,7 @@ html {
    Hero Section
    ========================================================================== */
 .hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('../img-project/mantorp_bana.jpeg') center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.85)), url('../img-project/karlskoga_bana.jpeg') center/cover no-repeat;
   min-height: 45vh;
   display: flex;
   align-items: center;
@@ -216,7 +216,8 @@ html {
 }
 
 .game-img {
-  width: 100%;
+  width: 70%;
+  margin-left: 4rem; 
   border-radius: 6px;
   border: 1px solid var(--color-border);
 }
@@ -243,8 +244,254 @@ html {
   margin-bottom: 0.5rem;
 }
 
+/* ============================================================
+   Track Cards
+   ============================================================ */
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.track-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+.track-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background-color: #0b0b0b;
+}
+
+.track-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.track-card:hover .track-img-wrap img {
+  transform: scale(1.05);
+}
+
+.track-card-body {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+}
+
+.track-card-body h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.track-card-body p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsivitet för mindre skärmar */
+@media (max-width: 900px) {
+  .track-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .track-img-wrap {
+    height: 200px;
+  }
+}
+
+/* ============================================================
+   Difficulty Tiers
+   ============================================================ */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tier-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border-radius: 6px;
+  background-color: var(--color-surface, #181818);
+  border: 1px solid var(--color-border, #2d2d2d);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent, #ff5500);
+}
+
+/* Framhäv medel-kortet med en diskret accentkant */
+.tier-card-featured {
+  border-color: rgba(255, 85, 0, 0.45);
+}
+
+.tier-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.tier-card-header h3 {
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.tier-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  background-color: var(--color-accent, #ff5500);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ------ TARGET --------------------------------------------------------- */
+/* Container to maintain uniform card heights across all tiers */
+.target-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 1.25rem 0;
+}
+
+/* Fixed container box keeping the layout stable */
+.target-preview-box {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Circular target preview sharing styling with .target-item */
+.target-circle-demo {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 0 12px rgba(255, 85, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+/* Exact sizes matching easy.json, normal.json, and hard.json */
+.target-circle-demo.size-130 {
+  width: 130px;
+  height: 130px;
+}
+
+.target-circle-demo.size-100 {
+  width: 100px;
+  height: 100px;
+}
+
+.target-circle-demo.size-70 {
+  width: 70px;
+  height: 70px;
+}
+
+/* --------LEVEL INFO -------------------------------------
+Below each circular preview */
+.level-info {
+  margin-top: 0.5rem;
+}
+
+/* --------------- DESKRIPTION ------------------------- */
+.tier-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted, #aaaaaa);
+  line-height: 1.45;
+  margin: 0 0 1.5rem 0;
+  min-height: 2.6rem;
+}
+
+
+.tier-specs li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #222222;
+  font-size: 0.88rem;
+  color: var(--color-text-muted, #aaaaaa);
+}
+
+.tier-specs li strong {
+  color: #ffffff;
+}
+
+.tier-specs li strong.tier-points {
+  color: var(--color-accent, #ff5500);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .tier-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
 /* ==========================================================================
-   Inställningskort (Depå / Formulär)
+   Highscore Tabell
+   ========================================================================== */
+.table-container {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.highscore-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.highscore-table th,
+.highscore-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.highscore-table th {
+  background-color: #0f0f0f;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.empty-row td {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Inställningskort (Formulär)
    ========================================================================== */
 .carbon-card {
   background-color: var(--color-bg-card);
@@ -272,6 +519,7 @@ html {
   color: var(--color-text-main);
 }
 
+#game-settings-form input[type="text"],
 #game-settings-form select {
   padding: 0.6rem 0.8rem;
   background-color: #121212;
@@ -279,6 +527,13 @@ html {
   border: 1px solid var(--color-border);
   border-radius: 4px;
   font-size: 1rem;
+}
+
+/* Make placeholder text clean and clearly readable */
+#game-settings-form input[type="text"]::placeholder {
+  color: #fff;
+  opacity: 1;
+  /* Ensures Firefox does not make it semi-transparent */
 }
 
 .settings-preview-img {
@@ -330,7 +585,7 @@ html {
   position: absolute;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 0 12px rgba(255, 102, 0, 0.6);
+  border: 3px solid var(--color-accent);
   -webkit-user-drag: none;
   cursor: pointer;
   transition: transform 0.05s ease;
@@ -354,41 +609,6 @@ html {
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
-}
-
-/* ==========================================================================
-   Highscore Tabell
-   ========================================================================== */
-.table-container {
-  overflow-x: auto;
-  margin-top: 1.5rem;
-}
-
-.highscore-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--color-bg-card);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.highscore-table th,
-.highscore-table td {
-  padding: 1rem 1.25rem;
-  text-align: left;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.highscore-table th {
-  background-color: #0f0f0f;
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-.empty-row td {
-  text-align: center;
-  color: var(--color-text-muted);
-  font-style: italic;
 }
 
 /* ==========================================================================
@@ -465,11 +685,12 @@ a.contact-link:hover {
     flex-direction: column;
     position: absolute;
     top: 100%;
-    left: 0;
+    /* left: 0; */
     right: 0;
     background-color: #0f0f0f;
     padding: 1rem 0;
     border-bottom: 2px solid var(--color-border);
+    padding: 1rem 1rem 1rem 1rem;
   }
 
   .navbar ul.nav-links.show {

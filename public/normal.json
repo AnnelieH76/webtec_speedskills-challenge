@@ -1,7 +1,7 @@
 {
   "tierName": "Medel",
-  "speed": 1100,
-  "targetSize": 70,
+  "speed": 1300,
+  "targetSize": 100,
   "pointsPerHit": 2,
   "gameDuration": 10
 }

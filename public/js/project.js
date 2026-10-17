@@ -4,6 +4,13 @@
 // CONSTANTS & GAME STATE
 // ------------------------------------------------------------
 
+// Available track backgrounds for random selection
+const TRACK_OPTIONS = [
+  'img-project/karlskoga_bana.jpeg',
+  'img-project/mantorp_bana.jpeg',
+  'img-project/vastgota_bana.jpeg'
+]
+
 // Target assets configuration
 const WATER_TARGET = 'img-project/target_vatten.jpeg'
 const TARGET_IMAGES = [
@@ -33,9 +40,12 @@ const gameObject = {
 // -----------------------------------------------------
 
 // DOM references: configuration controls and overlays
+const menuToggle = document.getElementById('menu-toggle')
+const navLinks = document.getElementById('nav-links')
 const gameIntro = document.getElementById('game-intro')
 const settingsCard = document.getElementById('settings-card') // Settings card container
 const settingsForm = document.getElementById('game-settings-form') // Input form
+const nameInput = document.getElementById('player-name')
 const loadingOverlay = document.getElementById('loading-overlay') // Loading banner element
 const startBtn = document.getElementById('start-btn') // Submit / Start button
 const trackSelect = document.getElementById('track-select') // Track background select
@@ -70,7 +80,7 @@ function recordHighScore() {
   // Create new score object (name defaults to 'Anonym')
   const newEntry = {
     score: gameObject.score,
-    name: 'Anonym',
+    name: gameObject.playerName || 'Anonym',
     tier: gameObject.tierName || 'Normal'
   }
 
@@ -106,11 +116,11 @@ function renderHighscoreTable() {
   tbody.innerHTML = ''
   savedScores.forEach((entry, index) => {
     const row = document.createElement('tr')
-    // Matches columns: Poäng | Placering | Namn | Svårighetsgrad
+    // Matches columns: Placering | Namn | Poäng | Svårighetsgrad
     row.innerHTML = `
-      <td><strong>${entry.score} p</strong></td>
       <td>#${index + 1}</td>
       <td>${entry.name}</td>
+      <td><strong>${entry.score} p</strong></td>
       <td>${entry.tier}</td>
     `
     tbody.appendChild(row)
@@ -128,9 +138,20 @@ function renderHighscoreTable() {
 
 // The asynchronous game setup function
 async function setupGame() {
-  // Read selected values from the form
-  const chosenTrack = trackSelect ? trackSelect.value : 'img-project/karlskoga_bana.jpeg'
+
+  let chosenTrack = trackSelect ? trackSelect.value : 'random'
   const chosenDifficulty = difficultySelect ? difficultySelect.value : 'normal'
+
+  // If user chose random, pick one randomly from the array
+  if (chosenTrack === 'random') {
+    const randomIndex = Math.floor(Math.random() * TRACK_OPTIONS.length)
+    chosenTrack = TRACK_OPTIONS[randomIndex]
+  }
+
+  // Read player name or fallback to 'Anonym' if left empty
+  const enteredName = nameInput && nameInput.value.trim() !== ''
+    ? nameInput.value.trim()
+    : 'Anonym'
 
   // Reveal loading indicator to the user and prevent duplicate clicks
   if (loadingOverlay) loadingOverlay.classList.remove('hidden')
@@ -155,6 +176,7 @@ async function setupGame() {
     gameObject.pointsPerHit = config.pointsPerHit
     gameObject.duration = config.gameDuration
     gameObject.tierName = config.tierName
+    gameObject.playerName = enteredName
 
     // Set chosen track background directly on the game area
     gameArea.style.backgroundImage = `url('${chosenTrack}')`
@@ -336,6 +358,12 @@ function endGame() {
 // --------------------------------------------------------------------
 // EVENT LISTENERS
 // ---------------------------------------------------------------------
+
+// Add a click event listener to the menu button
+menuToggle.addEventListener('click', () => {
+  // Toggle the 'show' class on the nav links to show/hide the menu
+  navLinks.classList.toggle('show')
+})
 
 // Listen for form submit, run preload logic, and start game session (only if form exists)
 if (settingsForm) {
