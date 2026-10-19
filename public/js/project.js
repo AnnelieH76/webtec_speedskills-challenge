@@ -20,6 +20,27 @@ const TARGET_IMAGES = [
   WATER_TARGET
 ]
 
+// ------------ SOUND EFFECTS ----------
+
+// Sound effects using standard HTML5 Audio instances
+const hitSound = new Audio('audio-project/hit_target.mp3')
+const splashSound = new Audio('audio-project/splash.mp3')
+const countdownSound = new Audio('audio-project/1_2_3_go.mp3')
+const gameOverSound = new Audio('audio-project/game_over.mp3')
+const bgMusic = new Audio('audio-project/bg_music.wav')
+
+// Configure looping for continuous track background music
+bgMusic.loop = true
+
+// Balance audio volume levels
+bgMusic.volume = 0.3
+hitSound.volume = 0.6
+splashSound.volume = 0.6
+countdownSound.volume = 0.6
+gameOverSound.volume = 0.7
+
+// ---------  GAME OBJECT ----------------
+
 // Global game object holding active values, runtime state, and intervals
 const gameObject = {
   score: 0,
@@ -52,14 +73,18 @@ const trackSelect = document.getElementById('track-select') // Track background 
 const difficultySelect = document.getElementById('game-difficulty')
 
 // DOM references: gameplay area, HUD, and modal
+const countdownOverlay = document.getElementById('countdown-overlay')
+const countdownText = document.getElementById('countdown-text')
 const gameArea = document.getElementById('game-area')
 const targetElement1 = document.getElementById('target-1') // First active game target
 const targetElement2 = document.getElementById('target-2') // Second active game target
 const targetElements = [targetElement1, targetElement2] // Array wrapper for target elements
 const scoreDisplay = document.getElementById('score-display') // Info in Heads-Up Display (HUD)
 const timeLeftDisplay = document.getElementById('time-left') // Info in Heads-Up Display
+const tierDisplay = document.getElementById('tier-display') // Difficulty info in Heads-Up Display
 const gameOverModal = document.getElementById('game-over-modal')
 const finalScoreDisplay = document.getElementById('final-score') // Inside game-over-modal
+const resetScoresBtn = document.getElementById('reset-scores-btn') // Reset button in modal
 const playAgainBtn = document.getElementById('play-again-btn') // Inside game-over-modal
 
 
@@ -69,6 +94,18 @@ const playAgainBtn = document.getElementById('play-again-btn') // Inside game-ov
 
 // Definition of funktion that pauses execution for specified milliseconds
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+// -------------- HIDE TARGETS --------------
+
+// Force targets to be hidden whenever setup runs
+function hideAllTargets() {
+  targetElements.forEach((el) => {
+    el.classList.add('hidden')
+    el.style.display = 'none'
+  })
+}
+
+// ---------------- HIGH SCORE -----------------
 
 /**
  * Save current session result to localStorage sorted by score
@@ -127,6 +164,34 @@ function renderHighscoreTable() {
   })
 }
 
+// -------------- SOUND EFFECTS ------------------------
+
+/**
+ * Play sound effect and rewind playback to start
+ * @param {HTMLAudioElement} audio
+ */
+function playSound(audio) {
+  if (audio) {
+    // Reset playback position so rapid clicks fire immediately
+    audio.currentTime = 0
+    // Play sound and handle browser autoplay promise rejections
+    audio.play().catch(() => {
+      // Ignore autoplay errors if user has not interacted yet
+    })
+  }
+}
+
+/**
+ * Stop an audio element and reset playback position
+ * @param {HTMLAudioElement} audio
+ */
+function stopSound(audio) {
+  if (audio) {
+    audio.pause()
+    audio.currentTime = 0
+  }
+}
+
 // ------------------------------------------------------------
 // GAME INITIALIZATION & ASSET LOADING
 // ------------------------------------------------------------
@@ -178,10 +243,18 @@ async function setupGame() {
     gameObject.tierName = config.tierName
     gameObject.playerName = enteredName
 
+    // Render active tier name in HUD
+    if (tierDisplay) {
+      tierDisplay.textContent = config.tierName
+    }
+
     // Set chosen track background directly on the game area
     gameArea.style.backgroundImage = `url('${chosenTrack}')`
     gameArea.style.backgroundSize = 'cover'
     gameArea.style.backgroundPosition = 'center'
+
+    // Ensure targets are not visible yet
+    hideAllTargets()
 
     return true
 
@@ -201,8 +274,46 @@ async function setupGame() {
 }
 
 // ------------------------------------------------------
-//  GAME ENGINE & LOOP
+//            GAME ENGINE & LOOP
 // -----------------------------------------------------
+
+// ------- START COUNTDOWN 3 2 1 GO --------------------------------
+/**
+ * Run 3-2-1-GO sequence before actual gameplay commences
+ * @param {Function} onComplete - Callback invoked when countdown finishes
+ */
+function startCountdown(onComplete) {
+  const steps = ['3', '2', '1', 'GO!']
+  let stepIndex = 0
+
+  // Show overlay and start audio
+  countdownOverlay.classList.remove('hidden')
+  playSound(countdownSound)
+
+  function showNextStep() {
+    if (stepIndex < steps.length) {
+      countdownText.textContent = steps[stepIndex]
+
+      // Restart CSS pulse animation
+      countdownText.classList.remove('countdown-pulse')
+      void countdownText.offsetWidth // Trigger reflow
+      countdownText.classList.add('countdown-pulse')
+
+      stepIndex++
+      setTimeout(showNextStep, 800)
+    } else {
+      // Countdown finished: hide overlay completely and wipe text
+      countdownOverlay.classList.add('hidden')
+      countdownText.textContent = ''
+      countdownText.classList.remove('countdown-pulse')
+
+      if (typeof onComplete === 'function') {
+        onComplete()
+      }
+    }
+  }
+  showNextStep()
+}
 
 // ----------------------- START GAME --------------------------------
 /**
@@ -263,14 +374,17 @@ function startGame() {
       endGame()
     }
   }, 1000)
+
+  // Start background music loop
+  playSound(bgMusic)
 }
 
 // ----------------------- MOVE TARGETS --------------------------------
 /**
- * Select two unique random images and place both targets at safe random positions
+ * Select two unique random images, place targets and drift them randomly
  */
 function moveTargets() {
-  // 1. Shuffle or pick 2 unique images from TARGET_IMAGES
+  // 1. Pick 2 unique images from TARGET_IMAGES
   const shuffledImages = [...TARGET_IMAGES].sort(() => 0.5 - Math.random())
   const selectedImages = shuffledImages.slice(0, 2)
 
@@ -281,17 +395,39 @@ function moveTargets() {
     // Calculate dynamic boundaries for each element
     const targetWidth = el.offsetWidth || gameObject.targetSize
     const targetHeight = el.offsetHeight || gameObject.targetSize
+    const driftDistance = 60 // Pixels to drift across the track
 
-    const maxX = Math.max(0, gameArea.clientWidth - targetWidth)
-    const maxY = Math.max(0, gameArea.clientHeight - targetHeight)
+    // Safe boundaries ensuring drift remains fully inside gameArea
+    const maxX = Math.max(0, gameArea.clientWidth - targetWidth - driftDistance)
+    const maxY = Math.max(0, gameArea.clientHeight - targetHeight - driftDistance)
 
-    const randomX = Math.floor(Math.random() * maxX)
-    const randomY = Math.floor(Math.random() * maxY)
+    const startX = Math.floor(Math.random() * maxX)
+    const startY = Math.floor(Math.random() * maxY)
 
+    // Calculate random drift direction (-driftDistance to +driftDistance)
+    const driftX = (Math.random() - 0.5) * 2 * driftDistance
+    const driftY = (Math.random() - 0.5) * 2 * driftDistance
+
+    // Ensure target doesn't drift outside the canvas borders
+    const targetX = Math.min(Math.max(0, startX + driftX), gameArea.clientWidth - targetWidth)
+    const targetY = Math.min(Math.max(0, startY + driftY), gameArea.clientHeight - targetHeight)
+
+    // Instantly teleport target to start position without animation
+    el.style.transition = 'none'
     el.style.position = 'absolute'
-    el.style.left = `${randomX}px`
-    el.style.top = `${randomY}px`
+    el.style.left = `${startX}px`
+    el.style.top = `${startY}px`
     el.style.display = 'block'
+
+
+    // Trigger smooth continuous drift towards target coordinates
+    requestAnimationFrame(() => {
+      // Transition duration matches game speed cadence
+      const moveDuration = Math.max(0.6, (gameObject.speed || 1500) / 1000)
+      el.style.transition = `left ${moveDuration}s linear, top ${moveDuration}s linear`
+      el.style.left = `${targetX}px`
+      el.style.top = `${targetY}px`
+    })
   })
 }
 
@@ -309,18 +445,31 @@ function handleTargetHit(event) {
   if (clickedSrc.includes(WATER_TARGET)) {
     // Penalty: subtract 2 points (prevent score from going below 0)
     gameObject.score = Math.max(0, gameObject.score - 2)
+    // Play hazard sound effect
+    playSound(splashSound)
+
   } else {
     // Standard hit: add points defined in tier config
     gameObject.score += gameObject.pointsPerHit
+    // Play successful hit sound effect
+    playSound(hitSound)
   }
 
   // Update HUD
   scoreDisplay.textContent = gameObject.score
 
-  // Immediately relocate both targets and reset cadence interval
+  // Trigger CSS hit animation
+  clickedTarget.classList.add('target-hit-anim')
+
+  // Clear existing interval while animating
   clearInterval(gameObject.moveInterval)
-  moveTargets()
-  gameObject.moveInterval = setInterval(moveTargets, gameObject.speed)
+
+  // Wait for animation to finish before relocating targets
+  setTimeout(() => {
+    clickedTarget.classList.remove('target-hit-anim')
+    moveTargets()
+    gameObject.moveInterval = setInterval(moveTargets, gameObject.speed)
+  }, 220)
 }
 
 // ----------------------- END GAME --------------------------------
@@ -353,31 +502,66 @@ function endGame() {
   // Save score to persistent storage and update table if present
   recordHighScore()
   renderHighscoreTable()
+
+  // Stop background music and trigger game over sound
+  stopSound(bgMusic)
+  playSound(gameOverSound)
 }
 
 // --------------------------------------------------------------------
 // EVENT LISTENERS
 // ---------------------------------------------------------------------
 
-// Add a click event listener to the menu button
-menuToggle.addEventListener('click', () => {
-  // Toggle the 'show' class on the nav links to show/hide the menu
-  navLinks.classList.toggle('show')
-})
+// Toggle navigation menu visibility on mobile screens
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show')
+  })
+}
+
+
+// -----------------SUBMIT BUTTON -------------------
 
 // Listen for form submit, run preload logic, and start game session (only if form exists)
 if (settingsForm) {
   settingsForm.addEventListener('submit', async (event) => {
     // Prevent browser from reloading page
     event.preventDefault()
+
     // Await setup and asset preloading
     const isReady = await setupGame()
-    // Start game loop if assets loaded successfully
+
     if (isReady) {
-      startGame()
+      // 1. Hide intro/settings and show track canvas
+      gameIntro.classList.add('hidden')
+      settingsCard.classList.add('hidden')
+      gameArea.classList.remove('hidden')
+
+      // Hide targets during 3-2-1-GO
+      hideAllTargets()
+
+      // Ensure all targets remain hidden while countdown runs
+      targetElements.forEach((el) => {
+        el.classList.add('hidden')
+        el.style.display = 'none'
+      })
+
+      if (gameObject.bgBlobUrl) {
+        gameArea.style.backgroundImage = `url('${gameObject.bgBlobUrl}')`
+      }
+
+      // 2. Now run the 3-2-1-GO! countdown on the visible track
+      startCountdown(() => {
+        // Start background music loop when countdown finishes
+        playSound(bgMusic)
+        // Start timers and target spawns
+        startGame()
+      })
     }
   })
 }
+
+// ---------------------- TARGET HITS -------------------------------
 
 // Attach click listeners to both elements (if elements exist)
 targetElements.forEach((el) => {
@@ -398,18 +582,34 @@ if (playAgainBtn) {
   })
 }
 
+
+// ---------------------- RESET HIGHSCORE -------------------------
+// -----------when "Reload page" or click on "Reset button" -------------------
+/**
+ * Function to clear highscores and refresh the display table
+ */
+function resetHighscores() {
+  localStorage.removeItem('speedskills_scores')
+  renderHighscoreTable()
+}
+
+// "Reset scores" clears storage and updates the table immediately
+if (resetScoresBtn) {
+  resetScoresBtn.addEventListener('click', resetHighscores)
+}
+
 // Render highscores when DOM tree is ready
 document.addEventListener('DOMContentLoaded', () => {
   renderHighscoreTable()
 })
 
-// Clear highscores ONLY when the gameplay page is specifically reloaded (F5 / Refresh)
+// Clear highscores when the gameplay page is specifically reloaded (F5 / Refresh)
 const perfNav = performance.getEntriesByType('navigation')[0]
 const isReload =
   (perfNav && perfNav.type === 'reload') ||
   (performance.navigation && performance.navigation.type === 1)
 
 if (isReload) {
-  localStorage.removeItem('speedskills_scores')
+  resetHighscores()
 }
 

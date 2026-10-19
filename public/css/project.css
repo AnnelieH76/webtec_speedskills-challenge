@@ -112,6 +112,11 @@ html {
   cursor: pointer;
 }
 
+/* Navigate to section id header*/
+section[id] {
+  scroll-margin-top: 150px;
+}
+
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -189,6 +194,9 @@ html {
 .section-heading h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  padding-top: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   color: #fff;
 }
 
@@ -202,7 +210,7 @@ html {
 
 .alternate-bg {
   background-color: var(--color-bg-alt);
-  padding: 3rem 1.5rem;
+  padding: 0rem 1.5rem;
   border-radius: 8px;
   margin: 2rem 0;
 }
@@ -217,7 +225,7 @@ html {
 
 .game-img {
   width: 70%;
-  margin-left: 4rem; 
+  margin-left: 4rem;
   border-radius: 6px;
   border: 1px solid var(--color-border);
 }
@@ -309,7 +317,7 @@ html {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
-  
+
   .track-img-wrap {
     height: 200px;
   }
@@ -493,6 +501,13 @@ Below each circular preview */
 /* ==========================================================================
    Inställningskort (Formulär)
    ========================================================================== */
+
+/* Center intro heading and description on the play page */
+#game-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .carbon-card {
   background-color: var(--color-bg-card);
   border: 1px solid var(--color-border);
@@ -543,8 +558,76 @@ Below each circular preview */
 }
 
 /* ==========================================================================
-   Spelytan & Fullskärmsläge (Krav 2 & Alternativ 1)
+   Spelytan & Fullskärmsläge 
    ========================================================================== */
+
+/* ------------ COUNTDOWN OVERLAY (3, 2, 1, GO!) ---------------- */
+
+/* Fullscreen centered overlay over the track */
+.countdown-overlay {
+  /* Absolute positioning inside gameArea */
+  position: absolute;
+  /* Stretch to fill container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Flexbox centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Dark semi-transparent backdrop */
+  background: rgba(0, 0, 0, 0.45);
+  /* Place above targets */
+  z-index: 50;
+  /* Prevent interaction during countdown */
+  pointer-events: none;
+}
+
+/* Numeric text styling */
+#countdown-text {
+  /* Prominent oversized font */
+  font-size: 10rem;
+  font-weight: 800;
+  /* Accent racing orange */
+  color: var(--color-accent);
+  /* Glowing stroke */
+  text-shadow: 0 0 20px rgba(255, 85, 0, 0.8), 0 0 40px rgba(255, 85, 0, 0.4);
+}
+
+/* Pop-in pulse animation for each countdown step */
+.countdown-pulse {
+  animation: countdownPop 0.8s ease-out forwards;
+}
+
+/* Force hidden state over flex rules */
+.countdown-overlay.hidden {
+  display: none
+}
+
+@keyframes countdownPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+
+
+/* ------------------ THE GAME AREA------------------- */
+
 #game-area {
   position: fixed;
   inset: 0;
@@ -589,6 +672,7 @@ Below each circular preview */
   -webkit-user-drag: none;
   cursor: pointer;
   transition: transform 0.05s ease;
+  z-index: 1020;
 }
 
 .target-item:active {
@@ -598,12 +682,72 @@ Below each circular preview */
 /* ==========================================================================
    Game Over Modal
    ========================================================================== */
+
+/* Styling for the game over modal card container */
 #game-over-modal {
+  /* Center text elements horizontally */
   text-align: center;
-  max-width: 500px;
-  margin: 3rem auto;
+  /* Restrict modal container width */
+  max-width: 520px;
+  /* Center modal with vertical spacing */
+  margin: 2rem auto;
+  /* Internal spacing inside modal */
+  padding: 2.5rem 2rem;
+  /* Highlight border using accent variable */
+  border: 1px solid var(--color-accent);
+  /* Glowing orange shadow behind card */
+  box-shadow: 0 0 25px rgba(255, 85, 0, 0.25);
+  /* Rounded corners on card */
+  border-radius: 8px;
 }
 
+/* Flexbox wrapper for centering flag */
+.outro-flag-wrap {
+  /* Enable flex container */
+  display: flex;
+  /* Horizontally center contents */
+  justify-content: center;
+  /* Ensure container spans full card width */
+  width: 100%;
+  /* Spacing beneath flag container */
+  margin-bottom: 0.5rem;
+}
+
+/* Checkered flag image */
+.outro-flag-icon {
+  /* Fill up to 90% of modal width */
+  width: 90%;
+  /* Restrict max width on desktop */
+  max-width: 440px;
+  /* Let height scale proportionally */
+  height: auto;
+  /* Set a safe maximum vertical height */
+  max-height: 240px;
+  /* Preserve image aspect ratio */
+  object-fit: contain;
+  /* Soft glow outline matching accent */
+  filter: drop-shadow(0 0 12px rgba(255, 85, 0, 0.4));
+}
+
+/* Text line presenting score result */
+.modal-score-line {
+  /* Vertical margins around line */
+  margin: 1.25rem 0 1.75rem 0;
+  /* Slightly larger base text */
+  font-size: 1.1rem;
+  /* Main text color variable */
+  color: var(--color-text-main);
+}
+
+/* Emphasized points counter span */
+.modal-score-line strong {
+  /* Highlighted accent color */
+  color: var(--color-accent);
+  /* Enlarged numeric display */
+  font-size: 1.4rem;
+}
+
+/* Buttons */
 .modal-actions {
   display: flex;
   justify-content: center;
@@ -670,6 +814,97 @@ a.contact-link:hover {
   margin-top: 1.5rem;
   color: var(--color-text-muted);
   font-size: 0.9rem;
+}
+
+/* ============================================================
+   Animation 1 - Target Hit 
+   ============================================================ */
+@keyframes targetExplode {
+
+  /* Starting point of the animation (time = 0%) */
+  0% {
+    /* Keep default scale at 100% and normal angle */
+    transform: scale(1) rotate(0deg);
+    /* Ensure element is fully opaque */
+    opacity: 1;
+  }
+
+  /* Halfway through the animation (time = 50%) */
+  50% {
+    /* Expand element by 35% and tilt 15 degrees clockwise */
+    transform: scale(1.35) rotate(20deg);
+    /* Slightly reduce opacity to start fading out */
+    opacity: 0.8;
+    /* Increase brightness to create a flash/impact effect */
+    filter: brightness(1.6);
+  }
+
+  /* End of the animation (time = 100%) */
+  100% {
+    /* Shrink element down to zero size and tilt more */
+    transform: scale(0) rotate(45deg);
+    /* Make element completely transparent/invisible */
+    opacity: 0;
+  }
+}
+
+/* Class applied dynamically when player hits a target */
+.target-hit-anim {
+  /* Run targetExplode animation for 0.25 seconds with ease-out timing */
+  animation: targetExplode 0.25s ease-out forwards;
+  /* Disable mouse clicks during animation to prevent double scoring */
+  pointer-events: none;
+}
+
+/* ============================================================ */
+/* Animation 2 - Outro Game Over Modal   */
+/* ============================================================ */
+
+/* Trigger entrance animation when modal is revealed */
+.game-over-modal:not(.hidden) {
+  /* Smooth pop-in with slight bounce */
+  animation: modalPopIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Trigger flag waving animation on the flag icon */
+.outro-flag-icon {
+  /* Wave for approximately 10 seconds and stop upright */
+  animation: flagWaveOutro 1.4s ease-in-out 3 alternate forwards;
+}
+
+/* Continuous waving motion keyframes */
+@keyframes flagWaveOutro {
+
+  /* Initial tilt counter-clockwise */
+  0% {
+    /* Slight right tilt with small scale up */
+    transform: rotate(-14deg) scale(1);
+  }
+
+  33% {
+    transform: rotate(0deg) scale(1.8);
+  }
+
+  66% {
+    transform: rotate(14deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1.08);
+  }
+}
+
+/* ============================================================ */
+/* Animation 2 - Moving Target */
+/* ============================================================ */
+
+/* Enable smooth drifting motion across the track */
+#target-1,
+#target-2 {
+  /* Animate position changes smoothly over 1.2 seconds */
+  transition: top 1.2s ease-in-out, left 1.2s ease-in-out;
+  /* Ensure absolute positioning inside game area */
+  position: absolute;
 }
 
 /* ==========================================================================

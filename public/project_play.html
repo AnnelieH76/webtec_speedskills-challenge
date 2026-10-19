@@ -27,6 +27,7 @@
           <li><a href="project.html#home">Home</a></li>
           <li><a href="project.html#about">Om spelet</a></li>
           <li><a href="project.html#instructions">Instruktioner</a></li>
+          <li><a href="project.html#tracks">Banor</a></li>
           <li><a href="project.html#highscore">Poängtabell</a></li>
           <li><a href="project.html#contact">Kontakt</a></li>
           <li><a href="project_play.html" class="nav-btn-highlight">Spela nu</a></li>
@@ -38,14 +39,15 @@
   <main class="wrapper">
     <article class="article">
 
-      <!-- 1. Introduktion före start -->
+      <!-- Introduktion före start -->
       <div id="game-intro">
         <h1>SpeedSkills Challenge</h1>
+        <div class="heading-line"></div>
         <p>Jaga motorcyklar, apex och målflaggan men undvik vattenpölarna.</p>
 
       </div>
 
-      <!-- 2. Inställningskort (visas innan spelstart) -->
+      <!-- Inställningskort (visas innan spelstart) -->
       <div class="carbon-card" id="settings-card">
         <div class="settings-body">
           <form id="game-settings-form">
@@ -86,7 +88,8 @@
         </div>
       </div>
 
-      <!-- 3. Spelplan, dold tills spelet startas -->
+      <!-- ---------------- GAME AREA ----------------- -->
+      <!-- Spelplan, dold tills spelet startas -->
       <div id="game-area" class="game-area hidden">
         <div class="game-hud">
           <span class="hud-item">Tid kvar: <strong id="time-left">30</strong>s</span>
@@ -94,20 +97,63 @@
           <span class="hud-item">Svårighetsgrad: <strong id="tier-display">-</strong></span>
         </div>
 
+        <!-- Countdown overlay for racing start -->
+        <div id="countdown-overlay" class="countdown-overlay hidden">
+          <span id="countdown-text">3</span>
+        </div>
+
         <!-- Två aktiva targets för banan -->
         <img id="target-1" class="target-item hidden" src="img-project/target_apex.jpeg" alt="Mål 1 på banan">
         <img id="target-2" class="target-item hidden" src="img-project/target_mc.jpeg" alt="Mål 2 på banan">
       </div>
 
-      <!-- 4. Resultat / Game Over, visas när tiden är slut -->
+      <!----------- GAME OVER AND RESULT -------------------->
       <div id="game-over-modal" class="carbon-card hidden">
-        <h2>Målflagg! Passet är slut</h2>
-        <p>Grattis, ditt slutresultat blev: <strong id="final-score">0</strong> poäng.</p>
+
+        <!-- Outro animation: Racing finish flag -->
+        <div class="outro-flag-wrap">
+          <img src="img-project/game_over.jpeg" alt="Målflagga" class="outro-flag-icon" draggable="false">
+        </div>
+
+        <h2>GRATTIS!</h2>
+        <p>Du fick <strong id="final-score">0</strong> poäng.</p>
         <div class="modal-actions">
           <button type="button" id="play-again-btn" class="btn btn-primary">Kör igen</button>
-          <a href="project.html#highscore" class="btn btn-secondary">Visa Poängtabell</a>
+          <button type="button" id="reset-scores-btn" class="btn btn-secondary">Återställ poängtabellen</button>
         </div>
       </div>
+
+
+      <!-- Sektion: Highscorelista i tabell -->
+      <section id="highscore" class="section4 alternate-bg">
+        <div class="section-heading">
+          <h2>Poängtabell</h2>
+          <div class="heading-line"></div>
+          <p class="section-subtitle">
+            Poängtabellen uppdateras efter varje spel och topp 10 sorteras efter bästa placering.
+          </p>
+        </div>
+
+        <div class="table-container">
+          <table class="highscore-table" id="highscore-table">
+            <thead>
+              <tr>
+                <th>Placering</th>
+                <th>Namn</th>
+                <th>Poäng</th>
+                <th>Svårighetsgrad</th>
+              </tr>
+            </thead>
+            <tbody id="highscore-body">
+              <!-- Rader genereras dynamiskt av project.js -->
+              <tr class="empty-row">
+                <td colspan="4">Inga spelade spel än. Starta en session ovan!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
 
     </article>
   </main>
