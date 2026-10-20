@@ -25,7 +25,7 @@ const TARGET_IMAGES = [
 // Sound effects using standard HTML5 Audio instances
 const hitSound = new Audio('audio-project/hit_target.mp3')
 const splashSound = new Audio('audio-project/splash.mp3')
-const countdownSound = new Audio('audio-project/1_2_3_go.mp3')
+const countdownSound = new Audio('audio-project/3_2_1_go.mp3')
 const gameOverSound = new Audio('audio-project/game_over.mp3')
 const bgMusic = new Audio('audio-project/bg_music.wav')
 
@@ -63,14 +63,15 @@ const gameObject = {
 // DOM references: configuration controls and overlays
 const menuToggle = document.getElementById('menu-toggle')
 const navLinks = document.getElementById('nav-links')
+const tableResetBtn = document.getElementById('reset-btn-section4') // Reset button in sekton 4
 const gameIntro = document.getElementById('game-intro')
 const settingsCard = document.getElementById('settings-card') // Settings card container
 const settingsForm = document.getElementById('game-settings-form') // Input form
 const nameInput = document.getElementById('player-name')
-const loadingOverlay = document.getElementById('loading-overlay') // Loading banner element
-const startBtn = document.getElementById('start-btn') // Submit / Start button
 const trackSelect = document.getElementById('track-select') // Track background select
 const difficultySelect = document.getElementById('game-difficulty')
+const startBtn = document.getElementById('start-btn') // Submit / Start button
+const loadingOverlay = document.getElementById('loading-overlay') // Loading banner element
 
 // DOM references: gameplay area, HUD, and modal
 const countdownOverlay = document.getElementById('countdown-overlay')
@@ -175,8 +176,8 @@ function playSound(audio) {
     // Reset playback position so rapid clicks fire immediately
     audio.currentTime = 0
     // Play sound and handle browser autoplay promise rejections
-    audio.play().catch(() => {
-      // Ignore autoplay errors if user has not interacted yet
+    audio.play().catch((err) => {
+      console.warn('Ljudfel för:', audio.src, err)
     })
   }
 }
@@ -519,7 +520,6 @@ if (menuToggle && navLinks) {
   })
 }
 
-
 // -----------------SUBMIT BUTTON -------------------
 
 // Listen for form submit, run preload logic, and start game session (only if form exists)
@@ -540,12 +540,6 @@ if (settingsForm) {
       // Hide targets during 3-2-1-GO
       hideAllTargets()
 
-      // Ensure all targets remain hidden while countdown runs
-      targetElements.forEach((el) => {
-        el.classList.add('hidden')
-        el.style.display = 'none'
-      })
-
       if (gameObject.bgBlobUrl) {
         gameArea.style.backgroundImage = `url('${gameObject.bgBlobUrl}')`
       }
@@ -561,6 +555,33 @@ if (settingsForm) {
   })
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ---------------------- TARGET HITS -------------------------------
 
 // Attach click listeners to both elements (if elements exist)
@@ -569,6 +590,8 @@ targetElements.forEach((el) => {
     el.addEventListener('click', handleTargetHit)
   }
 })
+
+// ---------------------- PLAY AGAIN -------------------------------
 
 // "Play again" resets to settings
 if (playAgainBtn) {
@@ -596,6 +619,10 @@ function resetHighscores() {
 // "Reset scores" clears storage and updates the table immediately
 if (resetScoresBtn) {
   resetScoresBtn.addEventListener('click', resetHighscores)
+}
+
+if (tableResetBtn) {
+  tableResetBtn.addEventListener('click', resetHighscores)
 }
 
 // Render highscores when DOM tree is ready
