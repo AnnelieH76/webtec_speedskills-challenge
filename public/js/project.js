@@ -28,6 +28,7 @@ const splashSound = new Audio('audio-project/splash.mp3')
 const countdownSound = new Audio('audio-project/3_2_1_go.mp3')
 const gameOverSound = new Audio('audio-project/game_over.mp3')
 const bgMusic = new Audio('audio-project/bg_music.wav')
+const bonusTimeSound = new Audio('audio-project/bonus_time.mp3')
 
 // Configure looping for continuous track background music
 bgMusic.loop = true
@@ -38,6 +39,7 @@ hitSound.volume = 0.6
 splashSound.volume = 0.6
 countdownSound.volume = 0.6
 gameOverSound.volume = 0.7
+bonusTimeSound.volume = 0.6
 
 // ---------  GAME OBJECT ----------------
 
@@ -79,6 +81,7 @@ const countdownText = document.getElementById('countdown-text')
 const gameArea = document.getElementById('game-area')
 const targetElement1 = document.getElementById('target-1') // First active game target
 const targetElement2 = document.getElementById('target-2') // Second active game target
+const targetBonus = document.getElementById('target-bonus')
 const targetElements = [targetElement1, targetElement2] // Array wrapper for target elements
 const scoreDisplay = document.getElementById('score-display') // Info in Heads-Up Display (HUD)
 const timeLeftDisplay = document.getElementById('time-left') // Info in Heads-Up Display
@@ -324,6 +327,7 @@ function startGame() {
   // Clear any residual running intervals
   clearInterval(gameObject.gameTimer)
   clearInterval(gameObject.moveInterval)
+  clearInterval(gameObject.bonusInterval)
 
   // Set runtime state flag
   gameObject.isPlaying = true
@@ -376,9 +380,14 @@ function startGame() {
     }
   }, 1000)
 
+  // 2. Start bonus spawn timer every 7 seconds
+  gameObject.bonusInterval = setInterval(spawnBonusTime, 7000)
+
   // Start background music loop
   playSound(bgMusic)
 }
+
+
 
 // ----------------------- MOVE TARGETS --------------------------------
 /**
@@ -420,7 +429,6 @@ function moveTargets() {
     el.style.top = `${startY}px`
     el.style.display = 'block'
 
-
     // Trigger smooth continuous drift towards target coordinates
     requestAnimationFrame(() => {
       // Transition duration matches game speed cadence
@@ -431,6 +439,58 @@ function moveTargets() {
     })
   })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------- SPAWN BONUS TIME TARGET  --------------------------------
+
+function spawnBonusTime() {
+  if (!gameObject.isPlaying || !targetBonus) return
+
+  // Use the same target size as other targets or a fixed size (e.g. 50px)
+  const size = gameObject.targetSize || 50
+  targetBonus.style.width = `${size}px`
+  targetBonus.style.height = `${size}px`
+
+  // Calculate random position within bounds
+  const maxX = gameArea.clientWidth - size
+  const maxY = gameArea.clientHeight - size
+
+  targetBonus.style.left = `${Math.floor(Math.random() * maxX)}px`
+  targetBonus.style.top = `${Math.floor(Math.random() * maxY)}px`
+
+  // Make it visible
+  targetBonus.classList.remove('hidden')
+
+  // Automatically hide again if player misses it within 3 seconds
+  setTimeout(() => {
+    if (targetBonus && !targetBonus.classList.contains('hidden')) {
+      targetBonus.classList.add('hidden')
+    }
+  }, 3000)
+}
+
+
+
+
+
+
+
+
+
+
+
 
 // ----------------------- HANDLE TARGET HITS --------------------------------
 /**
@@ -555,33 +615,6 @@ if (settingsForm) {
   })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ---------------------- TARGET HITS -------------------------------
 
 // Attach click listeners to both elements (if elements exist)
@@ -590,6 +623,60 @@ targetElements.forEach((el) => {
     el.addEventListener('click', handleTargetHit)
   }
 })
+
+
+
+
+
+
+
+
+
+
+// ---------------------- BONUS TARGET HIT -------------------------------
+
+if (targetBonus) {
+  targetBonus.addEventListener('click', (e) => {
+    e.stopPropagation() // Prevent gameArea miss-click triggers
+
+    console.log('Klick på bonus! isPlaying:', gameObject.isPlaying, 'Nuvarande tid:', gameObject.timeLeft)
+
+    // Verify active game state
+    if (!gameObject.isPlaying) return
+
+    // 1. Add 5 seconds to remaining time
+    gameObject.timeLeft = Number(gameObject.timeLeft) + 5
+
+    // 2. Refresh HUD element display immediately
+    if (timeLeftDisplay) {
+      timeLeftDisplay.textContent = gameObject.timeLeft
+    }
+
+    // 3. Play hit sound effect
+    playSound(bonusTimeSound)
+
+    // 4. Hide bonus target
+    targetBonus.classList.add('hidden')
+  })
+} else {
+  console.warn('Hittade inte #target-bonus i DOM!')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ---------------------- PLAY AGAIN -------------------------------
 

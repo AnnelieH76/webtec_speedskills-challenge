@@ -22,19 +22,20 @@
       </div>
 
       <nav class="navbar">
-        <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
-        <ul id="nav-links" class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Om spelet</a></li>
-          <li><a href="#instructions">Instruktioner</a></li>
-          <!-- <li><a href="#tracks">Banor</a></li>
-          <li><a href="#difficulty-tiers">Svårighetsgrader</a></li> -->
-          <li><a href="#highscore">Poängtabell</a></li>
-          <li><a href="#animations">Animationer</a></li>
-          <li><a href="#contact">Kontakt</a></li>
-        </ul>
+       <ul id="nav-links" class="nav-links">
+  <!-- Anchor links pointing directly to project.html sections -->
+  <li><a href="project.html#home">Home</a></li>
+  <li><a href="project.html#about">Om spelet</a></li>
+  <li><a href="project.html#instructions">Instruktioner</a></li>
+  <li><a href="project.html#highscore">Poängtabell</a></li>
+  <li><a href="project.html#animations">Animationer</a></li>
+  <li><a href="project.html#audio-features">Features</a></li>
+  <li><a href="project.html#contact">Kontakt</a></li>
+</ul>
         <!-- Standalone button pinned to the far right -->
         <a href="project_play.html" class="nav-btn-highlight">Spela nu</a>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
       </nav>
     </div>
   </header>
@@ -108,6 +109,11 @@
         <!-- Två aktiva targets för banan -->
         <img id="target-1" class="target-item hidden" src="img-project/target_apex.jpeg" alt="Mål 1 på banan">
         <img id="target-2" class="target-item hidden" src="img-project/target_mc.jpeg" alt="Mål 2 på banan">
+
+        <!-- Bonus target that adds extra time -->
+        <div id="target-bonus" class="target-item hidden">
+          <img src="img-project/bonus_time.jpeg" alt="Extra tid" draggable="false">
+        </div>
       </div>
 
       <!----------- GAME OVER AND RESULT -------------------->

@@ -23,19 +23,19 @@
       </div>
 
       <nav class="navbar">
-        <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
         <ul id="nav-links" class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">Om spelet</a></li>
           <li><a href="#instructions">Instruktioner</a></li>
-          <!-- <li><a href="#tracks">Banor</a></li>
-          <li><a href="#difficulty-tiers">Svårighetsgrader</a></li> -->
           <li><a href="#highscore">Poängtabell</a></li>
           <li><a href="#animations">Animationer</a></li>
+          <li><a href="#audio-features">Features</a></li>
           <li><a href="#contact">Kontakt</a></li>
         </ul>
         <!-- Standalone button pinned to the far right -->
         <a href="project_play.html" class="nav-btn-highlight">Spela nu</a>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Öppna meny">☰</button>
       </nav>
     </div>
   </header>
@@ -103,7 +103,7 @@
 
           <div class="step-card">
             <div class="step-number">02</div>
-            <h3>Jaga poäng</h3>
+            <h3>Jaga poäng & Extra tid</h3>
             <p>Klicka på symbolerna så fort de dyker upp på banan men undvik vattenpölarna.</p>
 
             <!-- Wrapper for positive score targets side-by-side -->
@@ -132,13 +132,23 @@
               </div>
             </div>
 
-            <!-- Minus target centered underneath -->
-            <div class="instruction-target-wrap instruction-minus-wrap">
-              <div class="instruction-target-box">
-                <img src="img-project/target_vatten.jpeg" alt="Vattenhinder"
-                  class="target-circle-demo target-hazard-border" draggable="false">
+            <!-- Bottom row: Minus target and bonus time side-by-side -->
+            <div class="instruction-targets-row instruction-bottom-row">
+              <div class="instruction-target-wrap">
+                <div class="instruction-target-box">
+                  <img src="img-project/target_vatten.jpeg" alt="Vattenhinder"
+                    class="target-circle-demo target-hazard-border" draggable="false">
+                </div>
+                <span class="instruction-target-tag minus">Minuspoäng</span>
               </div>
-              <span class="instruction-target-tag minus">Minuspoäng</span>
+
+              <div class="instruction-target-wrap">
+                <div class="instruction-target-box">
+                  <img src="img-project/bonus_time.jpeg" alt="Bonustid mål"
+                    class="target-circle-demo target-bonus-border" draggable="false">
+                </div>
+                <span class="instruction-target-tag bonus">+5 sek</span>
+              </div>
             </div>
           </div>
 
@@ -418,7 +428,16 @@
               </audio>
             </div>
 
-            <!-- 4. Bakgrundsmusik -->
+            <!-- 4. Bonus time -->
+            <div class="audio-player-card">
+              <span class="audio-label">Bonus Time Sound</span>
+              <audio controls preload="none">
+                <source src="audio-project/bonus_time.mp3" type="audio/mpeg">
+                Din webbläsare stöder inte ljudspelaren.
+              </audio>
+            </div>
+
+            <!-- 5. Bakgrundsmusik -->
             <div class="audio-player-card">
               <span class="audio-label">Background Music</span>
               <audio controls preload="none">
@@ -427,7 +446,7 @@
               </audio>
             </div>
 
-            <!-- 5. Game Over / Avslut -->
+            <!-- 6. Game Over / Avslut -->
             <div class="audio-player-card">
               <span class="audio-label">Game Over Sound</span>
               <audio controls preload="none">
@@ -442,7 +461,9 @@
             Med en serie anpassade ljudeffekter har spelet försetts med auditiv feedback som förstärker tempot
             och spelupplevelsen. <strong>3-2-1-GO</strong> spelas under nedräkningen inför varje heat. <strong>Target
               Hit</strong> bekräftar poänggivande klick på motorcyklar och apex, medan <strong>Splash Sound</strong>
-            varnar spelaren vid klick i vattenpölar. <strong>Background Music</strong> håller tempot uppe under hela
+            varnar spelaren vid klick i vattenpölar. Fångas det gyllene tidsobjektet
+            bekräftar <strong>Bonus Time Sound</strong> att fem extra sekunder har lagts till. <strong>Background
+              Music</strong> håller tempot uppe under hela
             loppet och <strong>Game Over Sound</strong> rundar av omgången när målflaggan och resultatmodalen visas.
           </p>
         </div>

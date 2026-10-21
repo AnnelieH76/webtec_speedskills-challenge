@@ -67,7 +67,7 @@ html {
   height: 120px;
   width: auto;
   border-radius: 4px;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 
 /* Navigation container holding links and standalone button */
@@ -345,10 +345,35 @@ section[id] {
   color: #ff4d4d;
 }
 
-/* Red/hazard border outline for water puddle */
-.target-hazard-border {
-  border-color: #ff4d4d;
+
+
+
+
+
+
+
+
+
+
+
+
+/* Center and gap for the bottom instruction targets */
+.instruction-bottom-row {
+  margin-top: 1rem;
+  justify-content: center;
+  gap: 1.8rem;
 }
+
+.instruction-target-tag.bonus {
+  color: #ffd700;
+}
+
+
+
+
+
+
+
 
 /* --------  IMAGE, STEP 3 -------- */
 
@@ -359,8 +384,6 @@ section[id] {
   gap: 0.5rem;
   margin-top: 3rem;
 }
-
-
 
 /* ============================================================
    SECTION Tracks
@@ -555,6 +578,13 @@ Below each circular preview */
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-accent);
+}
+
+/* Gold border and text for bonus target */
+.target-bonus-border {
+  border: 3px solid #ffd700;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Exact sizes matching easy.json, normal.json, and hard.json */
@@ -902,13 +932,40 @@ Below each circular preview */
   border-radius: 50%;
   border: 3px solid var(--color-accent);
   -webkit-user-drag: none;
-  cursor: pointer;
-  transition: transform 0.05s ease;
+  /* cursor: pointer;
+  transition: transform 0.05s ease; */
   z-index: 1020;
 }
 
 .target-item:active {
   transform: scale(0.9);
+}
+
+
+/* -------- Bonus time target styling ------- */
+#target-bonus {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 1020;
+  display: flex;
+  -webkit-user-drag: none;
+  border: 3px solid #ffd700;
+  /* Disable motion so it stays stationary */
+  transition: none;
+  overflow: hidden;
+}
+
+#target-bonus img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Ensure hidden state overrides absolute display */
+#target-bonus.hidden {
+  display: none;
 }
 
 /* ==========================================================================
@@ -1153,14 +1210,17 @@ a.contact-link:hover {
     opacity: 0;
     transform: scale(0.3);
   }
+
   40% {
     opacity: 1;
     transform: scale(1.2);
   }
+
   80% {
     opacity: 1;
     transform: scale(1);
   }
+
   100% {
     opacity: 0;
     transform: scale(0.9);
