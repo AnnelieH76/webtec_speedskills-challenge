@@ -48,19 +48,17 @@
 
 .aside a:hover {
   background-color: #eaf5ea;
-  border-left-color: #006400;
+  border-bottom-color: #006400;
   color: #006400;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* Justera till 2px eller 3px efter smak */
+  text-underline-offset: 3px;     /* Ger lite luft mellan texten och linjen */
+  
 }
 
 .aside h2 {
   margin-top: 0;
 }
-
-
-
-
-
 
 /* Styling för länkarna i sidomenyn */
 .aside a {
@@ -69,6 +67,7 @@
   color: #006400;              
   text-decoration: none;        /* Tar bort den hårda understrykningen */
   border-left: 3px solid transparent; /* Förbereder för  hover-kant */
+  font-weight: bold;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
 }
