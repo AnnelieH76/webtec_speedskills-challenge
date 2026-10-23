@@ -28,6 +28,8 @@
 .cols-3 .aside.left {
   flex: 1;
   order: 1;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .cols-3 .main {
@@ -38,6 +40,8 @@
 .cols-3 .aside.right {
   flex: 1;
   order: 3;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 /* 2 Columns */

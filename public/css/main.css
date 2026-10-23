@@ -50,10 +50,26 @@
   background-color: #eaf5ea;
   border-left-color: #006400;
   color: #006400;
+  text-decoration: none;
 }
 
 .aside h2 {
   margin-top: 0;
 }
 
+
+
+
+
+
+/* Styling för länkarna i sidomenyn */
+.aside a {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  color: #006400;              
+  text-decoration: none;        /* Tar bort den hårda understrykningen */
+  border-left: 3px solid transparent; /* Förbereder för  hover-kant */
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
 
