@@ -26,10 +26,11 @@
         <ul id="nav-links" class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">Om spelet</a></li>
-          <li><a href="#instructions">Instruktioner</a></li>
+          <li><a href="#instructions">Instruktioner & Features</a></li>
           <li><a href="#highscore">Poängtabell</a></li>
           <li><a href="#animations">Animationer</a></li>
-          <li><a href="#audio-features">Features</a></li>
+          <li><a href="#audio-features">Ljud</a></li>
+          <li><a href="#devices">Skärmar</a></li>
           <li><a href="#contact">Kontakt</a></li>
         </ul>
         <!-- Standalone button pinned to the far right -->
@@ -48,7 +49,8 @@
         <div class="hero-content">
           <h1>SpeedSkills Challenge</h1>
           <h2>FART, UTMANING OCH PRECISION</h2>
-          <p class="hero-lead">Sätt reaktionsförmågan på prov på banan. Jaga motorcyklar, apex och målflaggan men undvik
+          <p class="hero-lead">Sätt reaktionsförmågan på prov på banan. Jaga motorcyklar, extra tid och målflaggan men
+            undvik
             vattenpölarna!</p>
           <a href="project_play.html" class="btn btn-primary">Starta utmaningen</a>
         </div>
@@ -63,18 +65,23 @@
         <div class="grid-2-col">
           <div class="col-text">
             <p>
-              Efter succén-spelet Duckhunt tar vi upplevelsen till roadracingbanan.
+              Med inspiration från klassiska arkadspel tar vi upplevelsen till roadracingbanan.
               I <strong>SpeedSkills Challenge</strong> sätts din reaktionsförmåga och precision på prov i en intensiv
-              jakt.
+              jakt mot klockan.
             </p>
             <p>
-              Målet är enkelt men utmanande: Klicka på motorcyklar, apex och målflagga men gör allt för att undvika
-              vattenpölarna! Varje
-              träff ger poäng förutom vattenpölarna som ger minuspoäng medan klockan tickar obönhörligt nedåt.
+              Målet är enkelt men utmanande: Klicka på motorcyklar, apex och målflagga för att samla poäng. 
+              Håll utkik efter stoppuret som ger välbehövlig extratid, men se upp för förrädiska vattenpölar som straffar dig med minuspoäng.
             </p>
             <p>
               Spelet anpassar tempo och utmaningar dynamiskt efter svårighetsgrad för
-              en skräddarsydd upplevelse.
+              en skräddarsydd upplevelse från start till målflagga.
+            </p>
+            <p>Skönt motorljud eller förödande splash-ljud ger direkt feedback på varje klick. 
+              Pulserande animationer, peppande bakgrundsmusik och en festlig målflagga vid Game Over förhöjer racingkänslan.
+            </p>
+            <p>
+              Gränssnittet är touchanpassat och optimerat för liggande läge på både dator, platta och mobil.
             </p>
           </div>
           <div class="col-image">
@@ -86,7 +93,7 @@
       <!---------------- Sektion: Instruktioner ------------->
       <section id="instructions" class="section3 alternate-bg">
         <div class="section-heading">
-          <h2>Instruktioner</h2>
+          <h2>Instruktioner & Features</h2>
           <div class="heading-line"></div>
         </div>
         <div class="steps-grid">
@@ -466,6 +473,72 @@
               Music</strong> håller tempot uppe under hela
             loppet och <strong>Game Over Sound</strong> rundar av omgången när målflaggan och resultatmodalen visas.
           </p>
+        </div>
+      </section>
+
+
+      <!-- SEKTION: ENHETER & MOBILANPASSNING ------------->
+      <section id="devices" class="devices-section">
+        <div class="section-heading">
+          <h2>Skärmstorlekar</h2>
+          <div class="heading-line"></div>
+          <p class="section-sub">
+            Optimering för en sömlös upplevelse på både dator, mobil och läsplatta.
+          </p>
+        </div>
+
+        <div class="devices-steps-grid">
+          <!-- Laptop: Responsiv Spelyta -->
+          <article class="device-card">
+            <div class="device-card-media">
+              <img class="laptop-img" src="img-project/laptop.png" alt="Banan anpassad till laptop" loading="lazy">
+            </div>
+            <div class="device-card-body">
+              <span class="step-badge">Laptop</span>
+              <h3>Responsiv spelyta</h3>
+              <p>
+                För att undvika att bakgrundsbilden i spelet kapas vid olika skärmstorlekar avanvänds
+                <code>background-size: contain</code>.
+                Via anpassad koordinat-logik (<code>getTrackBounds()</code>) beräknas banans faktiska pixelyta
+                dynamiskt så att målen alltid rör sig inom den synliga banan.
+              </p>
+            </div>
+          </article>
+
+          <!-- Smart uppmaning: Vänd på skärmen! -->
+          <article class="device-card">
+            <div class="device-card-media">
+              <img class="turn-img" src="img-project/rotera_enheten.png" alt="Uppmaning om att vända skärmen till liggande läge"
+                loading="lazy">
+            </div>
+            <div class="device-card-body">
+              <span class="step-badge">Plattor och mobiler</span>
+              <h3>Smart uppmaning: Vänd på skärmen!</h3>
+              <p>
+                Spelet är utformad för landskapsläge. Om en spelare startar spelet i stående
+                porträttläge aktiveras en skärmtäckande overlay som uppmanar användaren att rotera enheten
+                till liggande läge, vilket maximerar spelytan och ger full överblick.
+              </p>
+            </div>
+          </article>
+
+          <!-- Steg 3: Responsiva gränssnitt och touch -->
+          <article class="device-card">
+            <div class="device-card-media">
+              <img class="mobile-img" src="img-project/mobile.png" alt="Mobilgränssnitt med anpassat Game Over-kort och poängtabell"
+                loading="lazy">
+            </div>
+            <div class="device-card-body">
+              <span class="step-badge">Mobil</span>
+              <h3>Skärmanpassning</h3>
+              <p>
+                Hela websidan och spelmodulen har gjorts responsiv så att den får ett anpassat utseende
+                oavsett om laptop, läsplatta eller mobil används. Dessutom har <code>touch-action: manipulation</code>
+                lagts
+                till för att eliminera klickfördröjningar och oönskad dubbeltryckszoom under hetsiga spelmoment.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 

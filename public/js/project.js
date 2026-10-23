@@ -47,8 +47,8 @@ bonusTimeSound.volume = 0.6
 const gameObject = {
   score: 0,
   pointsPerHit: 2,
-  duration: 10,        // Match duration in seconds
-  timeLeft: 10,        // Active countdown remaining
+  duration: 20,        // Match duration in seconds
+  timeLeft: 20,        // Active countdown remaining
   isPlaying: false,    // State flag to control click registration
   speed: 2000,         // Interval between automatic target relocations (ms)
   targetSize: 70,      // Fallback size in px if element dimensions aren't rendered
@@ -76,6 +76,7 @@ const startBtn = document.getElementById('start-btn') // Submit / Start button
 const loadingOverlay = document.getElementById('loading-overlay') // Loading banner element
 
 // DOM references: gameplay area, HUD, and modal
+const rotatePrompt = document.getElementById('rotate-device-prompt')
 const countdownOverlay = document.getElementById('countdown-overlay')
 const countdownText = document.getElementById('countdown-text')
 const gameArea = document.getElementById('game-area')
@@ -196,6 +197,41 @@ function stopSound(audio) {
   }
 }
 
+// Calculate the exact bounding box of the background image when using 'contain'
+function getTrackBounds() {
+  const containerW = gameArea.clientWidth
+  const containerH = gameArea.clientHeight
+
+  // Replace with the original dimensions of your track image (e.g. 1920x1080)
+  const imageNaturalW = 1024
+  const imageNaturalH = 572
+  const imageRatio = imageNaturalW / imageNaturalH
+  const containerRatio = containerW / containerH
+
+  let renderW, renderH, offsetX, offsetY
+
+  if (containerRatio > imageRatio) {
+    // Letterboxing on the sides (pillarbox)
+    renderH = containerH
+    renderW = containerH * imageRatio
+    offsetX = (containerW - renderW) / 2
+    offsetY = 0
+  } else {
+    // Letterboxing top and bottom
+    renderW = containerW
+    renderH = containerW / imageRatio
+    offsetX = 0
+    offsetY = (containerH - renderH) / 2
+  }
+
+  return {
+    left: offsetX,
+    top: offsetY,
+    width: renderW,
+    height: renderH
+  }
+}
+
 // ------------------------------------------------------------
 // GAME INITIALIZATION & ASSET LOADING
 // ------------------------------------------------------------
@@ -243,7 +279,7 @@ async function setupGame() {
     gameObject.speed = config.speed
     gameObject.targetSize = config.targetSize
     gameObject.pointsPerHit = config.pointsPerHit
-    gameObject.duration = config.gameDuration
+    // gameObject.duration = config.gameDuration
     gameObject.tierName = config.tierName
     gameObject.playerName = enteredName
 
@@ -254,7 +290,7 @@ async function setupGame() {
 
     // Set chosen track background directly on the game area
     gameArea.style.backgroundImage = `url('${chosenTrack}')`
-    gameArea.style.backgroundSize = 'cover'
+    gameArea.style.backgroundSize = 'contain'
     gameArea.style.backgroundPosition = 'center'
 
     // Ensure targets are not visible yet
@@ -354,6 +390,11 @@ function startGame() {
   settingsCard.classList.add('hidden')
   gameOverModal.classList.add('hidden')
 
+  // Enable rotation overlay checks while game is running
+  if (rotatePrompt) {
+    rotatePrompt.classList.add('is-active')
+  }
+
   // Reveal gameboard
   gameArea.classList.remove('hidden')
 
@@ -387,9 +428,7 @@ function startGame() {
   playSound(bgMusic)
 }
 
-
-
-// ----------------------- MOVE TARGETS --------------------------------
+// ----------------------- MOVE TARGETS ---------------------------------------
 /**
  * Select two unique random images, place targets and drift them randomly
  */
@@ -397,6 +436,9 @@ function moveTargets() {
   // 1. Pick 2 unique images from TARGET_IMAGES
   const shuffledImages = [...TARGET_IMAGES].sort(() => 0.5 - Math.random())
   const selectedImages = shuffledImages.slice(0, 2)
+
+  // Get active bounds of the visible track
+  const bounds = getTrackBounds()
 
   // 2. Position each target independently
   targetElements.forEach((el, index) => {
@@ -407,20 +449,26 @@ function moveTargets() {
     const targetHeight = el.offsetHeight || gameObject.targetSize
     const driftDistance = 60 // Pixels to drift across the track
 
-    // Safe boundaries ensuring drift remains fully inside gameArea
-    const maxX = Math.max(0, gameArea.clientWidth - targetWidth - driftDistance)
-    const maxY = Math.max(0, gameArea.clientHeight - targetHeight - driftDistance)
+    // Safe boundaries ensuring spawn and drift remain fully inside the visible track area
+    const maxX = Math.max(0, bounds.width - targetWidth - driftDistance)
+    const maxY = Math.max(0, bounds.height - targetHeight - driftDistance)
 
-    const startX = Math.floor(Math.random() * maxX)
-    const startY = Math.floor(Math.random() * maxY)
+    // Random start position within track bounds plus offsets
+    const startX = bounds.left + Math.floor(Math.random() * maxX)
+    const startY = bounds.top + Math.floor(Math.random() * maxY)
 
     // Calculate random drift direction (-driftDistance to +driftDistance)
     const driftX = (Math.random() - 0.5) * 2 * driftDistance
     const driftY = (Math.random() - 0.5) * 2 * driftDistance
 
-    // Ensure target doesn't drift outside the canvas borders
-    const targetX = Math.min(Math.max(0, startX + driftX), gameArea.clientWidth - targetWidth)
-    const targetY = Math.min(Math.max(0, startY + driftY), gameArea.clientHeight - targetHeight)
+    // Ensure target doesn't drift outside visible track bounds
+    const minX = bounds.left
+    const minY = bounds.top
+    const limitX = bounds.left + bounds.width - targetWidth
+    const limitY = bounds.top + bounds.height - targetHeight
+
+    const targetX = Math.min(Math.max(minX, startX + driftX), limitX)
+    const targetY = Math.min(Math.max(minY, startY + driftY), limitY)
 
     // Instantly teleport target to start position without animation
     el.style.transition = 'none'
@@ -440,19 +488,6 @@ function moveTargets() {
   })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ----------------------- SPAWN BONUS TIME TARGET  --------------------------------
 
 function spawnBonusTime() {
@@ -463,12 +498,16 @@ function spawnBonusTime() {
   targetBonus.style.width = `${size}px`
   targetBonus.style.height = `${size}px`
 
-  // Calculate random position within bounds
-  const maxX = gameArea.clientWidth - size
-  const maxY = gameArea.clientHeight - size
+  // Calculate random position strictly within visible track bounds
+  const bounds = getTrackBounds()
+  const maxX = Math.max(0, bounds.width - size)
+  const maxY = Math.max(0, bounds.height - size)
 
-  targetBonus.style.left = `${Math.floor(Math.random() * maxX)}px`
-  targetBonus.style.top = `${Math.floor(Math.random() * maxY)}px`
+  const bonusX = bounds.left + Math.floor(Math.random() * maxX)
+  const bonusY = bounds.top + Math.floor(Math.random() * maxY)
+
+  targetBonus.style.left = `${bonusX}px`
+  targetBonus.style.top = `${bonusY}px`
 
   // Make it visible
   targetBonus.classList.remove('hidden')
@@ -480,17 +519,6 @@ function spawnBonusTime() {
     }
   }, 3000)
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // ----------------------- HANDLE TARGET HITS --------------------------------
 /**
@@ -551,6 +579,11 @@ function endGame() {
   targetElements.forEach((el) => {
     if (el) el.classList.add('hidden')
   })
+
+  // Remove rotation prompt when game finishes
+  if (rotatePrompt) {
+    rotatePrompt.classList.remove('is-active')
+  }
 
   // Restore navigation header
   const siteHeader = document.querySelector('.siteheader')

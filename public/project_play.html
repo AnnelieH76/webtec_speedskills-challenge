@@ -22,16 +22,17 @@
       </div>
 
       <nav class="navbar">
-       <ul id="nav-links" class="nav-links">
-  <!-- Anchor links pointing directly to project.html sections -->
-  <li><a href="project.html#home">Home</a></li>
-  <li><a href="project.html#about">Om spelet</a></li>
-  <li><a href="project.html#instructions">Instruktioner</a></li>
-  <li><a href="project.html#highscore">Poängtabell</a></li>
-  <li><a href="project.html#animations">Animationer</a></li>
-  <li><a href="project.html#audio-features">Features</a></li>
-  <li><a href="project.html#contact">Kontakt</a></li>
-</ul>
+        <ul id="nav-links" class="nav-links">
+          <!-- Anchor links pointing directly to project.html sections -->
+          <li><a href="project.html#home">Home</a></li>
+          <li><a href="project.html#about">Om spelet</a></li>
+          <li><a href="project.html#instructions">Instruktioner & Features</a></li>
+          <li><a href="project.html#highscore">Poängtabell</a></li>
+          <li><a href="project.html#animations">Animationer</a></li>
+          <li><a href="project.html#audio-features">Ljud</a></li>
+          <li><a href="project.html">Skärmar</a></li>
+          <li><a href="project.html#contact">Kontakt</a></li>
+        </ul>
         <!-- Standalone button pinned to the far right -->
         <a href="project_play.html" class="nav-btn-highlight">Spela nu</a>
 
@@ -96,7 +97,7 @@
       <!-- Spelplan, dold tills spelet startas -->
       <div id="game-area" class="game-area hidden">
         <div class="game-hud">
-          <span class="hud-item">Tid kvar: <strong id="time-left">30</strong>s</span>
+          <span class="hud-item">Tid kvar: <strong id="time-left"></strong>s</span>
           <span class="hud-item">Poäng: <strong id="score-display">0</strong></span>
           <span class="hud-item">Svårighetsgrad: <strong id="tier-display">-</strong></span>
         </div>
@@ -161,14 +162,19 @@
             </tbody>
           </table>
         </div>
-
       </section>
-
     </article>
   </main>
 
   <!-- Läs in JavaScript i slutet -->
   <script type="module" src="js/project.js"></script>
+
+  <!-- Rotate device prompt for mobile/tablet portrait mode -->
+  <div id="rotate-device-prompt">
+    <div style="font-size: 3rem; margin-bottom: 1rem;">🔄</div>
+    <h2 style="color: var(--color-accent, #ff6600); margin-bottom: 0.5rem;">Vänd på skärmen</h2>
+    <p style="max-width: 320px; line-height: 1.5;">Vänligen rotera enheten till liggande läge för bäst spelupplevelse.</p>
+  </div>
 </body>
 
 </html>
