@@ -23,12 +23,12 @@ body {
   padding: 0;
 }
 
-/* Utnyttja mjuk skrollning vid klick på ankarlänkar */
+/* Enable smooth scrolling when clicking anchor links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Hjälpklass för att dölja element */
+/* Helper class to hide elements */
 .hidden {
   display: none;
 }
@@ -160,7 +160,7 @@ section[id] {
 }
 
 .hero-lead {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--color-text-muted);
   max-width: 700px;
   margin: 0 auto 2rem auto;
@@ -168,7 +168,7 @@ section[id] {
 }
 
 /* ==========================================================================
-   Gemensamma Komponenter (Knappar, Kort, Layout)
+   Common Components (Buttons, Cards, Layout)
    ========================================================================== */
 .btn {
   display: inline-block;
@@ -235,7 +235,7 @@ section[id] {
   margin: 2rem 0;
 }
 
-/* 2-kolumners layout */
+/* 2-columns layout */
 .grid-2-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -250,7 +250,7 @@ section[id] {
   border: 1px solid var(--color-border);
 }
 
-/* --------------- SEKTION INSTRUKTIONER 3-KORT*/
+/* --------------- SECTION INSTRUKTIONs 3-CARD*/
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -345,18 +345,6 @@ section[id] {
   color: #ff4d4d;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* Center and gap for the bottom instruction targets */
 .instruction-bottom-row {
   margin-top: 1rem;
@@ -367,13 +355,6 @@ section[id] {
 .instruction-target-tag.bonus {
   color: #ffd700;
 }
-
-
-
-
-
-
-
 
 /* --------  IMAGE, STEP 3 -------- */
 
@@ -401,6 +382,13 @@ section[id] {
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease, border-color 0.25s ease;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-card);
+}
+
+.track-card-content {
+  padding: 1.25rem 1.5rem;
 }
 
 .track-card:hover {
@@ -420,10 +408,6 @@ section[id] {
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
-}
-
-.track-card:hover .track-img-wrap img {
-  transform: scale(1.05);
 }
 
 .track-card-body {
@@ -604,7 +588,7 @@ Below each circular preview */
 }
 
 /* ==========================================================================
-   SECTION: Highscore Tabell
+   SECTION: Highscore List
    ========================================================================== */
 
 .table-container {
@@ -710,7 +694,7 @@ Below each circular preview */
 }
 
 /* ==========================================================================
-   Section: Audio Features (Kapsel-spelare)
+   Section: Audio Features 
    ========================================================================== */
 
 .audio-showcase-wrapper {
@@ -906,8 +890,9 @@ Below each circular preview */
     grid-template-columns: 1fr;
   }
 }
+
 /* ==========================================================================
-   Inställningskort (Formulär)
+   Settings (Formulär)
    ========================================================================== */
 
 /* Center intro heading and description on the play page */
@@ -966,7 +951,7 @@ Below each circular preview */
 }
 
 /* ==========================================================================
-   Spelytan & Fullskärmsläge 
+   /* Game Area & Fullscreen Mode 
    ========================================================================== */
 
 /* ------------ COUNTDOWN OVERLAY (3, 2, 1, GO!) ---------------- */
@@ -1062,7 +1047,7 @@ Below each circular preview */
   color: var(--color-accent);
 }
 
-/* Målobjektet som flyttar runt på banan */
+/* Target object moving around the track */
 .target-item {
   position: absolute;
   object-fit: cover;
@@ -1147,12 +1132,8 @@ Below each circular preview */
   max-width: 440px;
   /* Let height scale proportionally */
   height: auto;
-
-
-
   /* Set responsive max vertical height for small screens */
   max-height: clamp(140px, 30vh, 240px);
-
   /* Preserve image aspect ratio */
   object-fit: contain;
   /* Soft glow outline matching accent */
@@ -1186,7 +1167,7 @@ Below each circular preview */
 }
 
 /* ==========================================================================
-   Footer (3 kolumner)
+   Footer (3 columns)
    ========================================================================== */
 .site-footer {
   background-color: #0a0a0a;
@@ -1369,7 +1350,7 @@ a.contact-link:hover {
 }
 
 /* ==========================================================================
-   Responsivitet
+   Responsivity
    ========================================================================== */
 @media (max-width: 768px) {
   .menu-toggle {
@@ -1422,7 +1403,7 @@ a.contact-link:hover {
 }
 
 @media screen and (orientation: portrait) and (max-width: 900px) {
-#rotate-device-prompt.is-active {
+  #rotate-device-prompt.is-active {
     display: flex;
   }
 }

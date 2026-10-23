@@ -30,13 +30,13 @@
       <h2>Innehållsförteckning</h2>
 
       <ul>
-        <li><a href="#kmom01">kmom01 - Kom igång med HTML, CSS och JavaScript</a></li>
-        <li><a href="#kmom02">kmom02 - Responsiv webbplats</a></li>
-        <li><a href="#kmom03">kmom03 - Onepage, struktur och stil</a></li>
-        <li><a href="#kmom04">kmom04 - Manipulering av DOM</a></li>
-        <li><a href="#kmom05">kmom05 - Fetch API</a></li>
-        <li><a href="#kmom06">kmom06 - Duckhunt game</a></li>
-        <li><a href="#kmom10">kmom10</a></li>
+        <li><a href="#kmom01">Kmom01 - Kom igång med HTML, CSS och JavaScript</a></li>
+        <li><a href="#kmom02">Kmom02 - Responsiv webbplats</a></li>
+        <li><a href="#kmom03">Kmom03 - Onepage, struktur och stil</a></li>
+        <li><a href="#kmom04">Kmom04 - Manipulering av DOM</a></li>
+        <li><a href="#kmom05">Kmom05 - Fetch API</a></li>
+        <li><a href="#kmom06">Kmom06 - Duckhunt game</a></li>
+        <li><a href="#kmom10">Kmom07-10 - Projektet</a></li>
       </ul>
     </aside>
     <main class="main">
@@ -46,7 +46,7 @@
         <p>Här kommer mina redovisningstexter från de olika kursmomenten i denna kursen.</p>
 
         <section id="kmom01">
-          <h2>kmom01 - Kom igång med HTML, CSS och JavaScript</h2>
+          <h2>Kmom01 - Kom igång med HTML, CSS och JavaScript</h2>
 
           <p>Det första kursmomentet, att komma igång med att skapa den här webbsidan, har varit både lärorikt och
             bitvis utmanande att ta sig an.
@@ -77,7 +77,7 @@
         </section>
 
         <section id="kmom02">
-          <h2>kmom02 - Responsiv webbplats</h2>
+          <h2>Kmom02 - Responsiv webbplats</h2>
 
           <p>Att arbeta sig igenom övningen gick smidigt, men själva uppgiften bjöd på lite mer motstånd. Till skillnad
             från föregående kursmoment, där uppgiften byggde vidare direkt på övningsmomenten, upplevde jag denna vecka
@@ -105,7 +105,7 @@
         </section>
 
         <section id="kmom03">
-          <h2>kmom03 - Onepage, struktur och stil</h2>
+          <h2>Kmom03 - Onepage, struktur och stil</h2>
 
           <p>Min Onepage-sida är en portfolio som visar upp min YH-utbildning och bakgrund inom mjukvarutestning och QA.
             Jag ville att sidan skulle se ren och teknisk ut. Därför valde jag en mörkblå färg för header och
@@ -133,7 +133,7 @@
         </section>
 
         <section id="kmom04">
-          <h2>kmom04 - Manipulering av DOM</h2>
+          <h2>Kmom04 - Manipulering av DOM</h2>
 
           <p>I det här kursmomentet blev samspelet mellan webbens tre delar väldigt tydligt.
             HTML står för grunden och strukturen, CSS styr utseendet och layouten,
@@ -149,8 +149,8 @@
 
           <p>Kodstrukturen är lätt att överblicka med tydliga kommentarer och numrering som matchar uppgifterna.
             Jag valde att samla alla funktionsdefinitioner i början av filen och lade initieringen och händelselyssnarna
-            längst ner.
-            Att samla alla tangenttryckningar i en gemensam hanterare gjorde koden enkel att bygga vidare på när nya
+            längst ner. Att samla alla tangenttryckningar i en gemensam hanterare gjorde koden enkel att bygga vidare på
+            när nya
             funktioner tillkom.</p>
 
           <p>Min största TIL (Today I Learned) för detta moment var hur viktigt det är att vara noggrann med sina
@@ -160,20 +160,22 @@
         </section>
 
         <section id="kmom05">
-          <h2>kmom05 - Fetch API</h2>
+          <h2>Kmom05 - Fetch API</h2>
 
           <p>Arbetet med uppgiften var väldigt lärorikt. Att koppla ihop Fetch API
             med dynamisk DOM-manipulering gav en tydlig förståelse för hur en modern webbapplikation
-            kan hämta och presentera extern data utan att ladda om sidan. Med hjälp av AI som bollplank kunde jag steg för 
-            steg bena ut problemställningen och få en tydlig bild av hur jag skulle tänka för att komma igång med uppgiften.</p>
+            kan hämta och presentera extern data utan att ladda om sidan. Med hjälp av AI som bollplank kunde jag steg
+            för steg bena ut problemställningen och få en tydlig bild av hur jag skulle tänka för att komma igång med
+            uppgiften.</p>
 
-          <p>Jag känner igen mönstret med async/await väl från testautomatisering och Playwright, där i princip varje 
-            webbläsarinteraktion returnerar ett Promise och kräver await för att testerna ska vara stabila. 
-            Fördelen här i frontend-koden är precis densamma: koden blir linjär, lättläst och man slipper svårlästa Promise-kedjor (.then()).
-            och man kan smidigt hantera asynkrona nätverksanrop och synkrona fel i ett och samma try/catch-block.</p>
+          <p>Jag känner igen mönstret med async/await väl från testautomatisering och Playwright, där i princip varje
+            webbläsarinteraktion returnerar ett Promise och kräver await för att testerna ska vara stabila.
+            Fördelen här i frontend-koden är precis densamma: koden blir linjär, lättläst och man slipper svårlästa
+            Promise-kedjor (.then()). och man kan smidigt hantera asynkrona nätverksanrop och synkrona fel i ett och
+            samma try/catch-block.</p>
 
-          <p>Det mest utmanande var att synkronisera databearbetningen med tabellbygget, framför allt att filtrera 
-            ut giltiga numeriska värden, beräkna det lägsta värdet med Math.min och applicera 
+          <p>Det mest utmanande var att synkronisera databearbetningen med tabellbygget, framför allt att filtrera
+            ut giltiga numeriska värden, beräkna det lägsta värdet med Math.min och applicera
             klassen .winner på rätt tabellcell även för år där vissa länder saknar data.</p>
 
           <p>Min största TIL (Today I Learned) är skillnaden mellan en for...of-loop och array-metoden forEach()
@@ -184,31 +186,173 @@
         </section>
 
         <section id="kmom06">
-          <h2>Duckhunt game</h2>
+          <h2>Komom06 - Duckhunt game</h2>
 
-          <p>Det har varit ett både roligt och lärorikt kursmoment att bygga Duckhunt-spelet. Att knyta ihop 
-            asynkrona funktioner via Fetch med realtidsstyrning i DOM var utmanande i början, 
-            men när bitarna väl föll på plats kändes arkitekturen väldigt logisk. Arbetet bjöd på en del praktisk felsökning, 
-            bland annat med att hålla koll på öppnade och stängande container-taggar i HTML så att inte spelplanen råkade 
-            döljas tillsammans med inställningskortet, samt att se till att layouten och bildplaceringen höll ihop 
-            responsivt med Flexbox utan att spräcka gränserna. Jag valde även att bygga ut spelet med tre olika svårighetsgrader, 
-            där ankans storlek och poängvärde anpassas dynamiskt efter spelarens val.</p>
+          <p>Det har varit ett både roligt och lärorikt kursmoment att bygga Duckhunt-spelet. Att knyta ihop
+            asynkrona funktioner via Fetch med realtidsstyrning i DOM var utmanande i början,
+            men när bitarna väl föll på plats kändes arkitekturen väldigt logisk. Arbetet bjöd på en del praktisk
+            felsökning, bland annat med att hålla koll på öppnade och stängande container-taggar i HTML så att inte
+            spelplanen
+            råkade döljas tillsammans med inställningskortet, samt att se till att layouten och bildplaceringen höll
+            ihop
+            responsivt med Flexbox utan att spräcka gränserna. Jag valde även att bygga ut spelet med tre olika
+            svårighetsgrader, där ankans storlek och poängvärde anpassas dynamiskt efter spelarens val.</p>
 
-          <p>Min generella uppfattning om JavaScript så här långt är att det är ett otroligt kraftfullt och dynamiskt språk 
-            när det kommer till att ge liv åt webbapplikationer. Det kräver dock disciplin och noggrannhet. Små detaljer som 
-            skillnaden mellan textsträngar och numeriska värden, hantering av standardbeteenden vid submit samt koll på intervaller 
-            och timers kan snabbt ställa till det om man inte tänker igenom flödet steg för steg.</p>
+          <p>Min generella uppfattning om JavaScript så här långt är att det är ett otroligt kraftfullt och dynamiskt
+            språk när det kommer till att ge liv åt webbapplikationer. Det kräver dock disciplin och noggrannhet. Små
+            detaljer
+            som skillnaden mellan textsträngar och numeriska värden, hantering av standardbeteenden vid submit samt koll
+            på
+            intervaller och timers kan snabbt ställa till det om man inte tänker igenom flödet steg för steg.</p>
 
-          <p>Min viktigaste lärdom är hur centralt samspelet mellan en korrekt DOM-struktur och webbläsarens HTML-validering faktiskt är 
-            när JavaScript manipulerar element dynamiskt. Att ett img-element alltid kräver ett definierat src-attribut 
-            enligt HTML5-standarden även när bildkällan skapas som en blob via Fetch samt vikten av att beräkna elementgränser 
-            dynamiskt med offsetWidth och offsetHeight för att undvika att rörliga objekt hamnar utanför spelytan.</p>
+          <p>Min viktigaste lärdom är hur centralt samspelet mellan en korrekt DOM-struktur och webbläsarens
+            HTML-validering faktiskt är när JavaScript manipulerar element dynamiskt. Att ett img-element alltid kräver
+            ett definierat src-attribut
+            enligt HTML5-standarden även när bildkällan skapas som en blob via Fetch samt vikten av att beräkna
+            elementgränser dynamiskt med offsetWidth och offsetHeight för att undvika att rörliga objekt hamnar utanför
+            spelytan.</p>
         </section>
 
-        <section id="kmom10">
-          <h2>kmom10</h2>
+        <section id="Kmom10">
+          <h2>Kmom07-10 - Projektet</h2>
+          <h3>Krav 1: Landningssida för spelet, onepage</h3>
 
-          <p>Här kommer redovisningen</p>
+          <p>För att lansera och marknadsföra spelet har jag byggt en stilren, responsiv onepage-webbplats indelad i
+            tydliga sektioner, rader och kolumner med modern CSS Grid och Flexbox. Idén har jag fått från mitt stora
+            intresse av roadracing
+            och mitt engagemang i eventbolaget SpeedSkills.
+            Högst upp finns en fast header med en anpassad logga och en navigeringsmeny som smidigt
+            leder besökaren till spelets olika delar samt en framträdande "Spela nu"-knapp som uppmanar till direkt
+            interaktion.
+          </p>
+
+          <p>I sidans inledning möts användaren av en säljande hero-sektion med bakgrundsbild som direkt
+            etablerar spelets fartfyllda racingtema och fångar intresset. Genom visuella kort, skärmdumpar och en
+            anpassad layout presenteras spelets banor och funktioner på ett attraktivt och lättöverskådligt sätt.
+            Sidan är fullt responsiv och anpassar sig automatiskt efter datorer, surfplattor och mobiler genom flexibla
+            grids och genomtänkta brytpunkter.
+            Längst ner avslutas sidan med en semantisk footer uppdelad i tre tydliga kolumner som rymmer relevant
+            projektinformation, upphovsrätt och snabblänkar.</p>
+
+          <h3>Krav 2: Spelet Duckhunt, version 2</h3>
+          <p>I denna vidareutveckling har jag tagit spelmekaniken från kmom06 och förvandlat den till ett modernt
+            roadracingtema kallat SpeedSkills Challenge. Svårighetsgradskonfigurationen ligger
+            i externa filer (easy.json, normal.json och hard.json). Dessa konfigurationsfiler läses in asynkront med
+            fetch() och styr parametrar som målförflyttningens hastighet (speed), klickelementens storlek (targetSize)
+            samt poängutdelning (pointsPerHit).</p>
+
+          <p>Innan en omgång startar kan användaren skriva in sitt namn och välja önskadbana samt svårighetsgrad via ett
+            formulär i gränssnittet, vilket dynamiskt laddar in och applicerar rätt JSON-profil.
+            De tidigare ankorna och bakgrunderna har ersatts av AI-genererade bilder på motorcyklar,
+            apex-kurvpunkter, målflaggor och vattenpölar. Bakgrundsbilderna är inspirerade av 3 autentiska och
+            legendariska racingbanor i Sverige.
+            På webbplatsen har jag byggt en dedikerad sektion för spelidén som med beskrivande text och grafik förklarar
+            målet med spelet, de olika målens funktioner samt poängsystemet. Därutöver finns en tydlig
+            instruktionssektion strukturerad i
+            stegvisa kort som pedagogiskt guidar användaren genom hur man väljer nivå, startar spelet och navigerar på
+            banan.</p>
+
+          <h3>Krav 3: Highscorelista i tabell</h3>
+          <p>Spelet innehåller en dynamisk poängberäkning, en visuell nedräkningstimer och en automatisk highscorelista
+            som sparar spelarens prestationer.
+            Under pågående match visas aktuell poäng och återstående tid i spelets HUD, där tiden tickar ner med en
+            sekund i taget via ett intervall tills noll uppnås och rundan avslutas. Varje avslutad runda sparar
+            spelarens slutpoäng tillsammans
+            med vald svårighetsgrad i en lokal array, vilken sorteras i fallande ordning så att det bästa resultatet
+            hamnar högst upp. Resultaten presenteras därefter i en tabell inuti "Game over-modulen" samt på onepage där
+            topplaceringarna listas tydligt med placering, poäng,
+            namn och nivå.</p>
+
+          <p>Listan hålls i minnet under spelsessionen och nollställs naturligt vid en full sidomladdning, men kan
+            även återställas manuellt via en dedikerad knapp. På landningssidan finns en egen sektion för poängtbellen
+            samt en pedagogisk förklaring på hur poängtabellen fungerar.
+            Highscore-tabellen tillsammans med återställningsknappen och "Spela igen"- knapp finns även på Game
+            Over-vy för att ge besökaren en mer användarvänlig upplevelse.</p>
+
+          <h3>Krav 4: CSS animationer</h3>
+          <p>För att förstärka arkadkänslan och skapa direkt visuell feedback har jag integrerat flera anpassade
+            CSS-animationer och övergångar genom spelets olika faser. Innan en omgång startar visas en dynamisk
+            intro-nedräkning där
+            siffrorna 3, 2, 1 pulserar fram med en kombinerad scale- och opacity-animation via @keyframes för att
+            bygga upp spänningen. Under spelets
+            gång rör sig målen över banan med slumpmässiga koordinater inom den aktiva spelytan, och vid varje lyckad
+            träff triggas en distinkt klickanimation innan elementet försvinner.</p>
+
+          <p>När matchuret når noll aktiveras spelets outro, där slutskärmen presenteras med en
+            en pulserande och gungande målflagga med "GAME OVER!"-text.
+            Samtliga animationer är byggda med CSS-egenskaper som transform och opacity. På webbplatsen finns en
+            dedikerad sektion för animationer som beskriver dessa på ett säljande tekniskt sätt samt med bilexempel.
+          </p>
+
+          <h3>Krav 5: Extra features</h3>
+          <p>För att göra spelet mer engagerande och dynamiskt har jag laggt till interaktiva ljudeffekter och ett
+            utökat sortiment av målobjekt med skilda egenskaper. Ljudbilden består av ett loopat bakgrundsspår med
+            peppande spelmusik
+            samt distinkta ljudeffekter som triggas via JavaScripts Audio-API. Ett rappt gaspådrag hörs vid träff på
+            motorcyklar, kurvor och flaggor som ger pluspoäng, ett klart pling vid tidsbonus samt ett plaskljud vid
+            misstag.</p>
+
+          <p>Målen har kompletterats så att spelaren inte enbart jagar vanliga poängobjekt, utan ställs inför
+            strategiska risker. Ett bonusstoppur dyker upp med jämna intervall och belönar snabba reflexer med fem
+            sekunders extratid, medan förrädiska vattenpölar straffar felklick med direkt poängavdrag.
+            Jag har velat skapa en dynamisk intensitet där snabb reaktionsförmåga och precision premieras. På
+            webbplatsen presenteras dessa spelfunktioner i sektionen för instruktione och en egen dedikerad sektion
+            för ljudefektera med möjlighet
+            att lyssna på dem.</p>
+
+          <h3>Krav 6: Spelbart på mobil/läsplatta</h3>
+          <p>För att säkerställa att spelet är fullt spelbart och responsivt på mobila enheter och surfplattor har jag
+            anpassat både gränssnittet och interaktionslogiken för mindre touchskärmar. Layouten anpassar sig
+            dynamiskt med flytande grids och
+            media querie som skalar om spelmodulen och Heads-Up Display utan att förlora läsbarhet eller precision.
+            Eftersom spelet är optimerat för liggande läge (landscape) har jag implementerat en automatisk
+            rotationsspärr: om en spelare startar spelet i stående porträttläge aktiveras en skärmtäckande overlay som
+            uppmanar användaren att vända på enheten innan omgången startar.</p>
+
+          <p>För att undvika att bakgrundsbilden i spelet beskärs beräknas målens klickbara koordinater proportionellt
+            mot den faktiska synliga spelytan via funktionen getTrackBounds(). På touchenheter har jag dessutom lagt
+            till CSS-egenskapen touch-action, manipulation på spelytan, vilket tar bort webbläsarens inbyggda
+            klickfördröjning på 300 millisekunder och förhindrar oavsiktlig dubbelklickszoomning under intensiva
+            spelmoment.
+            På webbplatsen finns en särskild sektion för
+            skärmanpassning där lösningarna för laptop platta och mobil presenteras i separata kort tillsammans med
+            tillhörande skärmdumpar som visar både spelläget och rotationsuppmaningen i praktiken.</p>
+
+          <h3>Genomförande</h3>
+          <p>Projektet har överlag flytit på förvånansvärt bra och resulterat i två mycket intensiva och lärorika
+            veckor. Att bygga vidare på konceptet från kmom06 kändes som en rolig och motiverande utmaning, där
+            balansen mellan spelprogrammering och webbutveckling gav ett konkret sammanhang. Det som gick smidigast
+            var att etablera grundstrukturen och designa spelets visuella tema. </p>
+
+          <p>Den största utmaningen låg framför allt i att få spelet att fungera sömlöst och koppla samman asynkron
+            datahantering via
+            JSON-filerna samt att spellogiken med både animationer och ljud i rätt ögonblick. För att optimera spelet
+            till olika skärmstorlekar och
+            enheter, särskilt gällande touch-interaktion och koordinater hade jag stor nytta av en AI-assistent
+            som bollplank för att reda ut tekniska detaljer, såsom vikten av touch-action: manipulation för att
+            motverka klickfördröjningar och hur man bäst hanterar en rotationsspärr för liggande läge. Jag använde
+            även webbläsarens DevTools flitigt för att kontinuerligt testa och felsöka responsiviteten mot simulerade
+            mobiler och surfplattor.</p>
+
+          <p>Projektet kändes både rimligt och väl avvägt för kursens slutskede. Uppgiftsbeskrivningen var
+            tydlig med vad som krävdes för grundläggande godkänt respektive de högre betygsstegen, vilket gav en klar
+            målbild och gjorde det roligt att lägga extra omsorg på detaljer och användarupplevelse. Hade jag haft mer
+            tid hade jag gjort några justeringar i det responsiva gränssnittet i projektet för att göra helheten mer
+            användarvänligt.</p>
+
+          <h3>Min TIL (Today I Learned) för projektet</h3>
+          <p>Min största TIL under det här projektet har varit insikten om hur mycket mer som krävs för en riktigt bra
+            mobilupplevelse än att enbart göra layouten flytande med media queries.</p>
+
+          <p>Att bygga ett enkelt klickspel ställer helt andra krav på användarinteraktionen än en vanlig webbsida.
+            Den viktigaste tekniska lärdomen blev därför hur touch-skärmar beter sig i praktiken, att lägga till
+            manipulation för att eliminera mobilwebbläsarnas inbyggda 300 ms fördröjning och förhindra
+            dubbelklickszoom, samt att bygga en ren CSS/JS-rotationsspärr för att låsa upplevelsen till liggande läge.
+          </p>
+
+          <p>Jag lärde mig också att testa detta systematiskt i DevTools Device Mode och att separera
+            konfigurationsdata till rena JSON-filer för att göra spelmotorer enklare att underhålla och skala upp.
+          </p>
         </section>
 
       </article>
@@ -242,7 +386,7 @@
       <div class="footer-column">
         <h2>Verktyg</h2>
         <ul>
-         <li><a href="https://validator.w3.org/">W3C:s HTML-validation </a></li>
+          <li><a href="https://validator.w3.org/">W3C:s HTML-validation </a></li>
           <li><a href="https://jigsaw.w3.org/css-validator/#validate_by_input">W3C:s CSS-validation </a></li>
           <li><a href="https://mermaid.js.org/syntax/flowchart.html">Mermaid Flowchart för md-filer</a></li>
           <li><a href="https://caniuse.com/">CanIUse</a></li>

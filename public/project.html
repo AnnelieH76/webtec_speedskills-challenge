@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- Responsivitet -->
+  <!-- Responsivity -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/project.css">
@@ -56,7 +56,7 @@
         </div>
       </section>
 
-      <!------------ Sektion: Om spelet och spelidén -------->
+      <!------------ Section: Om spelet och spelidén -------->
       <section id="about" class="section2">
         <div class="section-heading">
           <h2>Spelidén: SpeedSkills Challenge</h2>
@@ -70,15 +70,17 @@
               jakt mot klockan.
             </p>
             <p>
-              Målet är enkelt men utmanande: Klicka på motorcyklar, apex och målflagga för att samla poäng. 
-              Håll utkik efter stoppuret som ger välbehövlig extratid, men se upp för förrädiska vattenpölar som straffar dig med minuspoäng.
+              Målet är enkelt men utmanande: Klicka på motorcyklar, apex och målflagga för att samla poäng.
+              Håll utkik efter stoppuret som ger välbehövlig extratid, men se upp för förrädiska vattenpölar som
+              straffar dig med minuspoäng.
             </p>
             <p>
               Spelet anpassar tempo och utmaningar dynamiskt efter svårighetsgrad för
               en skräddarsydd upplevelse från start till målflagga.
             </p>
-            <p>Skönt motorljud eller förödande splash-ljud ger direkt feedback på varje klick. 
-              Pulserande animationer, peppande bakgrundsmusik och en festlig målflagga vid Game Over förhöjer racingkänslan.
+            <p>Skönt motorljud eller förödande splash-ljud ger direkt feedback på varje klick.
+              Pulserande animationer, peppande bakgrundsmusik och en festlig målflagga vid Game Over förhöjer
+              racingkänslan.
             </p>
             <p>
               Gränssnittet är touchanpassat och optimerat för liggande läge på både dator, platta och mobil.
@@ -90,7 +92,7 @@
         </div>
       </section>
 
-      <!---------------- Sektion: Instruktioner ------------->
+      <!---------------- Section: Instruktioner ------------->
       <section id="instructions" class="section3 alternate-bg">
         <div class="section-heading">
           <h2>Instruktioner & Features</h2>
@@ -176,7 +178,7 @@
         </div>
       </section>
 
-      <!---------------SEKTION: VALBARA BANOR ----------------->
+      <!---------------SECTION: VALBARA BANOR ----------------->
       <section id="tracks" class="section-container">
         <div class="section-heading">
           <h3 class="section-title">Valbara Banor</h3>
@@ -185,39 +187,41 @@
         </div>
 
         <div class="grid-3-col track-grid">
-          <!-- Bana 1 -->
-          <article class="carbon-card track-card">
-            <div class="track-img-wrap">
-              <img src="img-project/karlskoga_bana.jpeg" alt="Karlskoga Motorarena banskiss" loading="lazy">
-            </div>
-            <div class="track-card-body">
-              <h4>Karlskoga Motorarena</h4>
-              <p>En legendarisk racerbana känd för klassiska kurvor som Ejes och Hårnålen där precision avgör allt.</p>
-            </div>
-          </article>
 
-          <!-- Bana 2 -->
-          <article class="carbon-card track-card">
+          <!-- Track 1 -->
+          <!-- Image sits directly at top with zero padding -->
+          <div class="track-card">
+            <img src="img-project/karlskoga_bana.jpeg" alt="Karlskoga Motorarena" class="track-card-image">
+
+            <div class="track-card-content">
+              <h4>Karlskoga Motorarena</h4>
+              <p>En legendarisk racerbana känd för klassiska kurvor och tekniska partier.</p>
+            </div>
+          </div>
+
+
+          <!-- Track 2 -->
+          <div class="track-card">
             <div class="track-img-wrap">
               <img src="img-project/mantorp_bana.jpeg" alt="Mantorp Motorarena banskiss" loading="lazy">
             </div>
-            <div class="track-card-body">
+            <div class="track-card-content">
               <h4>Mantorp Motorarena</h4>
               <p>Höghastighetsbana med långa rakan och tekniska sektioner som kräver snabba reflexer i varje
                 kurvkombination.</p>
             </div>
-          </article>
+          </div>
 
-          <!-- Bana 3 -->
-          <article class="carbon-card track-card">
+          <!-- Track 3 -->
+          <div class="track-card">
             <div class="track-img-wrap">
               <img src="img-project/vastgota_bana.jpeg" alt="Västgötabanan banskiss" loading="lazy">
             </div>
-            <div class="track-card-body">
+            <div class="track-card-content">
               <h4>Västgötabanan</h4>
               <p>Kuperad och utmanande bandesign där fokus och kontinuerligt flyt ger högst utdelning.</p>
             </div>
-          </article>
+          </div>
         </div>
       </section>
 
@@ -232,7 +236,7 @@
         </div>
 
         <div class="grid-3-col tier-grid">
-          <!-- Lugn grupp -->
+          <!-- Easy ---------------------------->
           <article class="carbon-card tier-card">
             <div class="tier-card-header">
               <span class="tier-badge">Nivå 1</span>
@@ -254,7 +258,7 @@
             </ul>
           </article>
 
-          <!-- Medel grupp -->
+          <!-- Normal --------------------->
           <article class="carbon-card tier-card tier-card-featured">
             <div class="tier-card-header">
               <span class="tier-badge">Nivå 2</span>
@@ -276,7 +280,7 @@
             </ul>
           </article>
 
-          <!-- Race grupp -->
+          <!-- Hard/Race ----------------------->
           <article class="carbon-card tier-card">
             <div class="tier-card-header">
               <span class="tier-badge">Nivå 3</span>
@@ -300,14 +304,14 @@
         </div>
       </section>
 
-      <!----------------- Sektion: Highscorelista i tabell  ----------------->
+      <!----------------- Section: Highscore list  ----------------->
       <section id="highscore" class="section4 alternate-bg">
         <div class="section-heading">
           <h2>Poängtabell</h2>
           <div class="heading-line"></div>
           <p class="section-subtitle">
             Poängtabellen uppdateras efter varje spel. Topp 10 sorteras efter bästa placering och nollställs automatiskt
-            när sidan laddas om.
+            när sidan laddas om eller manuellt via återställningsknappen..
           </p>
         </div>
 
@@ -322,7 +326,7 @@
               </tr>
             </thead>
             <tbody id="highscore-body">
-              <!-- Rader genereras dynamiskt av project.js -->
+              <!-- Rows are generated dynamically by project.js -->
               <tr class="empty-row">
                 <td colspan="4">Inga spelade spel än. Starta en session ovan!</td>
               </tr>
@@ -335,7 +339,7 @@
         </div>
       </section>
 
-      <!-------------- SEKTION: Animationer  -->
+      <!-------------- SECTION: Animations  ------------>
       <section id="animations" class="section-container alternate-bg">
         <div class="section-heading">
           <h2>Animationer</h2>
@@ -344,7 +348,7 @@
         </div>
 
         <div class="grid-2-col anim-overview-grid">
-          <!-- Lista med de 4 animationerna -->
+          <!-- List with 4 animations ----------------->
           <div class="anim-list-wrap">
             <ul class="anim-feature-list">
 
@@ -387,7 +391,7 @@
             </ul>
           </div>
 
-          <!-- Bildvisning: Game Over med målflagga -->
+          <!-- Image preview: Game Over with checkered flag -->
           <div class="anim-showcase-img">
             <div class="setup-img-wrap">
               <img src="img-project/game_over.jpeg" alt="Game Over och animerad målflagga" loading="lazy">
@@ -397,7 +401,7 @@
         </div>
       </section>
 
-      <!-- ===== SEKTION: Features - Ljudeffekter  ======== -->
+      <!-- ===== SECTION: Features - Sound Effects ======== -->
       <section id="audio-features" class="section-container alternate-bg">
         <div class="section-heading">
           <h2>Features</h2>
@@ -408,7 +412,7 @@
         <div class="audio-showcase-wrapper">
           <div class="audio-player-list">
 
-            <!-- 1. Startnedräkning -->
+            <!-- 1. Count down -->
             <div class="audio-player-card">
               <span class="audio-label">3-2-1-GO Sound</span>
               <audio controls preload="none">
@@ -417,7 +421,7 @@
               </audio>
             </div>
 
-            <!-- 2. Träff på mål -->
+            <!-- 2. Target hit -->
             <div class="audio-player-card">
               <span class="audio-label">Target Hit Sound</span>
               <audio controls preload="none">
@@ -426,7 +430,7 @@
               </audio>
             </div>
 
-            <!-- 3. Vattenpöl -->
+            <!-- 3. Water splash -->
             <div class="audio-player-card">
               <span class="audio-label">Splash Sound</span>
               <audio controls preload="none">
@@ -444,7 +448,7 @@
               </audio>
             </div>
 
-            <!-- 5. Bakgrundsmusik -->
+            <!-- 5. Background musik -->
             <div class="audio-player-card">
               <span class="audio-label">Background Music</span>
               <audio controls preload="none">
@@ -453,7 +457,7 @@
               </audio>
             </div>
 
-            <!-- 6. Game Over / Avslut -->
+            <!-- 6. Game Over -->
             <div class="audio-player-card">
               <span class="audio-label">Game Over Sound</span>
               <audio controls preload="none">
@@ -477,7 +481,7 @@
       </section>
 
 
-      <!-- SEKTION: ENHETER & MOBILANPASSNING ------------->
+      <!-- SECTION: DEVICES & MOBILE RESPONSIVENESS --------->
       <section id="devices" class="devices-section">
         <div class="section-heading">
           <h2>Skärmstorlekar</h2>
@@ -488,7 +492,7 @@
         </div>
 
         <div class="devices-steps-grid">
-          <!-- Laptop: Responsiv Spelyta -->
+          <!-- Laptop: Responsiv game area -->
           <article class="device-card">
             <div class="device-card-media">
               <img class="laptop-img" src="img-project/laptop.png" alt="Banan anpassad till laptop" loading="lazy">
@@ -505,11 +509,11 @@
             </div>
           </article>
 
-          <!-- Smart uppmaning: Vänd på skärmen! -->
+          <!-- Smart prompt: Rotate your screen! -->
           <article class="device-card">
             <div class="device-card-media">
-              <img class="turn-img" src="img-project/rotera_enheten.png" alt="Uppmaning om att vända skärmen till liggande läge"
-                loading="lazy">
+              <img class="turn-img" src="img-project/rotera_enheten.png"
+                alt="Uppmaning om att vända skärmen till liggande läge" loading="lazy">
             </div>
             <div class="device-card-body">
               <span class="step-badge">Plattor och mobiler</span>
@@ -522,11 +526,11 @@
             </div>
           </article>
 
-          <!-- Steg 3: Responsiva gränssnitt och touch -->
+          <!-- Step 3: Responsive interfaces and touch -->
           <article class="device-card">
             <div class="device-card-media">
-              <img class="mobile-img" src="img-project/mobile.png" alt="Mobilgränssnitt med anpassat Game Over-kort och poängtabell"
-                loading="lazy">
+              <img class="mobile-img" src="img-project/mobile.png"
+                alt="Mobilgränssnitt med anpassat Game Over-kort och poängtabell" loading="lazy">
             </div>
             <div class="device-card-body">
               <span class="step-badge">Mobil</span>
@@ -545,7 +549,7 @@
     </article>
   </main>
 
-  <!---------------------------- Tredelad Footer ------------------>
+  <!---------------------------- Three Part Footer ------------------>
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
@@ -574,7 +578,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript inläsning längst ner i body för att inte blockera html-->
+  <!-- Load JavaScript at the bottom of body to avoid blocking HTML rendering -->
   <script type="module" src="js/project.js"></script>
 </body>
 

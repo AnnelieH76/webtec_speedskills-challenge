@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- Responsivitet -->
+  <!-- Responsivity -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/project.css">
@@ -44,7 +44,7 @@
   <main class="wrapper">
     <article class="article">
 
-      <!-- Introduktion före start -->
+      <!-- Introduktion before start -->
       <div id="game-intro">
         <h1>SpeedSkills Challenge</h1>
         <div class="heading-line"></div>
@@ -52,7 +52,7 @@
 
       </div>
 
-      <!-- Inställningskort (visas innan spelstart) -->
+      <!-- Settings  -->
       <div class="carbon-card" id="settings-card">
         <div class="settings-body">
           <form id="game-settings-form">
@@ -62,7 +62,7 @@
             <label for="player-name">Namn:</label>
             <input type="text" id="player-name" name="player" placeholder="Spelare" maxlength="15">
 
-            <!-- Svårighetsgrad kopplad till easy.json, normal.json, hard.json -->
+            <!-- Difficulty levels linked to easy.json, normal.json, hard.json -->
             <label for="game-difficulty">Välj grupp (svårighetsgrad):</label>
             <select id="game-difficulty" name="difficulty">
               <option value="easy">Lugnt tempo, stor träffyta, 1p</option>
@@ -70,7 +70,7 @@
               <option value="hard">Snabbt tempo, liten träffyta, 3p</option>
             </select>
 
-            <!-- Val av bana / bakgrundsbild -->
+            <!-- Track selection / Background image -->
             <label for="track-select">Välj bana:</label>
             <select id="track-select" name="track">
               <option value="random" selected>Slumpa bana</option>
@@ -87,14 +87,14 @@
           </div>
         </div>
 
-        <!-- Laddningsindikator vid fetch av JSON -->
+        <!-- Loading indicator while fetching JSON -->
         <div id="loading-overlay" class="hidden">
           <p>Laddar, var god vänta...</p>
         </div>
       </div>
 
       <!-- ---------------- GAME AREA ----------------- -->
-      <!-- Spelplan, dold tills spelet startas -->
+      <!-- Game board, hidden until the game starts -->
       <div id="game-area" class="game-area hidden">
         <div class="game-hud">
           <span class="hud-item">Tid kvar: <strong id="time-left"></strong>s</span>
@@ -107,7 +107,7 @@
           <span id="countdown-text">3</span>
         </div>
 
-        <!-- Två aktiva targets för banan -->
+        <!-- Two active targets for the track -->
         <img id="target-1" class="target-item hidden" src="img-project/target_apex.jpeg" alt="Mål 1 på banan">
         <img id="target-2" class="target-item hidden" src="img-project/target_mc.jpeg" alt="Mål 2 på banan">
 
@@ -134,7 +134,7 @@
       </div>
 
 
-      <!-- Sektion: Highscorelista i tabell -->
+      <!-- Section: Highscore list -->
       <section id="highscore" class="section4 alternate-bg">
         <div class="section-heading">
           <h2>Poängtabell</h2>
@@ -155,7 +155,7 @@
               </tr>
             </thead>
             <tbody id="highscore-body">
-              <!-- Rader genereras dynamiskt av project.js -->
+              <!-- Rows are generated dynamically by project.js -->
               <tr class="empty-row">
                 <td colspan="4">Inga spelade spel än. Starta en session ovan!</td>
               </tr>
@@ -166,7 +166,7 @@
     </article>
   </main>
 
-  <!-- Läs in JavaScript i slutet -->
+  <!-- Load JavaScript at the end -->
   <script type="module" src="js/project.js"></script>
 
   <!-- Rotate device prompt for mobile/tablet portrait mode -->
