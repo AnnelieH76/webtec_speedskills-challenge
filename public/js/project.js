@@ -1,17 +1,17 @@
 // SpeedSkills Challenge Implementation
 
 // ------------------------------------------------------------
-// CONSTANTS & GAME STATE
+// STATIC CONSTANTS
 // ------------------------------------------------------------
 
-// Available track backgrounds for random selection
+// Available track BACKGROUNDS for random selection
 const TRACK_OPTIONS = [
   'img-project/karlskoga_bana.jpeg',
   'img-project/mantorp_bana.jpeg',
   'img-project/vastgota_bana.jpeg'
 ]
 
-// Target assets configuration
+// TARGET assets configuration
 const WATER_TARGET = 'img-project/target_vatten.jpeg'
 const TARGET_IMAGES = [
   'img-project/target_apex.jpeg',
@@ -20,8 +20,7 @@ const TARGET_IMAGES = [
   WATER_TARGET
 ]
 
-// ------------ SOUND EFFECTS ----------
-
+// ------------ SOUND EFFECTS ---------------------
 // Sound effects using standard HTML5 Audio instances
 const hitSound = new Audio('audio-project/hit_target.mp3')
 const splashSound = new Audio('audio-project/splash.mp3')
@@ -41,8 +40,9 @@ countdownSound.volume = 0.6
 gameOverSound.volume = 0.7
 bonusTimeSound.volume = 0.6
 
-// ---------  GAME OBJECT ----------------
-
+// ------------------------------------------------------------
+// GAME OBJECT
+// ------------------------------------------------------------
 // Global game object holding active values, runtime state, and intervals
 const gameObject = {
   score: 0,
@@ -101,7 +101,6 @@ const playAgainBtn = document.getElementById('play-again-btn') // Inside game-ov
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // -------------- HIDE TARGETS --------------
-
 // Force targets to be hidden whenever setup runs
 function hideAllTargets() {
   targetElements.forEach((el) => {
@@ -111,7 +110,6 @@ function hideAllTargets() {
 }
 
 // ---------------- HIGH SCORE -----------------
-
 /**
  * Save current session result to localStorage sorted by score
  */
@@ -170,7 +168,6 @@ function renderHighscoreTable() {
 }
 
 // -------------- SOUND EFFECTS ------------------------
-
 /**
  * Play sound effect and rewind playback to start
  * @param {HTMLAudioElement} audio
@@ -211,7 +208,7 @@ function getTrackBounds() {
   let renderW, renderH, offsetX, offsetY
 
   if (containerRatio > imageRatio) {
-    // Letterboxing on the sides (pillarbox)
+    // Letterboxing on the sides
     renderH = containerH
     renderW = containerH * imageRatio
     offsetX = (containerW - renderW) / 2
@@ -340,12 +337,12 @@ function startCountdown(onComplete) {
       countdownText.classList.add('countdown-pulse')
 
       stepIndex++
-      setTimeout(showNextStep, 800)
+      setTimeout(showNextStep, 850)
     } else {
       // Countdown finished: hide overlay completely and wipe text
       countdownOverlay.classList.add('hidden')
       countdownText.textContent = ''
-      countdownText.classList.remove('countdown-pulse')
+      countdownText.classList.remove('countdown-pulse') // 850 Milliseconds
 
       if (typeof onComplete === 'function') {
         onComplete()
@@ -489,7 +486,6 @@ function moveTargets() {
 }
 
 // ----------------------- SPAWN BONUS TIME TARGET  --------------------------------
-
 function spawnBonusTime() {
   if (!gameObject.isPlaying || !targetBonus) return
 
@@ -614,7 +610,6 @@ if (menuToggle && navLinks) {
 }
 
 // -----------------SUBMIT BUTTON -------------------
-
 // Listen for form submit, run preload logic, and start game session (only if form exists)
 if (settingsForm) {
   settingsForm.addEventListener('submit', async (event) => {
@@ -649,7 +644,6 @@ if (settingsForm) {
 }
 
 // ---------------------- TARGET HITS -------------------------------
-
 // Attach click listeners to both elements (if elements exist)
 targetElements.forEach((el) => {
   if (el) {
@@ -657,17 +651,7 @@ targetElements.forEach((el) => {
   }
 })
 
-
-
-
-
-
-
-
-
-
 // ---------------------- BONUS TARGET HIT -------------------------------
-
 if (targetBonus) {
   targetBonus.addEventListener('click', (e) => {
     e.stopPropagation() // Prevent gameArea miss-click triggers
@@ -695,24 +679,7 @@ if (targetBonus) {
   console.warn('Hittade inte #target-bonus i DOM!')
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ---------------------- PLAY AGAIN -------------------------------
-
 // "Play again" resets to settings
 if (playAgainBtn) {
   playAgainBtn.addEventListener('click', () => {
@@ -724,7 +691,6 @@ if (playAgainBtn) {
     if (settingsCard) settingsCard.classList.remove('hidden')
   })
 }
-
 
 // ---------------------- RESET HIGHSCORE -------------------------
 // -----------when "Reload page" or click on "Reset button" -------------------

@@ -1414,9 +1414,7 @@ a.contact-link:hover {
   }
 }
 
-/* -------------------------ON MOBILE OR iPAD -------------------------------- */
-/* -------- Prompt to rotate device when in portrait on small screens --------- */
-
+/* ----- PROMPT TO ROTATE DEVICE WHEN IN PORTRAIT ON SMALL SCREENS ------ */
 #rotate-device-prompt {
   display: none;
   position: fixed;
@@ -1431,6 +1429,10 @@ a.contact-link:hover {
   padding: 1.5rem;
 }
 
+/**
+ * Trigger overlay display when the screen is in portrait orientation 
+ * on mobile/tablet viewports (<= 900px) and the game session is active.
+ */
 @media screen and (orientation: portrait) and (max-width: 900px) {
   #rotate-device-prompt.is-active {
     display: flex;

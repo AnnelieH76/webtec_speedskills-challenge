@@ -86,7 +86,7 @@
               racingkänslan.
             </p>
             <p>
-              Gränssnittet är touchanpassat och optimerat för liggande läge på både dator, platta och mobil.
+              Gränssnittet är optimerat för liggande läge på dator men även responsiv och touchanpassat för platta och mobil.
             </p>
           </div>
           <div class="col-image">
@@ -106,7 +106,7 @@
           <div class="step-card">
             <div class="step-number">01</div>
             <h3>Välj setup</h3>
-            <p>Välj bana och svårighetsgrad.</p>
+            <p>Ange namn och välj bana samt svårighetsgrad.</p>
             <div class="setup-img-wrap">
               <!-- Loading lazy: downloads image only when scrolled close to viewport -->
               <img src="img-project/setup.png" alt="Inställningar" loading="lazy">
@@ -116,7 +116,7 @@
           <div class="step-card">
             <div class="step-number">02</div>
             <h3>Jaga poäng & Extra tid</h3>
-            <p>Klicka på symbolerna så fort de dyker upp på banan men undvik vattenpölarna.</p>
+            <p>Klicka på symbolerna så fort de dyker upp på banan men undvik vattenpölarna. Utöka dina 20 sekunder med 5 extra sekunder vid varje träff på klockan.</p>
 
             <!-- Wrapper for positive score targets side-by-side -->
             <div class="instruction-targets-row">
@@ -125,7 +125,7 @@
                   <img src="img-project/target_mc.jpeg" alt="Motorcykel mål" class="target-circle-demo"
                     draggable="false">
                 </div>
-                <span class="instruction-target-tag">Pluspoäng</span>
+                <span class="instruction-target-tag">1-3 pluspoäng</span>
               </div>
 
               <div class="instruction-target-wrap">
@@ -133,14 +133,14 @@
                   <img src="img-project/target_flagga.jpeg" alt="Flagga mål" class="target-circle-demo"
                     draggable="false">
                 </div>
-                <span class="instruction-target-tag">Pluspoäng</span>
+                <span class="instruction-target-tag">1-3 pluspoäng</span>
               </div>
 
               <div class="instruction-target-wrap">
                 <div class="instruction-target-box">
                   <img src="img-project/target_apex.jpeg" alt="Apex mål" class="target-circle-demo" draggable="false">
                 </div>
-                <span class="instruction-target-tag">Pluspoäng</span>
+                <span class="instruction-target-tag">1-3 pluspoäng</span>
               </div>
             </div>
 
@@ -151,7 +151,7 @@
                   <img src="img-project/target_vatten.jpeg" alt="Vattenhinder"
                     class="target-circle-demo target-hazard-border" draggable="false">
                 </div>
-                <span class="instruction-target-tag minus">Minuspoäng</span>
+                <span class="instruction-target-tag minus"> 2 minuspoäng</span>
               </div>
 
               <div class="instruction-target-wrap">
@@ -186,7 +186,7 @@
         <div class="section-heading">
           <h3 class="section-title">Valbara Banor</h3>
           <div class="heading-line"></div>
-          <p class="section-subtitle">Välj din favoritbana eller låt slumpen avgöra inför nästa pass.</p>
+          <p class="section-subtitle">Välj din favoritbana eller låt slumpen avgöra inför nästa pass. Om du är välbekant med sveriges motorbanor kan du hitta många roliga detaljer på bilderna.</p>
         </div>
 
         <div class="grid-3-col track-grid">
@@ -314,7 +314,7 @@
           <div class="heading-line"></div>
           <p class="section-subtitle">
             Poängtabellen uppdateras efter varje spel. Topp 10 sorteras efter bästa placering och nollställs automatiskt
-            när sidan laddas om eller manuellt via återställningsknappen..
+            när sidan laddas om eller manuellt via återställningsknappen.
           </p>
         </div>
 
@@ -368,15 +368,14 @@
                 <span class="anim-num">02</span>
                 <div>
                   <strong>Glidande mål på banan:</strong>
-                  <p>Målens förflyttning sker jämnt och linjärt över banan med en CSS <code>transition</code> på 1.2
-                    sekunder istället för ryckiga koordinathopp.</p>
+                  <p>Målens förflyttning sker jämnt och linjärt över banan med en CSS <code>transition</code> istället för ryckiga koordinathopp.</p>
                 </div>
               </li>
 
               <li>
                 <span class="anim-num">03</span>
                 <div>
-                  <strong>Träffeffekt (Explosion):</strong>
+                  <strong>Träffeffekt:</strong>
                   <p>När ett mål träffas aktiveras <code>targetExplode</code> i 0.25 sekunder. Målet expanderar, vrids
                     och lyser upp innan det krymper bort.</p>
                 </div>
@@ -386,7 +385,7 @@
                 <span class="anim-num">04</span>
                 <div>
                   <strong>Game Over & Målflagga:</strong>
-                  <p>Vid avslut visas resultatmodalen samtidigt som "Game over och den rutiga målflaggan" gungar fram
+                  <p>Vid avslut visas resultatmodulen samtidigt som "Game over och den rutiga målflaggan" gungar fram
                     och tillbaka via <code>flagWaveOutro</code>.</p>
                 </div>
               </li>
